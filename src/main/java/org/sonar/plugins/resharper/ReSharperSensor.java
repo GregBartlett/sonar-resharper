@@ -83,7 +83,7 @@ public class ReSharperSensor implements Sensor {
 
   @VisibleForTesting
   void analyse(SensorContext context, FileProvider fileProvider, ReSharperDotSettingsWriter writer, ReSharperReportParser parser, ReSharperExecutor executor) {
-    File rulesetFile = new File(fileSystem.workingDir(), "resharper-sonarqube.ruleset");
+    File rulesetFile = new File(fileSystem.workingDir(), "resharper-sonarqube.DotSettings");
     writer.write(enabledRuleKeys(), rulesetFile);
 
     File reportFile = new File(fileSystem.workingDir(), "resharper-report.xml");

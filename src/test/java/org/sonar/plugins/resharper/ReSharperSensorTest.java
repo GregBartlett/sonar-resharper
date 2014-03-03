@@ -133,19 +133,19 @@ public class ReSharperSensorTest {
 
     sensor.analyse(context, fileProvider, writer, parser, executor);
 
-    verify(writer).write(ImmutableList.of("AccessToDisposedClosure", "AccessToForEachVariableInClosure"), new File(workingDir, "resharper-sonarqube.ruleset"));
+    verify(writer).write(ImmutableList.of("AccessToDisposedClosure", "AccessToForEachVariableInClosure"), new File(workingDir, "resharper-sonarqube.DotSettings"));
     verify(executor).execute(
       "inspectcode.exe", "MyLibrary", "CSharpPlayground.sln",
-      new File(workingDir, "resharper-sonarqube.ruleset"), new File(workingDir, "resharper-report.xml"));
+      new File(workingDir, "resharper-sonarqube.DotSettings"), new File(workingDir, "resharper-report.xml"));
 
-    // verify(issuable).addIssue(issue1);
-    // verify(issuable).addIssue(issue2);
+    verify(issuable).addIssue(issue1);
+    verify(issuable).addIssue(issue2);
 
-    // verify(issueBuilder1).line(5);
-    // verify(issueBuilder1).message("Second message");
+    verify(issueBuilder1).line(4);
+    verify(issueBuilder1).message("Second message");
 
-    // verify(issueBuilder2).line(6);
-    // verify(issueBuilder2).message("Third message");
+    verify(issueBuilder2).line(5);
+    verify(issueBuilder2).message("Third message");
   }
 
   private static org.sonar.api.resources.File mockSonarFile(String languageKey) {
