@@ -1,0 +1,3951 @@
+<rules>
+
+  <rule key="AccessToDisposedClosure">
+    <priority>MAJOR</priority>
+    <name><![CDATA[AccessToDisposedClosure]]></name>
+    <description>AccessToDisposedClosure</description>
+  </rule>
+
+  <rule key="AccessToForEachVariableInClosure">
+    <priority>MAJOR</priority>
+    <name><![CDATA[AccessToForEachVariableInClosure]]></name>
+    <description>AccessToForEachVariableInClosure</description>
+  </rule>
+
+  <rule key="AccessToModifiedClosure">
+    <priority>MAJOR</priority>
+    <name><![CDATA[AccessToModifiedClosure]]></name>
+    <description>AccessToModifiedClosure</description>
+  </rule>
+
+  <rule key="AccessToStaticMemberViaDerivedType">
+    <priority>MAJOR</priority>
+    <name><![CDATA[AccessToStaticMemberViaDerivedType]]></name>
+    <description>AccessToStaticMemberViaDerivedType</description>
+  </rule>
+
+  <rule key="AnnotationConflictInHierarchy">
+    <priority>MAJOR</priority>
+    <name><![CDATA[AnnotationConflictInHierarchy]]></name>
+    <description>AnnotationConflictInHierarchy</description>
+  </rule>
+
+  <rule key="AnnotationRedundanceAtValueType">
+    <priority>MAJOR</priority>
+    <name><![CDATA[AnnotationRedundanceAtValueType]]></name>
+    <description>AnnotationRedundanceAtValueType</description>
+  </rule>
+
+  <rule key="AnnotationRedundanceInHierarchy">
+    <priority>MAJOR</priority>
+    <name><![CDATA[AnnotationRedundanceInHierarchy]]></name>
+    <description>AnnotationRedundanceInHierarchy</description>
+  </rule>
+
+  <rule key="Asp.ContentPlaceholderNotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Asp.ContentPlaceholderNotResolved]]></name>
+    <description>Asp.ContentPlaceholderNotResolved</description>
+  </rule>
+
+  <rule key="Asp.DeadCode">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Asp.DeadCode]]></name>
+    <description>Asp.DeadCode</description>
+  </rule>
+
+  <rule key="Asp.Entity">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Asp.Entity]]></name>
+    <description>Asp.Entity</description>
+  </rule>
+
+  <rule key="Asp.Image">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Asp.Image]]></name>
+    <description>Asp.Image</description>
+  </rule>
+
+  <rule key="Asp.NotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Asp.NotResolved]]></name>
+    <description>Asp.NotResolved</description>
+  </rule>
+
+  <rule key="Asp.ResolveWarning">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Asp.ResolveWarning]]></name>
+    <description>Asp.ResolveWarning</description>
+  </rule>
+
+  <rule key="Asp.SkinNotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Asp.SkinNotResolved]]></name>
+    <description>Asp.SkinNotResolved</description>
+  </rule>
+
+  <rule key="Asp.TagAttributeWithOptionalValue">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Asp.TagAttributeWithOptionalValue]]></name>
+    <description>Asp.TagAttributeWithOptionalValue</description>
+  </rule>
+
+  <rule key="AspUnusedRegisterDirectiveHighlighting">
+    <priority>MAJOR</priority>
+    <name><![CDATA[AspUnusedRegisterDirectiveHighlighting]]></name>
+    <description>AspUnusedRegisterDirectiveHighlighting</description>
+  </rule>
+
+  <rule key="Asp.ThemeNotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Asp.ThemeNotResolved]]></name>
+    <description>Asp.ThemeNotResolved</description>
+  </rule>
+
+  <rule key="Asp.Warning">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Asp.Warning]]></name>
+    <description>Asp.Warning</description>
+  </rule>
+
+  <rule key="AspOdsMethodReferenceResolveError">
+    <priority>MAJOR</priority>
+    <name><![CDATA[AspOdsMethodReferenceResolveError]]></name>
+    <description>AspOdsMethodReferenceResolveError</description>
+  </rule>
+
+  <rule key="AssignedValueIsNeverUsed">
+    <priority>MAJOR</priority>
+    <name><![CDATA[AssignedValueIsNeverUsed]]></name>
+    <description>AssignedValueIsNeverUsed</description>
+  </rule>
+
+  <rule key="AssignNullToNotNullAttribute">
+    <priority>MAJOR</priority>
+    <name><![CDATA[AssignNullToNotNullAttribute]]></name>
+    <description>AssignNullToNotNullAttribute</description>
+  </rule>
+
+  <rule key="AssignToImplicitGlobalInFunctionScope">
+    <priority>MAJOR</priority>
+    <name><![CDATA[AssignToImplicitGlobalInFunctionScope]]></name>
+    <description>AssignToImplicitGlobalInFunctionScope</description>
+  </rule>
+
+  <rule key="Asxx.PathError">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Asxx.PathError]]></name>
+    <description>Asxx.PathError</description>
+  </rule>
+
+  <rule key="BaseMemberHasParams">
+    <priority>MAJOR</priority>
+    <name><![CDATA[BaseMemberHasParams]]></name>
+    <description>BaseMemberHasParams</description>
+  </rule>
+
+  <rule key="BaseMethodCallWithDefaultParameter">
+    <priority>MAJOR</priority>
+    <name><![CDATA[BaseMethodCallWithDefaultParameter]]></name>
+    <description>BaseMethodCallWithDefaultParameter</description>
+  </rule>
+
+  <rule key="BaseObjectEqualsIsObjectEquals">
+    <priority>MAJOR</priority>
+    <name><![CDATA[BaseObjectEqualsIsObjectEquals]]></name>
+    <description>BaseObjectEqualsIsObjectEquals</description>
+  </rule>
+
+  <rule key="BaseObjectGetHashCodeCallInGetHashCode">
+    <priority>MAJOR</priority>
+    <name><![CDATA[BaseObjectGetHashCodeCallInGetHashCode]]></name>
+    <description>BaseObjectGetHashCodeCallInGetHashCode</description>
+  </rule>
+
+  <rule key="BitwiseOperatorOnEnumWithoutFlags">
+    <priority>MAJOR</priority>
+    <name><![CDATA[BitwiseOperatorOnEnumWithoutFlags]]></name>
+    <description>BitwiseOperatorOnEnumWithoutFlags</description>
+  </rule>
+
+  <rule key="CanBeReplacedWithTryCastAndCheckForNull">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CanBeReplacedWithTryCastAndCheckForNull]]></name>
+    <description>CanBeReplacedWithTryCastAndCheckForNull</description>
+  </rule>
+
+  <rule key="CannotApplyEqualityOperatorToType">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CannotApplyEqualityOperatorToType]]></name>
+    <description>CannotApplyEqualityOperatorToType</description>
+  </rule>
+
+  <rule key="CenterTagIsObsolete">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CenterTagIsObsolete]]></name>
+    <description>CenterTagIsObsolete</description>
+  </rule>
+
+  <rule key="CheckForReferenceEqualityInstead.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CheckForReferenceEqualityInstead.1]]></name>
+    <description>CheckForReferenceEqualityInstead.1</description>
+  </rule>
+
+  <rule key="CheckForReferenceEqualityInstead.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CheckForReferenceEqualityInstead.2]]></name>
+    <description>CheckForReferenceEqualityInstead.2</description>
+  </rule>
+
+  <rule key="CheckNamespace">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CheckNamespace]]></name>
+    <description>CheckNamespace</description>
+  </rule>
+
+  <rule key="ClassCanBeSealed.Global">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ClassCanBeSealed.Global]]></name>
+    <description>ClassCanBeSealed.Global</description>
+  </rule>
+
+  <rule key="ClassCanBeSealed.Local">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ClassCanBeSealed.Local]]></name>
+    <description>ClassCanBeSealed.Local</description>
+  </rule>
+
+  <rule key="ClassCannotBeInstantiated">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ClassCannotBeInstantiated]]></name>
+    <description>ClassCannotBeInstantiated</description>
+  </rule>
+
+  <rule key="ClassNeverInstantiated.Global">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ClassNeverInstantiated.Global]]></name>
+    <description>ClassNeverInstantiated.Global</description>
+  </rule>
+
+  <rule key="ClassNeverInstantiated.Local">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ClassNeverInstantiated.Local]]></name>
+    <description>ClassNeverInstantiated.Local</description>
+  </rule>
+
+  <rule key="ClassWithVirtualMembersNeverInherited.Global">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ClassWithVirtualMembersNeverInherited.Global]]></name>
+    <description>ClassWithVirtualMembersNeverInherited.Global</description>
+  </rule>
+
+  <rule key="ClassWithVirtualMembersNeverInherited.Local">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ClassWithVirtualMembersNeverInherited.Local]]></name>
+    <description>ClassWithVirtualMembersNeverInherited.Local</description>
+  </rule>
+
+  <rule key="ClearAttributeIsObsolete">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ClearAttributeIsObsolete]]></name>
+    <description>ClearAttributeIsObsolete</description>
+  </rule>
+
+  <rule key="ClearAttributeIsObsolete.All">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ClearAttributeIsObsolete.All]]></name>
+    <description>ClearAttributeIsObsolete.All</description>
+  </rule>
+
+  <rule key="CompareNonConstrainedGenericWithNull">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CompareNonConstrainedGenericWithNull]]></name>
+    <description>CompareNonConstrainedGenericWithNull</description>
+  </rule>
+
+  <rule key="CompareOfFloatsByEqualityOperator">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CompareOfFloatsByEqualityOperator]]></name>
+    <description>CompareOfFloatsByEqualityOperator</description>
+  </rule>
+
+  <rule key="ConditionalTernaryEqualBranch">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ConditionalTernaryEqualBranch]]></name>
+    <description>ConditionalTernaryEqualBranch</description>
+  </rule>
+
+  <rule key="ConditionIsAlwaysConst">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ConditionIsAlwaysConst]]></name>
+    <description>ConditionIsAlwaysConst</description>
+  </rule>
+
+  <rule key="ConditionIsAlwaysTrueOrFalse">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ConditionIsAlwaysTrueOrFalse]]></name>
+    <description>ConditionIsAlwaysTrueOrFalse</description>
+  </rule>
+
+  <rule key="ConstantNullCoalescingCondition">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ConstantNullCoalescingCondition]]></name>
+    <description>ConstantNullCoalescingCondition</description>
+  </rule>
+
+  <rule key="ConstructorInitializerLoop">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ConstructorInitializerLoop]]></name>
+    <description>ConstructorInitializerLoop</description>
+  </rule>
+
+  <rule key="ContractAnnotationNotParsed">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ContractAnnotationNotParsed]]></name>
+    <description>ContractAnnotationNotParsed</description>
+  </rule>
+
+  <rule key="ConvertClosureToMethodGroup">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ConvertClosureToMethodGroup]]></name>
+    <description>ConvertClosureToMethodGroup</description>
+  </rule>
+
+  <rule key="ConvertConditionalTernaryToNullCoalescing">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ConvertConditionalTernaryToNullCoalescing]]></name>
+    <description>ConvertConditionalTernaryToNullCoalescing</description>
+  </rule>
+
+  <rule key="ConvertIfDoToWhile">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ConvertIfDoToWhile]]></name>
+    <description>ConvertIfDoToWhile</description>
+  </rule>
+
+  <rule key="ConvertIfStatementToConditionalTernaryExpression">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ConvertIfStatementToConditionalTernaryExpression]]></name>
+    <description>ConvertIfStatementToConditionalTernaryExpression</description>
+  </rule>
+
+  <rule key="ConvertIfStatementToNullCoalescingExpression">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ConvertIfStatementToNullCoalescingExpression]]></name>
+    <description>ConvertIfStatementToNullCoalescingExpression</description>
+  </rule>
+
+  <rule key="ConvertIfStatementToReturnStatement">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ConvertIfStatementToReturnStatement]]></name>
+    <description>ConvertIfStatementToReturnStatement</description>
+  </rule>
+
+  <rule key="ConvertIfStatementToSwitchStatement">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ConvertIfStatementToSwitchStatement]]></name>
+    <description>ConvertIfStatementToSwitchStatement</description>
+  </rule>
+
+  <rule key="ConvertIfToOrExpression">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ConvertIfToOrExpression]]></name>
+    <description>ConvertIfToOrExpression</description>
+  </rule>
+
+  <rule key="ConvertNullableToShortForm">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ConvertNullableToShortForm]]></name>
+    <description>ConvertNullableToShortForm</description>
+  </rule>
+
+  <rule key="ConvertToAutoProperty">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ConvertToAutoProperty]]></name>
+    <description>ConvertToAutoProperty</description>
+  </rule>
+
+  <rule key="ConvertToAutoPropertyWithPrivateSetter">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ConvertToAutoPropertyWithPrivateSetter]]></name>
+    <description>ConvertToAutoPropertyWithPrivateSetter</description>
+  </rule>
+
+  <rule key="ConvertToConstant.Global">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ConvertToConstant.Global]]></name>
+    <description>ConvertToConstant.Global</description>
+  </rule>
+
+  <rule key="ConvertToConstant.Local">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ConvertToConstant.Local]]></name>
+    <description>ConvertToConstant.Local</description>
+  </rule>
+
+  <rule key="ConvertToLambdaExpression">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ConvertToLambdaExpression]]></name>
+    <description>ConvertToLambdaExpression</description>
+  </rule>
+
+  <rule key="ConvertToStaticClass">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ConvertToStaticClass]]></name>
+    <description>ConvertToStaticClass</description>
+  </rule>
+
+  <rule key="CoVariantArrayConversion">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CoVariantArrayConversion]]></name>
+    <description>CoVariantArrayConversion</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS0108">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS0108]]></name>
+    <description>CSharpWarnings::CS0108</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS0109">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS0109]]></name>
+    <description>CSharpWarnings::CS0109</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS0162">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS0162]]></name>
+    <description>CSharpWarnings::CS0162</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS0183">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS0183]]></name>
+    <description>CSharpWarnings::CS0183</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS0184">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS0184]]></name>
+    <description>CSharpWarnings::CS0184</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS0197">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS0197]]></name>
+    <description>CSharpWarnings::CS0197</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS0252">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS0252]]></name>
+    <description>CSharpWarnings::CS0252</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS0420">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS0420]]></name>
+    <description>CSharpWarnings::CS0420</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS0465">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS0465]]></name>
+    <description>CSharpWarnings::CS0465</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS0469">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS0469]]></name>
+    <description>CSharpWarnings::CS0469</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS0612">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS0612]]></name>
+    <description>CSharpWarnings::CS0612</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS0618">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS0618]]></name>
+    <description>CSharpWarnings::CS0618</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS0628">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS0628]]></name>
+    <description>CSharpWarnings::CS0628</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS0642">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS0642]]></name>
+    <description>CSharpWarnings::CS0642</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS0657">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS0657]]></name>
+    <description>CSharpWarnings::CS0657</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS0658">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS0658]]></name>
+    <description>CSharpWarnings::CS0658</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS0659">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS0659]]></name>
+    <description>CSharpWarnings::CS0659</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS0660">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS0660]]></name>
+    <description>CSharpWarnings::CS0660</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS0665">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS0665]]></name>
+    <description>CSharpWarnings::CS0665</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS0672">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS0672]]></name>
+    <description>CSharpWarnings::CS0672</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS0693">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS0693]]></name>
+    <description>CSharpWarnings::CS0693</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS1030">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS1030]]></name>
+    <description>CSharpWarnings::CS1030</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS1066">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS1066]]></name>
+    <description>CSharpWarnings::CS1066</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS1522">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS1522]]></name>
+    <description>CSharpWarnings::CS1522</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS1570">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS1570]]></name>
+    <description>CSharpWarnings::CS1570</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS1571">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS1571]]></name>
+    <description>CSharpWarnings::CS1571</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS1573">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS1573]]></name>
+    <description>CSharpWarnings::CS1573</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS1574">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS1574]]></name>
+    <description>CSharpWarnings::CS1574</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS1580">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS1580]]></name>
+    <description>CSharpWarnings::CS1580</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS1584">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS1584]]></name>
+    <description>CSharpWarnings::CS1584</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS1587">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS1587]]></name>
+    <description>CSharpWarnings::CS1587</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS1589">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS1589]]></name>
+    <description>CSharpWarnings::CS1589</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS1590">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS1590]]></name>
+    <description>CSharpWarnings::CS1590</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS1591">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS1591]]></name>
+    <description>CSharpWarnings::CS1591</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS1592">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS1592]]></name>
+    <description>CSharpWarnings::CS1592</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS1710">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS1710]]></name>
+    <description>CSharpWarnings::CS1710</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS1712">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS1712]]></name>
+    <description>CSharpWarnings::CS1712</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS1717">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS1717]]></name>
+    <description>CSharpWarnings::CS1717</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS1723">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS1723]]></name>
+    <description>CSharpWarnings::CS1723</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS1911">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS1911]]></name>
+    <description>CSharpWarnings::CS1911</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS1957">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS1957]]></name>
+    <description>CSharpWarnings::CS1957</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS1998">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS1998]]></name>
+    <description>CSharpWarnings::CS1998</description>
+  </rule>
+
+  <rule key="CSharpWarnings::CS4014">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::CS4014]]></name>
+    <description>CSharpWarnings::CS4014</description>
+  </rule>
+
+  <rule key="CSharpWarnings::WME006">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CSharpWarnings::WME006]]></name>
+    <description>CSharpWarnings::WME006</description>
+  </rule>
+
+  <rule key="CssBrowserCompatibility">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CssBrowserCompatibility]]></name>
+    <description>CssBrowserCompatibility</description>
+  </rule>
+
+  <rule key="CssNotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CssNotResolved]]></name>
+    <description>CssNotResolved</description>
+  </rule>
+
+  <rule key="CssObsolete">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CssObsolete]]></name>
+    <description>CssObsolete</description>
+  </rule>
+
+  <rule key="CssPropertyDoesNotOverrideVendorProperty">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CssPropertyDoesNotOverrideVendorProperty]]></name>
+    <description>CssPropertyDoesNotOverrideVendorProperty</description>
+  </rule>
+
+  <rule key="DeclarationIsEmpty">
+    <priority>MAJOR</priority>
+    <name><![CDATA[DeclarationIsEmpty]]></name>
+    <description>DeclarationIsEmpty</description>
+  </rule>
+
+  <rule key="DefaultValueAttributeForOptionalParameter">
+    <priority>MAJOR</priority>
+    <name><![CDATA[DefaultValueAttributeForOptionalParameter]]></name>
+    <description>DefaultValueAttributeForOptionalParameter</description>
+  </rule>
+
+  <rule key="DelegateSubtraction">
+    <priority>MAJOR</priority>
+    <name><![CDATA[DelegateSubtraction]]></name>
+    <description>DelegateSubtraction</description>
+  </rule>
+
+  <rule key="DlTagContainsNonDtOrDdElements">
+    <priority>MAJOR</priority>
+    <name><![CDATA[DlTagContainsNonDtOrDdElements]]></name>
+    <description>DlTagContainsNonDtOrDdElements</description>
+  </rule>
+
+  <rule key="DoNotCallOverridableMethodsInConstructor">
+    <priority>MAJOR</priority>
+    <name><![CDATA[DoNotCallOverridableMethodsInConstructor]]></name>
+    <description>DoNotCallOverridableMethodsInConstructor</description>
+  </rule>
+
+  <rule key="DoubleNegationOperator">
+    <priority>MAJOR</priority>
+    <name><![CDATA[DoubleNegationOperator]]></name>
+    <description>DoubleNegationOperator</description>
+  </rule>
+
+  <rule key="DuplicateResource">
+    <priority>MAJOR</priority>
+    <name><![CDATA[DuplicateResource]]></name>
+    <description>DuplicateResource</description>
+  </rule>
+
+  <rule key="DuplicatingLocalDeclaration">
+    <priority>MAJOR</priority>
+    <name><![CDATA[DuplicatingLocalDeclaration]]></name>
+    <description>DuplicatingLocalDeclaration</description>
+  </rule>
+
+  <rule key="DuplicatingPropertyDeclaration">
+    <priority>MAJOR</priority>
+    <name><![CDATA[DuplicatingPropertyDeclaration]]></name>
+    <description>DuplicatingPropertyDeclaration</description>
+  </rule>
+
+  <rule key="DuplicatingSwitchLabel">
+    <priority>MAJOR</priority>
+    <name><![CDATA[DuplicatingSwitchLabel]]></name>
+    <description>DuplicatingSwitchLabel</description>
+  </rule>
+
+  <rule key="DynamicShiftRightOpIsNotInt">
+    <priority>MAJOR</priority>
+    <name><![CDATA[DynamicShiftRightOpIsNotInt]]></name>
+    <description>DynamicShiftRightOpIsNotInt</description>
+  </rule>
+
+  <rule key="ElidedTrailingElement">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ElidedTrailingElement]]></name>
+    <description>ElidedTrailingElement</description>
+  </rule>
+
+  <rule key="EmptyConstructor">
+    <priority>MAJOR</priority>
+    <name><![CDATA[EmptyConstructor]]></name>
+    <description>EmptyConstructor</description>
+  </rule>
+
+  <rule key="EmptyDestructor">
+    <priority>MAJOR</priority>
+    <name><![CDATA[EmptyDestructor]]></name>
+    <description>EmptyDestructor</description>
+  </rule>
+
+  <rule key="EmptyEmbeddedStatement">
+    <priority>MAJOR</priority>
+    <name><![CDATA[EmptyEmbeddedStatement]]></name>
+    <description>EmptyEmbeddedStatement</description>
+  </rule>
+
+  <rule key="EmptyForStatement">
+    <priority>MAJOR</priority>
+    <name><![CDATA[EmptyForStatement]]></name>
+    <description>EmptyForStatement</description>
+  </rule>
+
+  <rule key="EmptyGeneralCatchClause">
+    <priority>MAJOR</priority>
+    <name><![CDATA[EmptyGeneralCatchClause]]></name>
+    <description>EmptyGeneralCatchClause</description>
+  </rule>
+
+  <rule key="EmptyNamespace">
+    <priority>MAJOR</priority>
+    <name><![CDATA[EmptyNamespace]]></name>
+    <description>EmptyNamespace</description>
+  </rule>
+
+  <rule key="EmptyObjectPropertyDeclaration">
+    <priority>MAJOR</priority>
+    <name><![CDATA[EmptyObjectPropertyDeclaration]]></name>
+    <description>EmptyObjectPropertyDeclaration</description>
+  </rule>
+
+  <rule key="EmptyStatement">
+    <priority>MAJOR</priority>
+    <name><![CDATA[EmptyStatement]]></name>
+    <description>EmptyStatement</description>
+  </rule>
+
+  <rule key="EmptyTitleTag">
+    <priority>MAJOR</priority>
+    <name><![CDATA[EmptyTitleTag]]></name>
+    <description>EmptyTitleTag</description>
+  </rule>
+
+  <rule key="EnumerableSumInExplicitUncheckedContext">
+    <priority>MAJOR</priority>
+    <name><![CDATA[EnumerableSumInExplicitUncheckedContext]]></name>
+    <description>EnumerableSumInExplicitUncheckedContext</description>
+  </rule>
+
+  <rule key="EnumUnderlyingTypeIsInt">
+    <priority>MAJOR</priority>
+    <name><![CDATA[EnumUnderlyingTypeIsInt]]></name>
+    <description>EnumUnderlyingTypeIsInt</description>
+  </rule>
+
+  <rule key="EqualExpressionComparison">
+    <priority>MAJOR</priority>
+    <name><![CDATA[EqualExpressionComparison]]></name>
+    <description>EqualExpressionComparison</description>
+  </rule>
+
+  <rule key="ErrorInXmlDocReference">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ErrorInXmlDocReference]]></name>
+    <description>ErrorInXmlDocReference</description>
+  </rule>
+
+  <rule key="EventNeverInvoked">
+    <priority>MAJOR</priority>
+    <name><![CDATA[EventNeverInvoked]]></name>
+    <description>EventNeverInvoked</description>
+  </rule>
+
+  <rule key="EventNeverInvoked.Global">
+    <priority>MAJOR</priority>
+    <name><![CDATA[EventNeverInvoked.Global]]></name>
+    <description>EventNeverInvoked.Global</description>
+  </rule>
+
+  <rule key="EventNeverSubscribedTo.Global">
+    <priority>MAJOR</priority>
+    <name><![CDATA[EventNeverSubscribedTo.Global]]></name>
+    <description>EventNeverSubscribedTo.Global</description>
+  </rule>
+
+  <rule key="EventNeverSubscribedTo.Local">
+    <priority>MAJOR</priority>
+    <name><![CDATA[EventNeverSubscribedTo.Local]]></name>
+    <description>EventNeverSubscribedTo.Local</description>
+  </rule>
+
+  <rule key="EventUnsubscriptionViaAnonymousDelegate">
+    <priority>MAJOR</priority>
+    <name><![CDATA[EventUnsubscriptionViaAnonymousDelegate]]></name>
+    <description>EventUnsubscriptionViaAnonymousDelegate</description>
+  </rule>
+
+  <rule key="ExplicitCallerInfoArgument">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ExplicitCallerInfoArgument]]></name>
+    <description>ExplicitCallerInfoArgument</description>
+  </rule>
+
+  <rule key="ExpressionIsAlwaysConst">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ExpressionIsAlwaysConst]]></name>
+    <description>ExpressionIsAlwaysConst</description>
+  </rule>
+
+  <rule key="ExpressionIsAlwaysNull">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ExpressionIsAlwaysNull]]></name>
+    <description>ExpressionIsAlwaysNull</description>
+  </rule>
+
+  <rule key="FieldCanBeMadeReadOnly.Global">
+    <priority>MAJOR</priority>
+    <name><![CDATA[FieldCanBeMadeReadOnly.Global]]></name>
+    <description>FieldCanBeMadeReadOnly.Global</description>
+  </rule>
+
+  <rule key="FieldCanBeMadeReadOnly.Local">
+    <priority>MAJOR</priority>
+    <name><![CDATA[FieldCanBeMadeReadOnly.Local]]></name>
+    <description>FieldCanBeMadeReadOnly.Local</description>
+  </rule>
+
+  <rule key="ForCanBeConvertedToForeach">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ForCanBeConvertedToForeach]]></name>
+    <description>ForCanBeConvertedToForeach</description>
+  </rule>
+
+  <rule key="FormatStringPlaceholdersMismatch">
+    <priority>MAJOR</priority>
+    <name><![CDATA[FormatStringPlaceholdersMismatch]]></name>
+    <description>FormatStringPlaceholdersMismatch</description>
+  </rule>
+
+  <rule key="FormatStringProblem">
+    <priority>MAJOR</priority>
+    <name><![CDATA[FormatStringProblem]]></name>
+    <description>FormatStringProblem</description>
+  </rule>
+
+  <rule key="ForStatementConditionIsTrue">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ForStatementConditionIsTrue]]></name>
+    <description>ForStatementConditionIsTrue</description>
+  </rule>
+
+  <rule key="FunctionNeverReturns">
+    <priority>MAJOR</priority>
+    <name><![CDATA[FunctionNeverReturns]]></name>
+    <description>FunctionNeverReturns</description>
+  </rule>
+
+  <rule key="FunctionRecursiveOnAllPaths">
+    <priority>MAJOR</priority>
+    <name><![CDATA[FunctionRecursiveOnAllPaths]]></name>
+    <description>FunctionRecursiveOnAllPaths</description>
+  </rule>
+
+  <rule key="GCSuppressFinalizeForTypeWithoutDestructor">
+    <priority>MAJOR</priority>
+    <name><![CDATA[GCSuppressFinalizeForTypeWithoutDestructor]]></name>
+    <description>GCSuppressFinalizeForTypeWithoutDestructor</description>
+  </rule>
+
+  <rule key="HeuristicallyUnreachableCode">
+    <priority>MAJOR</priority>
+    <name><![CDATA[HeuristicallyUnreachableCode]]></name>
+    <description>HeuristicallyUnreachableCode</description>
+  </rule>
+
+  <rule key="HeuristicUnreachableCode">
+    <priority>MAJOR</priority>
+    <name><![CDATA[HeuristicUnreachableCode]]></name>
+    <description>HeuristicUnreachableCode</description>
+  </rule>
+
+  <rule key="HexColorValueWithAlpha">
+    <priority>MAJOR</priority>
+    <name><![CDATA[HexColorValueWithAlpha]]></name>
+    <description>HexColorValueWithAlpha</description>
+  </rule>
+
+  <rule key="Html.AttributeNotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Html.AttributeNotResolved]]></name>
+    <description>Html.AttributeNotResolved</description>
+  </rule>
+
+  <rule key="Html.DeadCode">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Html.DeadCode]]></name>
+    <description>Html.DeadCode</description>
+  </rule>
+
+  <rule key="Html.EventNotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Html.EventNotResolved]]></name>
+    <description>Html.EventNotResolved</description>
+  </rule>
+
+  <rule key="Html.IdNotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Html.IdNotResolved]]></name>
+    <description>Html.IdNotResolved</description>
+  </rule>
+
+  <rule key="Html.Obsolete">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Html.Obsolete]]></name>
+    <description>Html.Obsolete</description>
+  </rule>
+
+  <rule key="Html.PathError">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Html.PathError]]></name>
+    <description>Html.PathError</description>
+  </rule>
+
+  <rule key="Html.TagNotClosed">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Html.TagNotClosed]]></name>
+    <description>Html.TagNotClosed</description>
+  </rule>
+
+  <rule key="Html.TagNotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Html.TagNotResolved]]></name>
+    <description>Html.TagNotResolved</description>
+  </rule>
+
+  <rule key="Html.TagShouldBeSelfClosed">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Html.TagShouldBeSelfClosed]]></name>
+    <description>Html.TagShouldBeSelfClosed</description>
+  </rule>
+
+  <rule key="Html.TagShouldNotBeSelfClosed">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Html.TagShouldNotBeSelfClosed]]></name>
+    <description>Html.TagShouldNotBeSelfClosed</description>
+  </rule>
+
+  <rule key="Html.Warning">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Html.Warning]]></name>
+    <description>Html.Warning</description>
+  </rule>
+
+  <rule key="ImplicitlyCapturedClosure">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ImplicitlyCapturedClosure]]></name>
+    <description>ImplicitlyCapturedClosure</description>
+  </rule>
+
+  <rule key="ImpureMethodCallOnReadonlyValueField">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ImpureMethodCallOnReadonlyValueField]]></name>
+    <description>ImpureMethodCallOnReadonlyValueField</description>
+  </rule>
+
+  <rule key="InactivePreprocessorBranch">
+    <priority>MAJOR</priority>
+    <name><![CDATA[InactivePreprocessorBranch]]></name>
+    <description>InactivePreprocessorBranch</description>
+  </rule>
+
+  <rule key="InconsistentFunctionReturns">
+    <priority>MAJOR</priority>
+    <name><![CDATA[InconsistentFunctionReturns]]></name>
+    <description>InconsistentFunctionReturns</description>
+  </rule>
+
+  <rule key="InconsistentNaming">
+    <priority>MAJOR</priority>
+    <name><![CDATA[InconsistentNaming]]></name>
+    <description>InconsistentNaming</description>
+  </rule>
+
+  <rule key="IntroduceOptionalParameters.Global">
+    <priority>MAJOR</priority>
+    <name><![CDATA[IntroduceOptionalParameters.Global]]></name>
+    <description>IntroduceOptionalParameters.Global</description>
+  </rule>
+
+  <rule key="IntroduceOptionalParameters.Local">
+    <priority>MAJOR</priority>
+    <name><![CDATA[IntroduceOptionalParameters.Local]]></name>
+    <description>IntroduceOptionalParameters.Local</description>
+  </rule>
+
+  <rule key="InvalidAttributeValue">
+    <priority>MAJOR</priority>
+    <name><![CDATA[InvalidAttributeValue]]></name>
+    <description>InvalidAttributeValue</description>
+  </rule>
+
+  <rule key="InvalidTaskElement">
+    <priority>MAJOR</priority>
+    <name><![CDATA[InvalidTaskElement]]></name>
+    <description>InvalidTaskElement</description>
+  </rule>
+
+  <rule key="InvalidValue">
+    <priority>MAJOR</priority>
+    <name><![CDATA[InvalidValue]]></name>
+    <description>InvalidValue</description>
+  </rule>
+
+  <rule key="InvalidValueType">
+    <priority>MAJOR</priority>
+    <name><![CDATA[InvalidValueType]]></name>
+    <description>InvalidValueType</description>
+  </rule>
+
+  <rule key="InvertCondition.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[InvertCondition.1]]></name>
+    <description>InvertCondition.1</description>
+  </rule>
+
+  <rule key="InvertIf">
+    <priority>MAJOR</priority>
+    <name><![CDATA[InvertIf]]></name>
+    <description>InvertIf</description>
+  </rule>
+
+  <rule key="InvocationIsSkipped">
+    <priority>MAJOR</priority>
+    <name><![CDATA[InvocationIsSkipped]]></name>
+    <description>InvocationIsSkipped</description>
+  </rule>
+
+  <rule key="InvocationOfNonFunction">
+    <priority>MAJOR</priority>
+    <name><![CDATA[InvocationOfNonFunction]]></name>
+    <description>InvocationOfNonFunction</description>
+  </rule>
+
+  <rule key="InvokeAsExtensionMethod">
+    <priority>MAJOR</priority>
+    <name><![CDATA[InvokeAsExtensionMethod]]></name>
+    <description>InvokeAsExtensionMethod</description>
+  </rule>
+
+  <rule key="InvokedExpressionMaybeNonFunction">
+    <priority>MAJOR</priority>
+    <name><![CDATA[InvokedExpressionMaybeNonFunction]]></name>
+    <description>InvokedExpressionMaybeNonFunction</description>
+  </rule>
+
+  <rule key="IteratorMethodResultIsIgnored">
+    <priority>MAJOR</priority>
+    <name><![CDATA[IteratorMethodResultIsIgnored]]></name>
+    <description>IteratorMethodResultIsIgnored</description>
+  </rule>
+
+  <rule key="JoinDeclarationAndInitializer">
+    <priority>MAJOR</priority>
+    <name><![CDATA[JoinDeclarationAndInitializer]]></name>
+    <description>JoinDeclarationAndInitializer</description>
+  </rule>
+
+  <rule key="JsFunctionCanBeConvertedToLambda">
+    <priority>MAJOR</priority>
+    <name><![CDATA[JsFunctionCanBeConvertedToLambda]]></name>
+    <description>JsFunctionCanBeConvertedToLambda</description>
+  </rule>
+
+  <rule key="JsUnreachableCode">
+    <priority>MAJOR</priority>
+    <name><![CDATA[JsUnreachableCode]]></name>
+    <description>JsUnreachableCode</description>
+  </rule>
+
+  <rule key="JumpMustBeInLoop">
+    <priority>MAJOR</priority>
+    <name><![CDATA[JumpMustBeInLoop]]></name>
+    <description>JumpMustBeInLoop</description>
+  </rule>
+
+  <rule key="LabelOrSemicolonExpected">
+    <priority>MAJOR</priority>
+    <name><![CDATA[LabelOrSemicolonExpected]]></name>
+    <description>LabelOrSemicolonExpected</description>
+  </rule>
+
+  <rule key="LocalizableElement">
+    <priority>MAJOR</priority>
+    <name><![CDATA[LocalizableElement]]></name>
+    <description>LocalizableElement</description>
+  </rule>
+
+  <rule key="LocalVariableHidesMember">
+    <priority>MAJOR</priority>
+    <name><![CDATA[LocalVariableHidesMember]]></name>
+    <description>LocalVariableHidesMember</description>
+  </rule>
+
+  <rule key="LongLiteralEndingLowerL">
+    <priority>MAJOR</priority>
+    <name><![CDATA[LongLiteralEndingLowerL]]></name>
+    <description>LongLiteralEndingLowerL</description>
+  </rule>
+
+  <rule key="LoopCanBeConvertedToQuery">
+    <priority>MAJOR</priority>
+    <name><![CDATA[LoopCanBeConvertedToQuery]]></name>
+    <description>LoopCanBeConvertedToQuery</description>
+  </rule>
+
+  <rule key="LoopCanBePartlyConvertedToQuery">
+    <priority>MAJOR</priority>
+    <name><![CDATA[LoopCanBePartlyConvertedToQuery]]></name>
+    <description>LoopCanBePartlyConvertedToQuery</description>
+  </rule>
+
+  <rule key="LoopVariableIsNeverChangedInsideLoop">
+    <priority>MAJOR</priority>
+    <name><![CDATA[LoopVariableIsNeverChangedInsideLoop]]></name>
+    <description>LoopVariableIsNeverChangedInsideLoop</description>
+  </rule>
+
+  <rule key="LValueIsExpected">
+    <priority>MAJOR</priority>
+    <name><![CDATA[LValueIsExpected]]></name>
+    <description>LValueIsExpected</description>
+  </rule>
+
+  <rule key="MeaninglessDefaultParameterValue">
+    <priority>MAJOR</priority>
+    <name><![CDATA[MeaninglessDefaultParameterValue]]></name>
+    <description>MeaninglessDefaultParameterValue</description>
+  </rule>
+
+  <rule key="MemberCanBeInternal">
+    <priority>MAJOR</priority>
+    <name><![CDATA[MemberCanBeInternal]]></name>
+    <description>MemberCanBeInternal</description>
+  </rule>
+
+  <rule key="MemberCanBeMadeStatic.Global">
+    <priority>MAJOR</priority>
+    <name><![CDATA[MemberCanBeMadeStatic.Global]]></name>
+    <description>MemberCanBeMadeStatic.Global</description>
+  </rule>
+
+  <rule key="MemberCanBeMadeStatic.Local">
+    <priority>MAJOR</priority>
+    <name><![CDATA[MemberCanBeMadeStatic.Local]]></name>
+    <description>MemberCanBeMadeStatic.Local</description>
+  </rule>
+
+  <rule key="MemberCanBePrivate.Global">
+    <priority>MAJOR</priority>
+    <name><![CDATA[MemberCanBePrivate.Global]]></name>
+    <description>MemberCanBePrivate.Global</description>
+  </rule>
+
+  <rule key="MemberCanBePrivate.Local">
+    <priority>MAJOR</priority>
+    <name><![CDATA[MemberCanBePrivate.Local]]></name>
+    <description>MemberCanBePrivate.Local</description>
+  </rule>
+
+  <rule key="MemberCanBeProtected.Global">
+    <priority>MAJOR</priority>
+    <name><![CDATA[MemberCanBeProtected.Global]]></name>
+    <description>MemberCanBeProtected.Global</description>
+  </rule>
+
+  <rule key="MemberCanBeProtected.Local">
+    <priority>MAJOR</priority>
+    <name><![CDATA[MemberCanBeProtected.Local]]></name>
+    <description>MemberCanBeProtected.Local</description>
+  </rule>
+
+  <rule key="MemberHidesStaticFromOuterClass">
+    <priority>MAJOR</priority>
+    <name><![CDATA[MemberHidesStaticFromOuterClass]]></name>
+    <description>MemberHidesStaticFromOuterClass</description>
+  </rule>
+
+  <rule key="MethodOverloadWithOptionalParameter">
+    <priority>MAJOR</priority>
+    <name><![CDATA[MethodOverloadWithOptionalParameter]]></name>
+    <description>MethodOverloadWithOptionalParameter</description>
+  </rule>
+
+  <rule key="MethodSupportsCancellation">
+    <priority>MAJOR</priority>
+    <name><![CDATA[MethodSupportsCancellation]]></name>
+    <description>MethodSupportsCancellation</description>
+  </rule>
+
+  <rule key="MissingAltAttributeInImgTag">
+    <priority>MAJOR</priority>
+    <name><![CDATA[MissingAltAttributeInImgTag]]></name>
+    <description>MissingAltAttributeInImgTag</description>
+  </rule>
+
+  <rule key="MissingAttribute">
+    <priority>MAJOR</priority>
+    <name><![CDATA[MissingAttribute]]></name>
+    <description>MissingAttribute</description>
+  </rule>
+
+  <rule key="MissingBodyTag">
+    <priority>MAJOR</priority>
+    <name><![CDATA[MissingBodyTag]]></name>
+    <description>MissingBodyTag</description>
+  </rule>
+
+  <rule key="MissingHeadAndBodyTags">
+    <priority>MAJOR</priority>
+    <name><![CDATA[MissingHeadAndBodyTags]]></name>
+    <description>MissingHeadAndBodyTags</description>
+  </rule>
+
+  <rule key="MissingHeadTag">
+    <priority>MAJOR</priority>
+    <name><![CDATA[MissingHeadTag]]></name>
+    <description>MissingHeadTag</description>
+  </rule>
+
+  <rule key="MissingTitleTag">
+    <priority>MAJOR</priority>
+    <name><![CDATA[MissingTitleTag]]></name>
+    <description>MissingTitleTag</description>
+  </rule>
+
+  <rule key="MisuseOfOwnerFunctionThis">
+    <priority>MAJOR</priority>
+    <name><![CDATA[MisuseOfOwnerFunctionThis]]></name>
+    <description>MisuseOfOwnerFunctionThis</description>
+  </rule>
+
+  <rule key="MoreSpecificForeachVariableTypeAvailable">
+    <priority>MAJOR</priority>
+    <name><![CDATA[MoreSpecificForeachVariableTypeAvailable]]></name>
+    <description>MoreSpecificForeachVariableTypeAvailable</description>
+  </rule>
+
+  <rule key="MultipleDeclarationsInForeach">
+    <priority>MAJOR</priority>
+    <name><![CDATA[MultipleDeclarationsInForeach]]></name>
+    <description>MultipleDeclarationsInForeach</description>
+  </rule>
+
+  <rule key="MultipleNullableAttributesUsage">
+    <priority>MAJOR</priority>
+    <name><![CDATA[MultipleNullableAttributesUsage]]></name>
+    <description>MultipleNullableAttributesUsage</description>
+  </rule>
+
+  <rule key="MultipleOrderBy">
+    <priority>MAJOR</priority>
+    <name><![CDATA[MultipleOrderBy]]></name>
+    <description>MultipleOrderBy</description>
+  </rule>
+
+  <rule key="MultipleOutputTags">
+    <priority>MAJOR</priority>
+    <name><![CDATA[MultipleOutputTags]]></name>
+    <description>MultipleOutputTags</description>
+  </rule>
+
+  <rule key="Mvc.ActionNotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Mvc.ActionNotResolved]]></name>
+    <description>Mvc.ActionNotResolved</description>
+  </rule>
+
+  <rule key="Mvc.AreaNotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Mvc.AreaNotResolved]]></name>
+    <description>Mvc.AreaNotResolved</description>
+  </rule>
+
+  <rule key="Mvc.ControllerNotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Mvc.ControllerNotResolved]]></name>
+    <description>Mvc.ControllerNotResolved</description>
+  </rule>
+
+  <rule key="Mvc.InvalidModelType">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Mvc.InvalidModelType]]></name>
+    <description>Mvc.InvalidModelType</description>
+  </rule>
+
+  <rule key="Mvc.MasterpageNotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Mvc.MasterpageNotResolved]]></name>
+    <description>Mvc.MasterpageNotResolved</description>
+  </rule>
+
+  <rule key="Mvc.PartialViewNotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Mvc.PartialViewNotResolved]]></name>
+    <description>Mvc.PartialViewNotResolved</description>
+  </rule>
+
+  <rule key="Mvc.TemplateNotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Mvc.TemplateNotResolved]]></name>
+    <description>Mvc.TemplateNotResolved</description>
+  </rule>
+
+  <rule key="Mvc.ViewNotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Mvc.ViewNotResolved]]></name>
+    <description>Mvc.ViewNotResolved</description>
+  </rule>
+
+  <rule key="NegativeEqualityExpression">
+    <priority>MAJOR</priority>
+    <name><![CDATA[NegativeEqualityExpression]]></name>
+    <description>NegativeEqualityExpression</description>
+  </rule>
+
+  <rule key="NonReadonlyFieldInGetHashCode">
+    <priority>MAJOR</priority>
+    <name><![CDATA[NonReadonlyFieldInGetHashCode]]></name>
+    <description>NonReadonlyFieldInGetHashCode</description>
+  </rule>
+
+  <rule key="NonVolatileFieldInDoubleCheckLocking">
+    <priority>MAJOR</priority>
+    <name><![CDATA[NonVolatileFieldInDoubleCheckLocking]]></name>
+    <description>NonVolatileFieldInDoubleCheckLocking</description>
+  </rule>
+
+  <rule key="NotAccessedField.Global">
+    <priority>MAJOR</priority>
+    <name><![CDATA[NotAccessedField.Global]]></name>
+    <description>NotAccessedField.Global</description>
+  </rule>
+
+  <rule key="NotAccessedField.Local">
+    <priority>MAJOR</priority>
+    <name><![CDATA[NotAccessedField.Local]]></name>
+    <description>NotAccessedField.Local</description>
+  </rule>
+
+  <rule key="NotAccessedVariable">
+    <priority>MAJOR</priority>
+    <name><![CDATA[NotAccessedVariable]]></name>
+    <description>NotAccessedVariable</description>
+  </rule>
+
+  <rule key="NotAccessedVariable.Compiler">
+    <priority>MAJOR</priority>
+    <name><![CDATA[NotAccessedVariable.Compiler]]></name>
+    <description>NotAccessedVariable.Compiler</description>
+  </rule>
+
+  <rule key="NotAllPathsReturnValue">
+    <priority>MAJOR</priority>
+    <name><![CDATA[NotAllPathsReturnValue]]></name>
+    <description>NotAllPathsReturnValue</description>
+  </rule>
+
+  <rule key="NotAssignedOutParameter">
+    <priority>MAJOR</priority>
+    <name><![CDATA[NotAssignedOutParameter]]></name>
+    <description>NotAssignedOutParameter</description>
+  </rule>
+
+  <rule key="NotDeclaredInParentCulture">
+    <priority>MAJOR</priority>
+    <name><![CDATA[NotDeclaredInParentCulture]]></name>
+    <description>NotDeclaredInParentCulture</description>
+  </rule>
+
+  <rule key="NotOverridenInSpecificCulture">
+    <priority>MAJOR</priority>
+    <name><![CDATA[NotOverridenInSpecificCulture]]></name>
+    <description>NotOverridenInSpecificCulture</description>
+  </rule>
+
+  <rule key="NotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[NotResolved]]></name>
+    <description>NotResolved</description>
+  </rule>
+
+  <rule key="NotResolvedInText">
+    <priority>MAJOR</priority>
+    <name><![CDATA[NotResolvedInText]]></name>
+    <description>NotResolvedInText</description>
+  </rule>
+
+  <rule key="NUnit.NonPublicMethodWithTestAttribute">
+    <priority>MAJOR</priority>
+    <name><![CDATA[NUnit.NonPublicMethodWithTestAttribute]]></name>
+    <description>NUnit.NonPublicMethodWithTestAttribute</description>
+  </rule>
+
+  <rule key="ObjectCreationAsStatement">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ObjectCreationAsStatement]]></name>
+    <description>ObjectCreationAsStatement</description>
+  </rule>
+
+  <rule key="OlTagContainsNonLiElements">
+    <priority>MAJOR</priority>
+    <name><![CDATA[OlTagContainsNonLiElements]]></name>
+    <description>OlTagContainsNonLiElements</description>
+  </rule>
+
+  <rule key="OperatorIsCanBeUsed">
+    <priority>MAJOR</priority>
+    <name><![CDATA[OperatorIsCanBeUsed]]></name>
+    <description>OperatorIsCanBeUsed</description>
+  </rule>
+
+  <rule key="OptionalParameterHierarchyMismatch">
+    <priority>MAJOR</priority>
+    <name><![CDATA[OptionalParameterHierarchyMismatch]]></name>
+    <description>OptionalParameterHierarchyMismatch</description>
+  </rule>
+
+  <rule key="OptionalParameterRefOut">
+    <priority>MAJOR</priority>
+    <name><![CDATA[OptionalParameterRefOut]]></name>
+    <description>OptionalParameterRefOut</description>
+  </rule>
+
+  <rule key="OtherTagsInsideScript1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[OtherTagsInsideScript1]]></name>
+    <description>OtherTagsInsideScript1</description>
+  </rule>
+
+  <rule key="OtherTagsInsideScript2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[OtherTagsInsideScript2]]></name>
+    <description>OtherTagsInsideScript2</description>
+  </rule>
+
+  <rule key="OtherTagsInsideUnclosedScript">
+    <priority>MAJOR</priority>
+    <name><![CDATA[OtherTagsInsideUnclosedScript]]></name>
+    <description>OtherTagsInsideUnclosedScript</description>
+  </rule>
+
+  <rule key="OutputTagRequired">
+    <priority>MAJOR</priority>
+    <name><![CDATA[OutputTagRequired]]></name>
+    <description>OutputTagRequired</description>
+  </rule>
+
+  <rule key="OverridenWithEmptyValue">
+    <priority>MAJOR</priority>
+    <name><![CDATA[OverridenWithEmptyValue]]></name>
+    <description>OverridenWithEmptyValue</description>
+  </rule>
+
+  <rule key="OverridenWithSameValue">
+    <priority>MAJOR</priority>
+    <name><![CDATA[OverridenWithSameValue]]></name>
+    <description>OverridenWithSameValue</description>
+  </rule>
+
+  <rule key="ParameterHidesMember">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ParameterHidesMember]]></name>
+    <description>ParameterHidesMember</description>
+  </rule>
+
+  <rule key="ParameterTypeCanBeEnumerable.Global">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ParameterTypeCanBeEnumerable.Global]]></name>
+    <description>ParameterTypeCanBeEnumerable.Global</description>
+  </rule>
+
+  <rule key="ParameterTypeCanBeEnumerable.Local">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ParameterTypeCanBeEnumerable.Local]]></name>
+    <description>ParameterTypeCanBeEnumerable.Local</description>
+  </rule>
+
+  <rule key="ParameterValueIsNotUsed">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ParameterValueIsNotUsed]]></name>
+    <description>ParameterValueIsNotUsed</description>
+  </rule>
+
+  <rule key="PartialMethodParameterNameMismatch">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PartialMethodParameterNameMismatch]]></name>
+    <description>PartialMethodParameterNameMismatch</description>
+  </rule>
+
+  <rule key="PartialMethodWithSinglePart">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PartialMethodWithSinglePart]]></name>
+    <description>PartialMethodWithSinglePart</description>
+  </rule>
+
+  <rule key="PartialTypeWithSinglePart">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PartialTypeWithSinglePart]]></name>
+    <description>PartialTypeWithSinglePart</description>
+  </rule>
+
+  <rule key="PathNotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PathNotResolved]]></name>
+    <description>PathNotResolved</description>
+  </rule>
+
+  <rule key="PolymorphicFieldLikeEventInvocation">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PolymorphicFieldLikeEventInvocation]]></name>
+    <description>PolymorphicFieldLikeEventInvocation</description>
+  </rule>
+
+  <rule key="PossibleAssignmentToReadonlyField">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PossibleAssignmentToReadonlyField]]></name>
+    <description>PossibleAssignmentToReadonlyField</description>
+  </rule>
+
+  <rule key="PossibleInfiniteInheritance">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PossibleInfiniteInheritance]]></name>
+    <description>PossibleInfiniteInheritance</description>
+  </rule>
+
+  <rule key="PossibleIntendedRethrow">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PossibleIntendedRethrow]]></name>
+    <description>PossibleIntendedRethrow</description>
+  </rule>
+
+  <rule key="PossibleInterfaceMemberAmbiguity">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PossibleInterfaceMemberAmbiguity]]></name>
+    <description>PossibleInterfaceMemberAmbiguity</description>
+  </rule>
+
+  <rule key="PossibleInvalidCastException">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PossibleInvalidCastException]]></name>
+    <description>PossibleInvalidCastException</description>
+  </rule>
+
+  <rule key="PossibleInvalidCastExceptionInForeachLoop">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PossibleInvalidCastExceptionInForeachLoop]]></name>
+    <description>PossibleInvalidCastExceptionInForeachLoop</description>
+  </rule>
+
+  <rule key="PossibleInvalidOperationException">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PossibleInvalidOperationException]]></name>
+    <description>PossibleInvalidOperationException</description>
+  </rule>
+
+  <rule key="PossibleLossOfFraction">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PossibleLossOfFraction]]></name>
+    <description>PossibleLossOfFraction</description>
+  </rule>
+
+  <rule key="PossibleMistakenArgument">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PossibleMistakenArgument]]></name>
+    <description>PossibleMistakenArgument</description>
+  </rule>
+
+  <rule key="PossibleMistakenCallToGetType.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PossibleMistakenCallToGetType.1]]></name>
+    <description>PossibleMistakenCallToGetType.1</description>
+  </rule>
+
+  <rule key="PossibleMistakenCallToGetType.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PossibleMistakenCallToGetType.2]]></name>
+    <description>PossibleMistakenCallToGetType.2</description>
+  </rule>
+
+  <rule key="PossibleMultipleEnumeration">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PossibleMultipleEnumeration]]></name>
+    <description>PossibleMultipleEnumeration</description>
+  </rule>
+
+  <rule key="PossibleMultipleWriteAccessInDoubleCheckLocking">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PossibleMultipleWriteAccessInDoubleCheckLocking]]></name>
+    <description>PossibleMultipleWriteAccessInDoubleCheckLocking</description>
+  </rule>
+
+  <rule key="PossibleNullReferenceException">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PossibleNullReferenceException]]></name>
+    <description>PossibleNullReferenceException</description>
+  </rule>
+
+  <rule key="PossibleUnintendedReferenceComparison">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PossibleUnintendedReferenceComparison]]></name>
+    <description>PossibleUnintendedReferenceComparison</description>
+  </rule>
+
+  <rule key="PossibleWriteToMe">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PossibleWriteToMe]]></name>
+    <description>PossibleWriteToMe</description>
+  </rule>
+
+  <rule key="PossiblyMistakenUseOfParamsMethod">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PossiblyMistakenUseOfParamsMethod]]></name>
+    <description>PossiblyMistakenUseOfParamsMethod</description>
+  </rule>
+
+  <rule key="PossiblyUnassignedProperty">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PossiblyUnassignedProperty]]></name>
+    <description>PossiblyUnassignedProperty</description>
+  </rule>
+
+  <rule key="PrivateFieldCanBeConvertedToLocalVariable">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PrivateFieldCanBeConvertedToLocalVariable]]></name>
+    <description>PrivateFieldCanBeConvertedToLocalVariable</description>
+  </rule>
+
+  <rule key="PropertyGetterCannotHaveParameters">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PropertyGetterCannotHaveParameters]]></name>
+    <description>PropertyGetterCannotHaveParameters</description>
+  </rule>
+
+  <rule key="PropertyNotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PropertyNotResolved]]></name>
+    <description>PropertyNotResolved</description>
+  </rule>
+
+  <rule key="PropertySetterMustHaveSingleParameter">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PropertySetterMustHaveSingleParameter]]></name>
+    <description>PropertySetterMustHaveSingleParameter</description>
+  </rule>
+
+  <rule key="PublicConstructorInAbstractClass">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PublicConstructorInAbstractClass]]></name>
+    <description>PublicConstructorInAbstractClass</description>
+  </rule>
+
+  <rule key="PureAttributeOnVoidMethod">
+    <priority>MAJOR</priority>
+    <name><![CDATA[PureAttributeOnVoidMethod]]></name>
+    <description>PureAttributeOnVoidMethod</description>
+  </rule>
+
+  <rule key="QualifiedExpressionIsNull">
+    <priority>MAJOR</priority>
+    <name><![CDATA[QualifiedExpressionIsNull]]></name>
+    <description>QualifiedExpressionIsNull</description>
+  </rule>
+
+  <rule key="QualifiedExpressionMaybeNull">
+    <priority>MAJOR</priority>
+    <name><![CDATA[QualifiedExpressionMaybeNull]]></name>
+    <description>QualifiedExpressionMaybeNull</description>
+  </rule>
+
+  <rule key="Razor.SectionNotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Razor.SectionNotResolved]]></name>
+    <description>Razor.SectionNotResolved</description>
+  </rule>
+
+  <rule key="ReadAccessInDoubleCheckLocking">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReadAccessInDoubleCheckLocking]]></name>
+    <description>ReadAccessInDoubleCheckLocking</description>
+  </rule>
+
+  <rule key="Redundant">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Redundant]]></name>
+    <description>Redundant</description>
+  </rule>
+
+  <rule key="RedundantAnonymousTypePropertyName">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantAnonymousTypePropertyName]]></name>
+    <description>RedundantAnonymousTypePropertyName</description>
+  </rule>
+
+  <rule key="RedundantArgumentDefaultValue">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantArgumentDefaultValue]]></name>
+    <description>RedundantArgumentDefaultValue</description>
+  </rule>
+
+  <rule key="RedundantArgumentName">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantArgumentName]]></name>
+    <description>RedundantArgumentName</description>
+  </rule>
+
+  <rule key="RedundantArgumentNameForLiteralExpression">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantArgumentNameForLiteralExpression]]></name>
+    <description>RedundantArgumentNameForLiteralExpression</description>
+  </rule>
+
+  <rule key="RedundantArrayCreationExpression">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantArrayCreationExpression]]></name>
+    <description>RedundantArrayCreationExpression</description>
+  </rule>
+
+  <rule key="RedundantArrayLowerBoundSpecification">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantArrayLowerBoundSpecification]]></name>
+    <description>RedundantArrayLowerBoundSpecification</description>
+  </rule>
+
+  <rule key="RedundantAssignment">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantAssignment]]></name>
+    <description>RedundantAssignment</description>
+  </rule>
+
+  <rule key="RedundantAttributeParentheses">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantAttributeParentheses]]></name>
+    <description>RedundantAttributeParentheses</description>
+  </rule>
+
+  <rule key="RedundantBaseConstructorCall">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantBaseConstructorCall]]></name>
+    <description>RedundantBaseConstructorCall</description>
+  </rule>
+
+  <rule key="RedundantBaseQualifier">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantBaseQualifier]]></name>
+    <description>RedundantBaseQualifier</description>
+  </rule>
+
+  <rule key="RedundantBoolCompare">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantBoolCompare]]></name>
+    <description>RedundantBoolCompare</description>
+  </rule>
+
+  <rule key="RedundantCaseLabel">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantCaseLabel]]></name>
+    <description>RedundantCaseLabel</description>
+  </rule>
+
+  <rule key="RedundantCast">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantCast]]></name>
+    <description>RedundantCast</description>
+  </rule>
+
+  <rule key="RedundantCast.0">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantCast.0]]></name>
+    <description>RedundantCast.0</description>
+  </rule>
+
+  <rule key="RedundantCatchClause">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantCatchClause]]></name>
+    <description>RedundantCatchClause</description>
+  </rule>
+
+  <rule key="RedundantCheckBeforeAssignment">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantCheckBeforeAssignment]]></name>
+    <description>RedundantCheckBeforeAssignment</description>
+  </rule>
+
+  <rule key="RedundantCollectionInitializerElementBraces">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantCollectionInitializerElementBraces]]></name>
+    <description>RedundantCollectionInitializerElementBraces</description>
+  </rule>
+
+  <rule key="RedundantCommaInArrayInitializer">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantCommaInArrayInitializer]]></name>
+    <description>RedundantCommaInArrayInitializer</description>
+  </rule>
+
+  <rule key="RedundantComparisonWithNull">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantComparisonWithNull]]></name>
+    <description>RedundantComparisonWithNull</description>
+  </rule>
+
+  <rule key="RedundantDefaultFieldInitializer">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantDefaultFieldInitializer]]></name>
+    <description>RedundantDefaultFieldInitializer</description>
+  </rule>
+
+  <rule key="RedundantDelegateCreation">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantDelegateCreation]]></name>
+    <description>RedundantDelegateCreation</description>
+  </rule>
+
+  <rule key="RedundantEmptyCaseElse">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantEmptyCaseElse]]></name>
+    <description>RedundantEmptyCaseElse</description>
+  </rule>
+
+  <rule key="RedundantEmptyDefaultSwitchBranch">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantEmptyDefaultSwitchBranch]]></name>
+    <description>RedundantEmptyDefaultSwitchBranch</description>
+  </rule>
+
+  <rule key="RedundantEmptyFinallyBlock">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantEmptyFinallyBlock]]></name>
+    <description>RedundantEmptyFinallyBlock</description>
+  </rule>
+
+  <rule key="RedundantEmptyObjectCreationArgumentList">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantEmptyObjectCreationArgumentList]]></name>
+    <description>RedundantEmptyObjectCreationArgumentList</description>
+  </rule>
+
+  <rule key="RedundantEmptyObjectOrCollectionInitializer">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantEmptyObjectOrCollectionInitializer]]></name>
+    <description>RedundantEmptyObjectOrCollectionInitializer</description>
+  </rule>
+
+  <rule key="RedundantEnumerableCastCall">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantEnumerableCastCall]]></name>
+    <description>RedundantEnumerableCastCall</description>
+  </rule>
+
+  <rule key="RedundantExplicitArrayCreation">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantExplicitArrayCreation]]></name>
+    <description>RedundantExplicitArrayCreation</description>
+  </rule>
+
+  <rule key="RedundantExplicitArraySize">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantExplicitArraySize]]></name>
+    <description>RedundantExplicitArraySize</description>
+  </rule>
+
+  <rule key="RedundantExplicitNullableCreation">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantExplicitNullableCreation]]></name>
+    <description>RedundantExplicitNullableCreation</description>
+  </rule>
+
+  <rule key="RedundantExtendsListEntry">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantExtendsListEntry]]></name>
+    <description>RedundantExtendsListEntry</description>
+  </rule>
+
+  <rule key="RedundantIfElseBlock">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantIfElseBlock]]></name>
+    <description>RedundantIfElseBlock</description>
+  </rule>
+
+  <rule key="RedundantIteratorKeyword">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantIteratorKeyword]]></name>
+    <description>RedundantIteratorKeyword</description>
+  </rule>
+
+  <rule key="RedundantJumpStatement">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantJumpStatement]]></name>
+    <description>RedundantJumpStatement</description>
+  </rule>
+
+  <rule key="RedundantLambdaParameterType">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantLambdaParameterType]]></name>
+    <description>RedundantLambdaParameterType</description>
+  </rule>
+
+  <rule key="RedundantLambdaSignatureParentheses">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantLambdaSignatureParentheses]]></name>
+    <description>RedundantLambdaSignatureParentheses</description>
+  </rule>
+
+  <rule key="RedundantLocalFunctionName">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantLocalFunctionName]]></name>
+    <description>RedundantLocalFunctionName</description>
+  </rule>
+
+  <rule key="RedundantLogicalConditionalExpressionOperand">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantLogicalConditionalExpressionOperand]]></name>
+    <description>RedundantLogicalConditionalExpressionOperand</description>
+  </rule>
+
+  <rule key="RedundantMeQualifier">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantMeQualifier]]></name>
+    <description>RedundantMeQualifier</description>
+  </rule>
+
+  <rule key="RedundantMyBaseQualifier">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantMyBaseQualifier]]></name>
+    <description>RedundantMyBaseQualifier</description>
+  </rule>
+
+  <rule key="RedundantMyClassQualifier">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantMyClassQualifier]]></name>
+    <description>RedundantMyClassQualifier</description>
+  </rule>
+
+  <rule key="RedundantNameQualifier">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantNameQualifier]]></name>
+    <description>RedundantNameQualifier</description>
+  </rule>
+
+  <rule key="RedundantOverload.Global">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantOverload.Global]]></name>
+    <description>RedundantOverload.Global</description>
+  </rule>
+
+  <rule key="RedundantOverload.Local">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantOverload.Local]]></name>
+    <description>RedundantOverload.Local</description>
+  </rule>
+
+  <rule key="RedundantOverridenMember">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantOverridenMember]]></name>
+    <description>RedundantOverridenMember</description>
+  </rule>
+
+  <rule key="RedundantParams">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantParams]]></name>
+    <description>RedundantParams</description>
+  </rule>
+
+  <rule key="RedundantQualifier">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantQualifier]]></name>
+    <description>RedundantQualifier</description>
+  </rule>
+
+  <rule key="RedundantStringFormatCall">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantStringFormatCall]]></name>
+    <description>RedundantStringFormatCall</description>
+  </rule>
+
+  <rule key="RedundantStringToCharArrayCall">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantStringToCharArrayCall]]></name>
+    <description>RedundantStringToCharArrayCall</description>
+  </rule>
+
+  <rule key="RedundantStringType">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantStringType]]></name>
+    <description>RedundantStringType</description>
+  </rule>
+
+  <rule key="RedundantTernaryExpression">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantTernaryExpression]]></name>
+    <description>RedundantTernaryExpression</description>
+  </rule>
+
+  <rule key="RedundantThisQualifier">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantThisQualifier]]></name>
+    <description>RedundantThisQualifier</description>
+  </rule>
+
+  <rule key="RedundantToStringCall">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantToStringCall]]></name>
+    <description>RedundantToStringCall</description>
+  </rule>
+
+  <rule key="RedundantToStringCallForValueType">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantToStringCallForValueType]]></name>
+    <description>RedundantToStringCallForValueType</description>
+  </rule>
+
+  <rule key="RedundantTypeArgumentsOfMethod">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantTypeArgumentsOfMethod]]></name>
+    <description>RedundantTypeArgumentsOfMethod</description>
+  </rule>
+
+  <rule key="RedundantUnits">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantUnits]]></name>
+    <description>RedundantUnits</description>
+  </rule>
+
+  <rule key="RedundantUnsafeContext">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantUnsafeContext]]></name>
+    <description>RedundantUnsafeContext</description>
+  </rule>
+
+  <rule key="RedundantUsingDirective">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RedundantUsingDirective]]></name>
+    <description>RedundantUsingDirective</description>
+  </rule>
+
+  <rule key="ReferenceEqualsWithValueType">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReferenceEqualsWithValueType]]></name>
+    <description>ReferenceEqualsWithValueType</description>
+  </rule>
+
+  <rule key="RemoveConstuctorInvocation">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RemoveConstuctorInvocation]]></name>
+    <description>RemoveConstuctorInvocation</description>
+  </rule>
+
+  <rule key="RemoveRedundantOrStatement.False">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RemoveRedundantOrStatement.False]]></name>
+    <description>RemoveRedundantOrStatement.False</description>
+  </rule>
+
+  <rule key="RemoveRedundantOrStatement.True">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RemoveRedundantOrStatement.True]]></name>
+    <description>RemoveRedundantOrStatement.True</description>
+  </rule>
+
+  <rule key="RemoveToList.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RemoveToList.1]]></name>
+    <description>RemoveToList.1</description>
+  </rule>
+
+  <rule key="RemoveToList.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RemoveToList.2]]></name>
+    <description>RemoveToList.2</description>
+  </rule>
+
+  <rule key="ReplaceWithFirstOrDefault.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithFirstOrDefault.1]]></name>
+    <description>ReplaceWithFirstOrDefault.1</description>
+  </rule>
+
+  <rule key="ReplaceWithFirstOrDefault.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithFirstOrDefault.2]]></name>
+    <description>ReplaceWithFirstOrDefault.2</description>
+  </rule>
+
+  <rule key="ReplaceWithFirstOrDefault.3">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithFirstOrDefault.3]]></name>
+    <description>ReplaceWithFirstOrDefault.3</description>
+  </rule>
+
+  <rule key="ReplaceWithFirstOrDefault.4">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithFirstOrDefault.4]]></name>
+    <description>ReplaceWithFirstOrDefault.4</description>
+  </rule>
+
+  <rule key="ReplaceWithLastOrDefault.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithLastOrDefault.1]]></name>
+    <description>ReplaceWithLastOrDefault.1</description>
+  </rule>
+
+  <rule key="ReplaceWithLastOrDefault.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithLastOrDefault.2]]></name>
+    <description>ReplaceWithLastOrDefault.2</description>
+  </rule>
+
+  <rule key="ReplaceWithLastOrDefault.3">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithLastOrDefault.3]]></name>
+    <description>ReplaceWithLastOrDefault.3</description>
+  </rule>
+
+  <rule key="ReplaceWithLastOrDefault.4">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithLastOrDefault.4]]></name>
+    <description>ReplaceWithLastOrDefault.4</description>
+  </rule>
+
+  <rule key="ReplaceWithOfType.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithOfType.1]]></name>
+    <description>ReplaceWithOfType.1</description>
+  </rule>
+
+  <rule key="ReplaceWithOfType.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithOfType.2]]></name>
+    <description>ReplaceWithOfType.2</description>
+  </rule>
+
+  <rule key="ReplaceWithOfType.3">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithOfType.3]]></name>
+    <description>ReplaceWithOfType.3</description>
+  </rule>
+
+  <rule key="ReplaceWithOfType.Any.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithOfType.Any.1]]></name>
+    <description>ReplaceWithOfType.Any.1</description>
+  </rule>
+
+  <rule key="ReplaceWithOfType.Any.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithOfType.Any.2]]></name>
+    <description>ReplaceWithOfType.Any.2</description>
+  </rule>
+
+  <rule key="ReplaceWithOfType.Count.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithOfType.Count.1]]></name>
+    <description>ReplaceWithOfType.Count.1</description>
+  </rule>
+
+  <rule key="ReplaceWithOfType.Count.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithOfType.Count.2]]></name>
+    <description>ReplaceWithOfType.Count.2</description>
+  </rule>
+
+  <rule key="ReplaceWithOfType.First.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithOfType.First.1]]></name>
+    <description>ReplaceWithOfType.First.1</description>
+  </rule>
+
+  <rule key="ReplaceWithOfType.First.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithOfType.First.2]]></name>
+    <description>ReplaceWithOfType.First.2</description>
+  </rule>
+
+  <rule key="ReplaceWithOfType.FirstOrDefault.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithOfType.FirstOrDefault.1]]></name>
+    <description>ReplaceWithOfType.FirstOrDefault.1</description>
+  </rule>
+
+  <rule key="ReplaceWithOfType.FirstOrDefault.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithOfType.FirstOrDefault.2]]></name>
+    <description>ReplaceWithOfType.FirstOrDefault.2</description>
+  </rule>
+
+  <rule key="ReplaceWithOfType.Last.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithOfType.Last.1]]></name>
+    <description>ReplaceWithOfType.Last.1</description>
+  </rule>
+
+  <rule key="ReplaceWithOfType.Last.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithOfType.Last.2]]></name>
+    <description>ReplaceWithOfType.Last.2</description>
+  </rule>
+
+  <rule key="ReplaceWithOfType.LastOrDefault.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithOfType.LastOrDefault.1]]></name>
+    <description>ReplaceWithOfType.LastOrDefault.1</description>
+  </rule>
+
+  <rule key="ReplaceWithOfType.LastOrDefault.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithOfType.LastOrDefault.2]]></name>
+    <description>ReplaceWithOfType.LastOrDefault.2</description>
+  </rule>
+
+  <rule key="ReplaceWithOfType.LongCount">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithOfType.LongCount]]></name>
+    <description>ReplaceWithOfType.LongCount</description>
+  </rule>
+
+  <rule key="ReplaceWithOfType.Single.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithOfType.Single.1]]></name>
+    <description>ReplaceWithOfType.Single.1</description>
+  </rule>
+
+  <rule key="ReplaceWithOfType.Single.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithOfType.Single.2]]></name>
+    <description>ReplaceWithOfType.Single.2</description>
+  </rule>
+
+  <rule key="ReplaceWithOfType.SingleOrDefault.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithOfType.SingleOrDefault.1]]></name>
+    <description>ReplaceWithOfType.SingleOrDefault.1</description>
+  </rule>
+
+  <rule key="ReplaceWithOfType.SingleOrDefault.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithOfType.SingleOrDefault.2]]></name>
+    <description>ReplaceWithOfType.SingleOrDefault.2</description>
+  </rule>
+
+  <rule key="ReplaceWithOfType.Where">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithOfType.Where]]></name>
+    <description>ReplaceWithOfType.Where</description>
+  </rule>
+
+  <rule key="ReplaceWithSimpleAssignment.False">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithSimpleAssignment.False]]></name>
+    <description>ReplaceWithSimpleAssignment.False</description>
+  </rule>
+
+  <rule key="ReplaceWithSimpleAssignment.True">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithSimpleAssignment.True]]></name>
+    <description>ReplaceWithSimpleAssignment.True</description>
+  </rule>
+
+  <rule key="ReplaceWithSingleAssignment.False">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithSingleAssignment.False]]></name>
+    <description>ReplaceWithSingleAssignment.False</description>
+  </rule>
+
+  <rule key="ReplaceWithSingleAssignment.True">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithSingleAssignment.True]]></name>
+    <description>ReplaceWithSingleAssignment.True</description>
+  </rule>
+
+  <rule key="ReplaceWithSingleCallToAny">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithSingleCallToAny]]></name>
+    <description>ReplaceWithSingleCallToAny</description>
+  </rule>
+
+  <rule key="ReplaceWithSingleCallToCount">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithSingleCallToCount]]></name>
+    <description>ReplaceWithSingleCallToCount</description>
+  </rule>
+
+  <rule key="ReplaceWithSingleCallToFirst">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithSingleCallToFirst]]></name>
+    <description>ReplaceWithSingleCallToFirst</description>
+  </rule>
+
+  <rule key="ReplaceWithSingleCallToFirstOrDefault">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithSingleCallToFirstOrDefault]]></name>
+    <description>ReplaceWithSingleCallToFirstOrDefault</description>
+  </rule>
+
+  <rule key="ReplaceWithSingleCallToLast">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithSingleCallToLast]]></name>
+    <description>ReplaceWithSingleCallToLast</description>
+  </rule>
+
+  <rule key="ReplaceWithSingleCallToLastOrDefault">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithSingleCallToLastOrDefault]]></name>
+    <description>ReplaceWithSingleCallToLastOrDefault</description>
+  </rule>
+
+  <rule key="ReplaceWithSingleCallToSingle">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithSingleCallToSingle]]></name>
+    <description>ReplaceWithSingleCallToSingle</description>
+  </rule>
+
+  <rule key="ReplaceWithSingleCallToSingleOrDefault">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithSingleCallToSingleOrDefault]]></name>
+    <description>ReplaceWithSingleCallToSingleOrDefault</description>
+  </rule>
+
+  <rule key="ReplaceWithSingleOrDefault.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithSingleOrDefault.1]]></name>
+    <description>ReplaceWithSingleOrDefault.1</description>
+  </rule>
+
+  <rule key="ReplaceWithSingleOrDefault.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithSingleOrDefault.2]]></name>
+    <description>ReplaceWithSingleOrDefault.2</description>
+  </rule>
+
+  <rule key="ReplaceWithSingleOrDefault.3">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithSingleOrDefault.3]]></name>
+    <description>ReplaceWithSingleOrDefault.3</description>
+  </rule>
+
+  <rule key="ReplaceWithSingleOrDefault.4">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithSingleOrDefault.4]]></name>
+    <description>ReplaceWithSingleOrDefault.4</description>
+  </rule>
+
+  <rule key="ReplaceWithStringIsNullOrEmpty">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReplaceWithStringIsNullOrEmpty]]></name>
+    <description>ReplaceWithStringIsNullOrEmpty</description>
+  </rule>
+
+  <rule key="RequiredBaseTypesConflict">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RequiredBaseTypesConflict]]></name>
+    <description>RequiredBaseTypesConflict</description>
+  </rule>
+
+  <rule key="RequiredBaseTypesDirectConflict">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RequiredBaseTypesDirectConflict]]></name>
+    <description>RequiredBaseTypesDirectConflict</description>
+  </rule>
+
+  <rule key="RequiredBaseTypesIsNotInherited">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RequiredBaseTypesIsNotInherited]]></name>
+    <description>RequiredBaseTypesIsNotInherited</description>
+  </rule>
+
+  <rule key="RequiresFallbackColor">
+    <priority>MAJOR</priority>
+    <name><![CDATA[RequiresFallbackColor]]></name>
+    <description>RequiresFallbackColor</description>
+  </rule>
+
+  <rule key="ResourceItemNotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ResourceItemNotResolved]]></name>
+    <description>ResourceItemNotResolved</description>
+  </rule>
+
+  <rule key="ResourceNotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ResourceNotResolved]]></name>
+    <description>ResourceNotResolved</description>
+  </rule>
+
+  <rule key="ResxNotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ResxNotResolved]]></name>
+    <description>ResxNotResolved</description>
+  </rule>
+
+  <rule key="ReturnFromGlobalScopetWithValue">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReturnFromGlobalScopetWithValue]]></name>
+    <description>ReturnFromGlobalScopetWithValue</description>
+  </rule>
+
+  <rule key="ReturnTypeCanBeEnumerable.Global">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReturnTypeCanBeEnumerable.Global]]></name>
+    <description>ReturnTypeCanBeEnumerable.Global</description>
+  </rule>
+
+  <rule key="ReturnTypeCanBeEnumerable.Local">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReturnTypeCanBeEnumerable.Local]]></name>
+    <description>ReturnTypeCanBeEnumerable.Local</description>
+  </rule>
+
+  <rule key="ReturnValueOfPureMethodIsNotUsed">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ReturnValueOfPureMethodIsNotUsed]]></name>
+    <description>ReturnValueOfPureMethodIsNotUsed</description>
+  </rule>
+
+  <rule key="ScriptTagHasBothSrcAndContentAttributes">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ScriptTagHasBothSrcAndContentAttributes]]></name>
+    <description>ScriptTagHasBothSrcAndContentAttributes</description>
+  </rule>
+
+  <rule key="ScriptTagWithContentBeforeIncludes">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ScriptTagWithContentBeforeIncludes]]></name>
+    <description>ScriptTagWithContentBeforeIncludes</description>
+  </rule>
+
+  <rule key="SealedMemberInSealedClass">
+    <priority>MAJOR</priority>
+    <name><![CDATA[SealedMemberInSealedClass]]></name>
+    <description>SealedMemberInSealedClass</description>
+  </rule>
+
+  <rule key="SimilarAnonymousTypeNearby">
+    <priority>MAJOR</priority>
+    <name><![CDATA[SimilarAnonymousTypeNearby]]></name>
+    <description>SimilarAnonymousTypeNearby</description>
+  </rule>
+
+  <rule key="SimplifyConditionalOperator">
+    <priority>MAJOR</priority>
+    <name><![CDATA[SimplifyConditionalOperator]]></name>
+    <description>SimplifyConditionalOperator</description>
+  </rule>
+
+  <rule key="SimplifyConditionalTernaryExpression">
+    <priority>MAJOR</priority>
+    <name><![CDATA[SimplifyConditionalTernaryExpression]]></name>
+    <description>SimplifyConditionalTernaryExpression</description>
+  </rule>
+
+  <rule key="SimplifyIIf">
+    <priority>MAJOR</priority>
+    <name><![CDATA[SimplifyIIf]]></name>
+    <description>SimplifyIIf</description>
+  </rule>
+
+  <rule key="SimplifyLinqExpression">
+    <priority>MAJOR</priority>
+    <name><![CDATA[SimplifyLinqExpression]]></name>
+    <description>SimplifyLinqExpression</description>
+  </rule>
+
+  <rule key="SpecifyACultureInStringConversionExplicitly">
+    <priority>MAJOR</priority>
+    <name><![CDATA[SpecifyACultureInStringConversionExplicitly]]></name>
+    <description>SpecifyACultureInStringConversionExplicitly</description>
+  </rule>
+
+  <rule key="SpecifyStringComparison">
+    <priority>MAJOR</priority>
+    <name><![CDATA[SpecifyStringComparison]]></name>
+    <description>SpecifyStringComparison</description>
+  </rule>
+
+  <rule key="StatementIsNotTerminated">
+    <priority>MAJOR</priority>
+    <name><![CDATA[StatementIsNotTerminated]]></name>
+    <description>StatementIsNotTerminated</description>
+  </rule>
+
+  <rule key="StaticFieldInGenericType">
+    <priority>MAJOR</priority>
+    <name><![CDATA[StaticFieldInGenericType]]></name>
+    <description>StaticFieldInGenericType</description>
+  </rule>
+
+  <rule key="StaticFieldInitializersReferesToFieldBelow">
+    <priority>MAJOR</priority>
+    <name><![CDATA[StaticFieldInitializersReferesToFieldBelow]]></name>
+    <description>StaticFieldInitializersReferesToFieldBelow</description>
+  </rule>
+
+  <rule key="StringCompareIsCultureSpecific.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[StringCompareIsCultureSpecific.1]]></name>
+    <description>StringCompareIsCultureSpecific.1</description>
+  </rule>
+
+  <rule key="StringCompareIsCultureSpecific.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[StringCompareIsCultureSpecific.2]]></name>
+    <description>StringCompareIsCultureSpecific.2</description>
+  </rule>
+
+  <rule key="StringCompareIsCultureSpecific.3">
+    <priority>MAJOR</priority>
+    <name><![CDATA[StringCompareIsCultureSpecific.3]]></name>
+    <description>StringCompareIsCultureSpecific.3</description>
+  </rule>
+
+  <rule key="StringCompareIsCultureSpecific.4">
+    <priority>MAJOR</priority>
+    <name><![CDATA[StringCompareIsCultureSpecific.4]]></name>
+    <description>StringCompareIsCultureSpecific.4</description>
+  </rule>
+
+  <rule key="StringCompareIsCultureSpecific.5">
+    <priority>MAJOR</priority>
+    <name><![CDATA[StringCompareIsCultureSpecific.5]]></name>
+    <description>StringCompareIsCultureSpecific.5</description>
+  </rule>
+
+  <rule key="StringCompareIsCultureSpecific.6">
+    <priority>MAJOR</priority>
+    <name><![CDATA[StringCompareIsCultureSpecific.6]]></name>
+    <description>StringCompareIsCultureSpecific.6</description>
+  </rule>
+
+  <rule key="StringCompareToIsCultureSpecific">
+    <priority>MAJOR</priority>
+    <name><![CDATA[StringCompareToIsCultureSpecific]]></name>
+    <description>StringCompareToIsCultureSpecific</description>
+  </rule>
+
+  <rule key="StringEndsWithIsCultureSpecific">
+    <priority>MAJOR</priority>
+    <name><![CDATA[StringEndsWithIsCultureSpecific]]></name>
+    <description>StringEndsWithIsCultureSpecific</description>
+  </rule>
+
+  <rule key="StringIndexOfIsCultureSpecific.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[StringIndexOfIsCultureSpecific.1]]></name>
+    <description>StringIndexOfIsCultureSpecific.1</description>
+  </rule>
+
+  <rule key="StringIndexOfIsCultureSpecific.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[StringIndexOfIsCultureSpecific.2]]></name>
+    <description>StringIndexOfIsCultureSpecific.2</description>
+  </rule>
+
+  <rule key="StringIndexOfIsCultureSpecific.3">
+    <priority>MAJOR</priority>
+    <name><![CDATA[StringIndexOfIsCultureSpecific.3]]></name>
+    <description>StringIndexOfIsCultureSpecific.3</description>
+  </rule>
+
+  <rule key="StringLastIndexOfIsCultureSpecific.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[StringLastIndexOfIsCultureSpecific.1]]></name>
+    <description>StringLastIndexOfIsCultureSpecific.1</description>
+  </rule>
+
+  <rule key="StringLastIndexOfIsCultureSpecific.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[StringLastIndexOfIsCultureSpecific.2]]></name>
+    <description>StringLastIndexOfIsCultureSpecific.2</description>
+  </rule>
+
+  <rule key="StringLastIndexOfIsCultureSpecific.3">
+    <priority>MAJOR</priority>
+    <name><![CDATA[StringLastIndexOfIsCultureSpecific.3]]></name>
+    <description>StringLastIndexOfIsCultureSpecific.3</description>
+  </rule>
+
+  <rule key="StringStartsWithIsCultureSpecific">
+    <priority>MAJOR</priority>
+    <name><![CDATA[StringStartsWithIsCultureSpecific]]></name>
+    <description>StringStartsWithIsCultureSpecific</description>
+  </rule>
+
+  <rule key="SuggestBaseTypeForParameter">
+    <priority>MAJOR</priority>
+    <name><![CDATA[SuggestBaseTypeForParameter]]></name>
+    <description>SuggestBaseTypeForParameter</description>
+  </rule>
+
+  <rule key="SuggestUseVarKeywordEverywhere">
+    <priority>MAJOR</priority>
+    <name><![CDATA[SuggestUseVarKeywordEverywhere]]></name>
+    <description>SuggestUseVarKeywordEverywhere</description>
+  </rule>
+
+  <rule key="SuggestUseVarKeywordEvident">
+    <priority>MAJOR</priority>
+    <name><![CDATA[SuggestUseVarKeywordEvident]]></name>
+    <description>SuggestUseVarKeywordEvident</description>
+  </rule>
+
+  <rule key="SuspiciousTypeConversion.Global">
+    <priority>MAJOR</priority>
+    <name><![CDATA[SuspiciousTypeConversion.Global]]></name>
+    <description>SuspiciousTypeConversion.Global</description>
+  </rule>
+
+  <rule key="SyntaxIsNotAllowed">
+    <priority>MAJOR</priority>
+    <name><![CDATA[SyntaxIsNotAllowed]]></name>
+    <description>SyntaxIsNotAllowed</description>
+  </rule>
+
+  <rule key="TailRecursiveCall">
+    <priority>MAJOR</priority>
+    <name><![CDATA[TailRecursiveCall]]></name>
+    <description>TailRecursiveCall</description>
+  </rule>
+
+  <rule key="TasksNotLoaded">
+    <priority>MAJOR</priority>
+    <name><![CDATA[TasksNotLoaded]]></name>
+    <description>TasksNotLoaded</description>
+  </rule>
+
+  <rule key="ThisInGlobalContext">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ThisInGlobalContext]]></name>
+    <description>ThisInGlobalContext</description>
+  </rule>
+
+  <rule key="ThreadStaticAtInstanceField">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ThreadStaticAtInstanceField]]></name>
+    <description>ThreadStaticAtInstanceField</description>
+  </rule>
+
+  <rule key="ThreadStaticFieldHasInitializer">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ThreadStaticFieldHasInitializer]]></name>
+    <description>ThreadStaticFieldHasInitializer</description>
+  </rule>
+
+  <rule key="ThrowMustBeFollowedByExpression">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ThrowMustBeFollowedByExpression]]></name>
+    <description>ThrowMustBeFollowedByExpression</description>
+  </rule>
+
+  <rule key="TooWideLocalVariableScope">
+    <priority>MAJOR</priority>
+    <name><![CDATA[TooWideLocalVariableScope]]></name>
+    <description>TooWideLocalVariableScope</description>
+  </rule>
+
+  <rule key="TryStatementsCanBeMerged">
+    <priority>MAJOR</priority>
+    <name><![CDATA[TryStatementsCanBeMerged]]></name>
+    <description>TryStatementsCanBeMerged</description>
+  </rule>
+
+  <rule key="TsDeclarationHides">
+    <priority>MAJOR</priority>
+    <name><![CDATA[TsDeclarationHides]]></name>
+    <description>TsDeclarationHides</description>
+  </rule>
+
+  <rule key="TsNotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[TsNotResolved]]></name>
+    <description>TsNotResolved</description>
+  </rule>
+
+  <rule key="TypeParameterCanBeVariant">
+    <priority>MAJOR</priority>
+    <name><![CDATA[TypeParameterCanBeVariant]]></name>
+    <description>TypeParameterCanBeVariant</description>
+  </rule>
+
+  <rule key="UknownTaskAttribute">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UknownTaskAttribute]]></name>
+    <description>UknownTaskAttribute</description>
+  </rule>
+
+  <rule key="UlTagContainsNonLiElements">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UlTagContainsNonLiElements]]></name>
+    <description>UlTagContainsNonLiElements</description>
+  </rule>
+
+  <rule key="UnassignedField.Compiler">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnassignedField.Compiler]]></name>
+    <description>UnassignedField.Compiler</description>
+  </rule>
+
+  <rule key="UnassignedField.Global">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnassignedField.Global]]></name>
+    <description>UnassignedField.Global</description>
+  </rule>
+
+  <rule key="UnassignedField.Local">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnassignedField.Local]]></name>
+    <description>UnassignedField.Local</description>
+  </rule>
+
+  <rule key="UnassignedReadonlyField">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnassignedReadonlyField]]></name>
+    <description>UnassignedReadonlyField</description>
+  </rule>
+
+  <rule key="UnassignedReadonlyField.Compiler">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnassignedReadonlyField.Compiler]]></name>
+    <description>UnassignedReadonlyField.Compiler</description>
+  </rule>
+
+  <rule key="UnclosedScript">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnclosedScript]]></name>
+    <description>UnclosedScript</description>
+  </rule>
+
+  <rule key="UnexpectedValue">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnexpectedValue]]></name>
+    <description>UnexpectedValue</description>
+  </rule>
+
+  <rule key="UnknownCssClass">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnknownCssClass]]></name>
+    <description>UnknownCssClass</description>
+  </rule>
+
+  <rule key="UnknownCssVendorExtension">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnknownCssVendorExtension]]></name>
+    <description>UnknownCssVendorExtension</description>
+  </rule>
+
+  <rule key="UnknownItemGroup">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnknownItemGroup]]></name>
+    <description>UnknownItemGroup</description>
+  </rule>
+
+  <rule key="UnknownMetadata">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnknownMetadata]]></name>
+    <description>UnknownMetadata</description>
+  </rule>
+
+  <rule key="UnknownOutputParameter">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnknownOutputParameter]]></name>
+    <description>UnknownOutputParameter</description>
+  </rule>
+
+  <rule key="UnknownProperty">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnknownProperty]]></name>
+    <description>UnknownProperty</description>
+  </rule>
+
+  <rule key="UnknownTarget">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnknownTarget]]></name>
+    <description>UnknownTarget</description>
+  </rule>
+
+  <rule key="UnknownTask">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnknownTask]]></name>
+    <description>UnknownTask</description>
+  </rule>
+
+  <rule key="UnreachableCode">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnreachableCode]]></name>
+    <description>UnreachableCode</description>
+  </rule>
+
+  <rule key="UnsupportedRequiredBaseType">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnsupportedRequiredBaseType]]></name>
+    <description>UnsupportedRequiredBaseType</description>
+  </rule>
+
+  <rule key="UnusedAnonymousMethodSignature">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnusedAnonymousMethodSignature]]></name>
+    <description>UnusedAnonymousMethodSignature</description>
+  </rule>
+
+  <rule key="UnusedAutoPropertyAccessor.Global">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnusedAutoPropertyAccessor.Global]]></name>
+    <description>UnusedAutoPropertyAccessor.Global</description>
+  </rule>
+
+  <rule key="UnusedAutoPropertyAccessor.Local">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnusedAutoPropertyAccessor.Local]]></name>
+    <description>UnusedAutoPropertyAccessor.Local</description>
+  </rule>
+
+  <rule key="UnusedField.Compiler">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnusedField.Compiler]]></name>
+    <description>UnusedField.Compiler</description>
+  </rule>
+
+  <rule key="UnusedImportClause">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnusedImportClause]]></name>
+    <description>UnusedImportClause</description>
+  </rule>
+
+  <rule key="UnusedLabel">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnusedLabel]]></name>
+    <description>UnusedLabel</description>
+  </rule>
+
+  <rule key="UnusedLocals">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnusedLocals]]></name>
+    <description>UnusedLocals</description>
+  </rule>
+
+  <rule key="UnusedMember.Global">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnusedMember.Global]]></name>
+    <description>UnusedMember.Global</description>
+  </rule>
+
+  <rule key="UnusedMember.Local">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnusedMember.Local]]></name>
+    <description>UnusedMember.Local</description>
+  </rule>
+
+  <rule key="UnusedMemberHiearchy.Global">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnusedMemberHiearchy.Global]]></name>
+    <description>UnusedMemberHiearchy.Global</description>
+  </rule>
+
+  <rule key="UnusedMemberHiearchy.Local">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnusedMemberHiearchy.Local]]></name>
+    <description>UnusedMemberHiearchy.Local</description>
+  </rule>
+
+  <rule key="UnusedMemberInSuper.Global">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnusedMemberInSuper.Global]]></name>
+    <description>UnusedMemberInSuper.Global</description>
+  </rule>
+
+  <rule key="UnusedMemberInSuper.Local">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnusedMemberInSuper.Local]]></name>
+    <description>UnusedMemberInSuper.Local</description>
+  </rule>
+
+  <rule key="UnusedMethodReturnValue.Global">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnusedMethodReturnValue.Global]]></name>
+    <description>UnusedMethodReturnValue.Global</description>
+  </rule>
+
+  <rule key="UnusedMethodReturnValue.Local">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnusedMethodReturnValue.Local]]></name>
+    <description>UnusedMethodReturnValue.Local</description>
+  </rule>
+
+  <rule key="UnusedParameter">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnusedParameter]]></name>
+    <description>UnusedParameter</description>
+  </rule>
+
+  <rule key="UnusedParameter.Global">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnusedParameter.Global]]></name>
+    <description>UnusedParameter.Global</description>
+  </rule>
+
+  <rule key="UnusedParameter.Local">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnusedParameter.Local]]></name>
+    <description>UnusedParameter.Local</description>
+  </rule>
+
+  <rule key="UnusedProperty">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnusedProperty]]></name>
+    <description>UnusedProperty</description>
+  </rule>
+
+  <rule key="UnusedTypeParameter">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnusedTypeParameter]]></name>
+    <description>UnusedTypeParameter</description>
+  </rule>
+
+  <rule key="UnusedVariable">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnusedVariable]]></name>
+    <description>UnusedVariable</description>
+  </rule>
+
+  <rule key="UnusedVariable.Compiler">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UnusedVariable.Compiler]]></name>
+    <description>UnusedVariable.Compiler</description>
+  </rule>
+
+  <rule key="UsageOfDefinitelyUnassignedValue">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UsageOfDefinitelyUnassignedValue]]></name>
+    <description>UsageOfDefinitelyUnassignedValue</description>
+  </rule>
+
+  <rule key="UsageOfPossiblyUnassignedValue">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UsageOfPossiblyUnassignedValue]]></name>
+    <description>UsageOfPossiblyUnassignedValue</description>
+  </rule>
+
+  <rule key="UseArrayCreationExpression.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UseArrayCreationExpression.1]]></name>
+    <description>UseArrayCreationExpression.1</description>
+  </rule>
+
+  <rule key="UseArrayCreationExpression.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UseArrayCreationExpression.2]]></name>
+    <description>UseArrayCreationExpression.2</description>
+  </rule>
+
+  <rule key="UseIndexedProperty">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UseIndexedProperty]]></name>
+    <description>UseIndexedProperty</description>
+  </rule>
+
+  <rule key="UseIsOperator.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UseIsOperator.1]]></name>
+    <description>UseIsOperator.1</description>
+  </rule>
+
+  <rule key="UseIsOperator.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UseIsOperator.2]]></name>
+    <description>UseIsOperator.2</description>
+  </rule>
+
+  <rule key="UseMethodAny.0">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UseMethodAny.0]]></name>
+    <description>UseMethodAny.0</description>
+  </rule>
+
+  <rule key="UseMethodAny.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UseMethodAny.1]]></name>
+    <description>UseMethodAny.1</description>
+  </rule>
+
+  <rule key="UseMethodAny.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UseMethodAny.2]]></name>
+    <description>UseMethodAny.2</description>
+  </rule>
+
+  <rule key="UseMethodAny.3">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UseMethodAny.3]]></name>
+    <description>UseMethodAny.3</description>
+  </rule>
+
+  <rule key="UseMethodAny.4">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UseMethodAny.4]]></name>
+    <description>UseMethodAny.4</description>
+  </rule>
+
+  <rule key="UseMethodIsInstanceOfType">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UseMethodIsInstanceOfType]]></name>
+    <description>UseMethodIsInstanceOfType</description>
+  </rule>
+
+  <rule key="UseObjectOrCollectionInitializer">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UseObjectOrCollectionInitializer]]></name>
+    <description>UseObjectOrCollectionInitializer</description>
+  </rule>
+
+  <rule key="UseOfImplicitGlobalInFunctionScope">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UseOfImplicitGlobalInFunctionScope]]></name>
+    <description>UseOfImplicitGlobalInFunctionScope</description>
+  </rule>
+
+  <rule key="UsingOfReservedWord">
+    <priority>MAJOR</priority>
+    <name><![CDATA[UsingOfReservedWord]]></name>
+    <description>UsingOfReservedWord</description>
+  </rule>
+
+  <rule key="ValueParameterNotUsed">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ValueParameterNotUsed]]></name>
+    <description>ValueParameterNotUsed</description>
+  </rule>
+
+  <rule key="VBCheckForReferenceEqualityInstead.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBCheckForReferenceEqualityInstead.1]]></name>
+    <description>VBCheckForReferenceEqualityInstead.1</description>
+  </rule>
+
+  <rule key="VBCheckForReferenceEqualityInstead.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBCheckForReferenceEqualityInstead.2]]></name>
+    <description>VBCheckForReferenceEqualityInstead.2</description>
+  </rule>
+
+  <rule key="VBPossibleMistakenArgument">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBPossibleMistakenArgument]]></name>
+    <description>VBPossibleMistakenArgument</description>
+  </rule>
+
+  <rule key="VBPossibleMistakenCallToGetType.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBPossibleMistakenCallToGetType.1]]></name>
+    <description>VBPossibleMistakenCallToGetType.1</description>
+  </rule>
+
+  <rule key="VBPossibleMistakenCallToGetType.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBPossibleMistakenCallToGetType.2]]></name>
+    <description>VBPossibleMistakenCallToGetType.2</description>
+  </rule>
+
+  <rule key="VBRemoveToList.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBRemoveToList.1]]></name>
+    <description>VBRemoveToList.1</description>
+  </rule>
+
+  <rule key="VBRemoveToList.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBRemoveToList.2]]></name>
+    <description>VBRemoveToList.2</description>
+  </rule>
+
+  <rule key="VBReplaceWithFirstOrDefault">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithFirstOrDefault]]></name>
+    <description>VBReplaceWithFirstOrDefault</description>
+  </rule>
+
+  <rule key="VBReplaceWithLastOrDefault">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithLastOrDefault]]></name>
+    <description>VBReplaceWithLastOrDefault</description>
+  </rule>
+
+  <rule key="VBReplaceWithOfType.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithOfType.1]]></name>
+    <description>VBReplaceWithOfType.1</description>
+  </rule>
+
+  <rule key="VBReplaceWithOfType.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithOfType.2]]></name>
+    <description>VBReplaceWithOfType.2</description>
+  </rule>
+
+  <rule key="VBReplaceWithOfType.Any.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithOfType.Any.1]]></name>
+    <description>VBReplaceWithOfType.Any.1</description>
+  </rule>
+
+  <rule key="VBReplaceWithOfType.Any.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithOfType.Any.2]]></name>
+    <description>VBReplaceWithOfType.Any.2</description>
+  </rule>
+
+  <rule key="VBReplaceWithOfType.Count.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithOfType.Count.1]]></name>
+    <description>VBReplaceWithOfType.Count.1</description>
+  </rule>
+
+  <rule key="VBReplaceWithOfType.Count.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithOfType.Count.2]]></name>
+    <description>VBReplaceWithOfType.Count.2</description>
+  </rule>
+
+  <rule key="VBReplaceWithOfType.First.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithOfType.First.1]]></name>
+    <description>VBReplaceWithOfType.First.1</description>
+  </rule>
+
+  <rule key="VBReplaceWithOfType.First.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithOfType.First.2]]></name>
+    <description>VBReplaceWithOfType.First.2</description>
+  </rule>
+
+  <rule key="VBReplaceWithOfType.FirstOrDefault.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithOfType.FirstOrDefault.1]]></name>
+    <description>VBReplaceWithOfType.FirstOrDefault.1</description>
+  </rule>
+
+  <rule key="VBReplaceWithOfType.FirstOrDefault.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithOfType.FirstOrDefault.2]]></name>
+    <description>VBReplaceWithOfType.FirstOrDefault.2</description>
+  </rule>
+
+  <rule key="VBReplaceWithOfType.Last.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithOfType.Last.1]]></name>
+    <description>VBReplaceWithOfType.Last.1</description>
+  </rule>
+
+  <rule key="VBReplaceWithOfType.Last.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithOfType.Last.2]]></name>
+    <description>VBReplaceWithOfType.Last.2</description>
+  </rule>
+
+  <rule key="VBReplaceWithOfType.LastOrDefault.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithOfType.LastOrDefault.1]]></name>
+    <description>VBReplaceWithOfType.LastOrDefault.1</description>
+  </rule>
+
+  <rule key="VBReplaceWithOfType.LastOrDefault.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithOfType.LastOrDefault.2]]></name>
+    <description>VBReplaceWithOfType.LastOrDefault.2</description>
+  </rule>
+
+  <rule key="VBReplaceWithOfType.Single.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithOfType.Single.1]]></name>
+    <description>VBReplaceWithOfType.Single.1</description>
+  </rule>
+
+  <rule key="VBReplaceWithOfType.Single.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithOfType.Single.2]]></name>
+    <description>VBReplaceWithOfType.Single.2</description>
+  </rule>
+
+  <rule key="VBReplaceWithOfType.SingleOrDefault.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithOfType.SingleOrDefault.1]]></name>
+    <description>VBReplaceWithOfType.SingleOrDefault.1</description>
+  </rule>
+
+  <rule key="VBReplaceWithOfType.SingleOrDefault.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithOfType.SingleOrDefault.2]]></name>
+    <description>VBReplaceWithOfType.SingleOrDefault.2</description>
+  </rule>
+
+  <rule key="VBReplaceWithOfType.Where">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithOfType.Where]]></name>
+    <description>VBReplaceWithOfType.Where</description>
+  </rule>
+
+  <rule key="VBReplaceWithSingleAssignment.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithSingleAssignment.1]]></name>
+    <description>VBReplaceWithSingleAssignment.1</description>
+  </rule>
+
+  <rule key="VBReplaceWithSingleAssignment.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithSingleAssignment.2]]></name>
+    <description>VBReplaceWithSingleAssignment.2</description>
+  </rule>
+
+  <rule key="VBReplaceWithSingleCallToAny">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithSingleCallToAny]]></name>
+    <description>VBReplaceWithSingleCallToAny</description>
+  </rule>
+
+  <rule key="VBReplaceWithSingleCallToCount">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithSingleCallToCount]]></name>
+    <description>VBReplaceWithSingleCallToCount</description>
+  </rule>
+
+  <rule key="VBReplaceWithSingleCallToFirst">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithSingleCallToFirst]]></name>
+    <description>VBReplaceWithSingleCallToFirst</description>
+  </rule>
+
+  <rule key="VBReplaceWithSingleCallToFirstOrDefault">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithSingleCallToFirstOrDefault]]></name>
+    <description>VBReplaceWithSingleCallToFirstOrDefault</description>
+  </rule>
+
+  <rule key="VBReplaceWithSingleCallToLast">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithSingleCallToLast]]></name>
+    <description>VBReplaceWithSingleCallToLast</description>
+  </rule>
+
+  <rule key="VBReplaceWithSingleCallToLastOrDefault">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithSingleCallToLastOrDefault]]></name>
+    <description>VBReplaceWithSingleCallToLastOrDefault</description>
+  </rule>
+
+  <rule key="VBReplaceWithSingleCallToSingle">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithSingleCallToSingle]]></name>
+    <description>VBReplaceWithSingleCallToSingle</description>
+  </rule>
+
+  <rule key="VBReplaceWithSingleCallToSingleOrDefault">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithSingleCallToSingleOrDefault]]></name>
+    <description>VBReplaceWithSingleCallToSingleOrDefault</description>
+  </rule>
+
+  <rule key="VBReplaceWithSingleOrDefault">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBReplaceWithSingleOrDefault]]></name>
+    <description>VBReplaceWithSingleOrDefault</description>
+  </rule>
+
+  <rule key="VBSimplifyLinqExpression.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBSimplifyLinqExpression.1]]></name>
+    <description>VBSimplifyLinqExpression.1</description>
+  </rule>
+
+  <rule key="VBSimplifyLinqExpression.10">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBSimplifyLinqExpression.10]]></name>
+    <description>VBSimplifyLinqExpression.10</description>
+  </rule>
+
+  <rule key="VBSimplifyLinqExpression.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBSimplifyLinqExpression.2]]></name>
+    <description>VBSimplifyLinqExpression.2</description>
+  </rule>
+
+  <rule key="VBSimplifyLinqExpression.3">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBSimplifyLinqExpression.3]]></name>
+    <description>VBSimplifyLinqExpression.3</description>
+  </rule>
+
+  <rule key="VBSimplifyLinqExpression.4">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBSimplifyLinqExpression.4]]></name>
+    <description>VBSimplifyLinqExpression.4</description>
+  </rule>
+
+  <rule key="VBSimplifyLinqExpression.5">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBSimplifyLinqExpression.5]]></name>
+    <description>VBSimplifyLinqExpression.5</description>
+  </rule>
+
+  <rule key="VBSimplifyLinqExpression.6">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBSimplifyLinqExpression.6]]></name>
+    <description>VBSimplifyLinqExpression.6</description>
+  </rule>
+
+  <rule key="VBSimplifyLinqExpression.7">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBSimplifyLinqExpression.7]]></name>
+    <description>VBSimplifyLinqExpression.7</description>
+  </rule>
+
+  <rule key="VBSimplifyLinqExpression.8">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBSimplifyLinqExpression.8]]></name>
+    <description>VBSimplifyLinqExpression.8</description>
+  </rule>
+
+  <rule key="VBSimplifyLinqExpression.9">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBSimplifyLinqExpression.9]]></name>
+    <description>VBSimplifyLinqExpression.9</description>
+  </rule>
+
+  <rule key="VBStringCompareIsCultureSpecific.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBStringCompareIsCultureSpecific.1]]></name>
+    <description>VBStringCompareIsCultureSpecific.1</description>
+  </rule>
+
+  <rule key="VBStringCompareIsCultureSpecific.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBStringCompareIsCultureSpecific.2]]></name>
+    <description>VBStringCompareIsCultureSpecific.2</description>
+  </rule>
+
+  <rule key="VBStringCompareIsCultureSpecific.3">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBStringCompareIsCultureSpecific.3]]></name>
+    <description>VBStringCompareIsCultureSpecific.3</description>
+  </rule>
+
+  <rule key="VBStringCompareIsCultureSpecific.4">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBStringCompareIsCultureSpecific.4]]></name>
+    <description>VBStringCompareIsCultureSpecific.4</description>
+  </rule>
+
+  <rule key="VBStringCompareIsCultureSpecific.5">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBStringCompareIsCultureSpecific.5]]></name>
+    <description>VBStringCompareIsCultureSpecific.5</description>
+  </rule>
+
+  <rule key="VBStringCompareIsCultureSpecific.6">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBStringCompareIsCultureSpecific.6]]></name>
+    <description>VBStringCompareIsCultureSpecific.6</description>
+  </rule>
+
+  <rule key="VBStringCompareToIsCultureSpecific">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBStringCompareToIsCultureSpecific]]></name>
+    <description>VBStringCompareToIsCultureSpecific</description>
+  </rule>
+
+  <rule key="VBStringEndsWithIsCultureSpecific">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBStringEndsWithIsCultureSpecific]]></name>
+    <description>VBStringEndsWithIsCultureSpecific</description>
+  </rule>
+
+  <rule key="VBStringIndexOfIsCultureSpecific.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBStringIndexOfIsCultureSpecific.1]]></name>
+    <description>VBStringIndexOfIsCultureSpecific.1</description>
+  </rule>
+
+  <rule key="VBStringIndexOfIsCultureSpecific.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBStringIndexOfIsCultureSpecific.2]]></name>
+    <description>VBStringIndexOfIsCultureSpecific.2</description>
+  </rule>
+
+  <rule key="VBStringIndexOfIsCultureSpecific.3">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBStringIndexOfIsCultureSpecific.3]]></name>
+    <description>VBStringIndexOfIsCultureSpecific.3</description>
+  </rule>
+
+  <rule key="VBStringLastIndexOfIsCultureSpecific.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBStringLastIndexOfIsCultureSpecific.1]]></name>
+    <description>VBStringLastIndexOfIsCultureSpecific.1</description>
+  </rule>
+
+  <rule key="VBStringLastIndexOfIsCultureSpecific.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBStringLastIndexOfIsCultureSpecific.2]]></name>
+    <description>VBStringLastIndexOfIsCultureSpecific.2</description>
+  </rule>
+
+  <rule key="VBStringLastIndexOfIsCultureSpecific.3">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBStringLastIndexOfIsCultureSpecific.3]]></name>
+    <description>VBStringLastIndexOfIsCultureSpecific.3</description>
+  </rule>
+
+  <rule key="VBStringStartsWithIsCultureSpecific">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBStringStartsWithIsCultureSpecific]]></name>
+    <description>VBStringStartsWithIsCultureSpecific</description>
+  </rule>
+
+  <rule key="VbUnreachableCode">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VbUnreachableCode]]></name>
+    <description>VbUnreachableCode</description>
+  </rule>
+
+  <rule key="VBUseArrayCreationExpression.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBUseArrayCreationExpression.1]]></name>
+    <description>VBUseArrayCreationExpression.1</description>
+  </rule>
+
+  <rule key="VBUseArrayCreationExpression.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBUseArrayCreationExpression.2]]></name>
+    <description>VBUseArrayCreationExpression.2</description>
+  </rule>
+
+  <rule key="VBUseFirstInstead">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBUseFirstInstead]]></name>
+    <description>VBUseFirstInstead</description>
+  </rule>
+
+  <rule key="VBUseMethodAny.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBUseMethodAny.1]]></name>
+    <description>VBUseMethodAny.1</description>
+  </rule>
+
+  <rule key="VBUseMethodAny.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBUseMethodAny.2]]></name>
+    <description>VBUseMethodAny.2</description>
+  </rule>
+
+  <rule key="VBUseMethodAny.3">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBUseMethodAny.3]]></name>
+    <description>VBUseMethodAny.3</description>
+  </rule>
+
+  <rule key="VBUseMethodAny.4">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBUseMethodAny.4]]></name>
+    <description>VBUseMethodAny.4</description>
+  </rule>
+
+  <rule key="VBUseMethodAny.5">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBUseMethodAny.5]]></name>
+    <description>VBUseMethodAny.5</description>
+  </rule>
+
+  <rule key="VBUseMethodIsInstanceOfType">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBUseMethodIsInstanceOfType]]></name>
+    <description>VBUseMethodIsInstanceOfType</description>
+  </rule>
+
+  <rule key="VBUseTypeOfIsOperator.1">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBUseTypeOfIsOperator.1]]></name>
+    <description>VBUseTypeOfIsOperator.1</description>
+  </rule>
+
+  <rule key="VBUseTypeOfIsOperator.2">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBUseTypeOfIsOperator.2]]></name>
+    <description>VBUseTypeOfIsOperator.2</description>
+  </rule>
+
+  <rule key="VBWarnings::BC40000">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBWarnings::BC40000]]></name>
+    <description>VBWarnings::BC40000</description>
+  </rule>
+
+  <rule key="VBWarnings::BC400005">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBWarnings::BC400005]]></name>
+    <description>VBWarnings::BC400005</description>
+  </rule>
+
+  <rule key="VBWarnings::BC40008">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBWarnings::BC40008]]></name>
+    <description>VBWarnings::BC40008</description>
+  </rule>
+
+  <rule key="VBWarnings::BC40056">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBWarnings::BC40056]]></name>
+    <description>VBWarnings::BC40056</description>
+  </rule>
+
+  <rule key="VBWarnings::BC42016">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBWarnings::BC42016]]></name>
+    <description>VBWarnings::BC42016</description>
+  </rule>
+
+  <rule key="VBWarnings::BC42025">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBWarnings::BC42025]]></name>
+    <description>VBWarnings::BC42025</description>
+  </rule>
+
+  <rule key="VBWarnings::BC42104">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBWarnings::BC42104]]></name>
+    <description>VBWarnings::BC42104</description>
+  </rule>
+
+  <rule key="VBWarnings::BC42105">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBWarnings::BC42105]]></name>
+    <description>VBWarnings::BC42105</description>
+  </rule>
+
+  <rule key="VBWarnings::BC42304">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBWarnings::BC42304]]></name>
+    <description>VBWarnings::BC42304</description>
+  </rule>
+
+  <rule key="VBWarnings::BC42309">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBWarnings::BC42309]]></name>
+    <description>VBWarnings::BC42309</description>
+  </rule>
+
+  <rule key="VBWarnings::BC42322">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBWarnings::BC42322]]></name>
+    <description>VBWarnings::BC42322</description>
+  </rule>
+
+  <rule key="VBWarnings::BC42349">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBWarnings::BC42349]]></name>
+    <description>VBWarnings::BC42349</description>
+  </rule>
+
+  <rule key="VBWarnings::BC42353">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBWarnings::BC42353]]></name>
+    <description>VBWarnings::BC42353</description>
+  </rule>
+
+  <rule key="VBWarnings::BC42356">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBWarnings::BC42356]]></name>
+    <description>VBWarnings::BC42356</description>
+  </rule>
+
+  <rule key="VBWarnings::BC42358">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBWarnings::BC42358]]></name>
+    <description>VBWarnings::BC42358</description>
+  </rule>
+
+  <rule key="VBWarnings::WME006">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VBWarnings::WME006]]></name>
+    <description>VBWarnings::WME006</description>
+  </rule>
+
+  <rule key="VirtualMemberNeverOverriden.Global">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VirtualMemberNeverOverriden.Global]]></name>
+    <description>VirtualMemberNeverOverriden.Global</description>
+  </rule>
+
+  <rule key="VirtualMemberNeverOverriden.Local">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VirtualMemberNeverOverriden.Local]]></name>
+    <description>VirtualMemberNeverOverriden.Local</description>
+  </rule>
+
+  <rule key="WebConfig.ModuleQualificationResolve">
+    <priority>MAJOR</priority>
+    <name><![CDATA[WebConfig.ModuleQualificationResolve]]></name>
+    <description>WebConfig.ModuleQualificationResolve</description>
+  </rule>
+
+  <rule key="WebConfig.WebConfigPathWarning">
+    <priority>MAJOR</priority>
+    <name><![CDATA[WebConfig.WebConfigPathWarning]]></name>
+    <description>WebConfig.WebConfigPathWarning</description>
+  </rule>
+
+  <rule key="Web.IgnoredPath">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Web.IgnoredPath]]></name>
+    <description>Web.IgnoredPath</description>
+  </rule>
+
+  <rule key="Web.MappedPath">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Web.MappedPath]]></name>
+    <description>Web.MappedPath</description>
+  </rule>
+
+  <rule key="WebConfig.RedundantAddNamespaceTag">
+    <priority>MAJOR</priority>
+    <name><![CDATA[WebConfig.RedundantAddNamespaceTag]]></name>
+    <description>WebConfig.RedundantAddNamespaceTag</description>
+  </rule>
+
+  <rule key="WebConfig.RedundantLocationTag">
+    <priority>MAJOR</priority>
+    <name><![CDATA[WebConfig.RedundantLocationTag]]></name>
+    <description>WebConfig.RedundantLocationTag</description>
+  </rule>
+
+  <rule key="WebConfig.TagPrefixRedundant">
+    <priority>MAJOR</priority>
+    <name><![CDATA[WebConfig.TagPrefixRedundant]]></name>
+    <description>WebConfig.TagPrefixRedundant</description>
+  </rule>
+
+  <rule key="WebConfig.UnusedAddTag">
+    <priority>MAJOR</priority>
+    <name><![CDATA[WebConfig.UnusedAddTag]]></name>
+    <description>WebConfig.UnusedAddTag</description>
+  </rule>
+
+  <rule key="WebConfig.UnusedElementDueToConfigSourceAttribute">
+    <priority>MAJOR</priority>
+    <name><![CDATA[WebConfig.UnusedElementDueToConfigSourceAttribute]]></name>
+    <description>WebConfig.UnusedElementDueToConfigSourceAttribute</description>
+  </rule>
+
+  <rule key="WebConfig.UnusedRemoveOrClearTag">
+    <priority>MAJOR</priority>
+    <name><![CDATA[WebConfig.UnusedRemoveOrClearTag]]></name>
+    <description>WebConfig.UnusedRemoveOrClearTag</description>
+  </rule>
+
+  <rule key="WrongExpressionStatement">
+    <priority>MAJOR</priority>
+    <name><![CDATA[WrongExpressionStatement]]></name>
+    <description>WrongExpressionStatement</description>
+  </rule>
+
+  <rule key="WrongMetadataUse">
+    <priority>MAJOR</priority>
+    <name><![CDATA[WrongMetadataUse]]></name>
+    <description>WrongMetadataUse</description>
+  </rule>
+
+  <rule key="Xaml.BindingWithContextNotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.BindingWithContextNotResolved]]></name>
+    <description>Xaml.BindingWithContextNotResolved</description>
+  </rule>
+
+  <rule key="Xaml.BindingWithoutContextNotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.BindingWithoutContextNotResolved]]></name>
+    <description>Xaml.BindingWithoutContextNotResolved</description>
+  </rule>
+
+  <rule key="Xaml.ConstructorWarning">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.ConstructorWarning]]></name>
+    <description>Xaml.ConstructorWarning</description>
+  </rule>
+
+  <rule key="Xaml.DependencyPropertyResolveError">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.DependencyPropertyResolveError]]></name>
+    <description>Xaml.DependencyPropertyResolveError</description>
+  </rule>
+
+  <rule key="Xaml.DuplicateStyleSetter">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.DuplicateStyleSetter]]></name>
+    <description>Xaml.DuplicateStyleSetter</description>
+  </rule>
+
+  <rule key="Xaml.DynamicResourceError">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.DynamicResourceError]]></name>
+    <description>Xaml.DynamicResourceError</description>
+  </rule>
+
+  <rule key="Xaml.ElementNameReferenceNotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.ElementNameReferenceNotResolved]]></name>
+    <description>Xaml.ElementNameReferenceNotResolved</description>
+  </rule>
+
+  <rule key="Xaml.IgnoredPathHighlighting">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.IgnoredPathHighlighting]]></name>
+    <description>Xaml.IgnoredPathHighlighting</description>
+  </rule>
+
+  <rule key="Xaml.IndexOutOfGridDefinition">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.IndexOutOfGridDefinition]]></name>
+    <description>Xaml.IndexOutOfGridDefinition</description>
+  </rule>
+
+  <rule key="Xaml.InvalidMemberType">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.InvalidMemberType]]></name>
+    <description>Xaml.InvalidMemberType</description>
+  </rule>
+
+  <rule key="Xaml.InvalidResourceTargetType">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.InvalidResourceTargetType]]></name>
+    <description>Xaml.InvalidResourceTargetType</description>
+  </rule>
+
+  <rule key="Xaml.InvalidResourceType">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.InvalidResourceType]]></name>
+    <description>Xaml.InvalidResourceType</description>
+  </rule>
+
+  <rule key="Xaml.InvalidType">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.InvalidType]]></name>
+    <description>Xaml.InvalidType</description>
+  </rule>
+
+  <rule key="Xaml.LanguageLevel">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.LanguageLevel]]></name>
+    <description>Xaml.LanguageLevel</description>
+  </rule>
+
+  <rule key="Xaml.MappedPathHighlighting">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.MappedPathHighlighting]]></name>
+    <description>Xaml.MappedPathHighlighting</description>
+  </rule>
+
+  <rule key="Xaml.MissingGridIndex">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.MissingGridIndex]]></name>
+    <description>Xaml.MissingGridIndex</description>
+  </rule>
+
+  <rule key="Xaml.PathError">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.PathError]]></name>
+    <description>Xaml.PathError</description>
+  </rule>
+
+  <rule key="Xaml.RedundantAttachedProperty">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.RedundantAttachedProperty]]></name>
+    <description>Xaml.RedundantAttachedProperty</description>
+  </rule>
+
+  <rule key="Xaml.RedundantCollectionProperty">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.RedundantCollectionProperty]]></name>
+    <description>Xaml.RedundantCollectionProperty</description>
+  </rule>
+
+  <rule key="Xaml.RedundantFreezeAttribute">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.RedundantFreezeAttribute]]></name>
+    <description>Xaml.RedundantFreezeAttribute</description>
+  </rule>
+
+  <rule key="Xaml.RedundantGridDefinitions">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.RedundantGridDefinitions]]></name>
+    <description>Xaml.RedundantGridDefinitions</description>
+  </rule>
+
+  <rule key="Xaml.RedundantGridSpan">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.RedundantGridSpan]]></name>
+    <description>Xaml.RedundantGridSpan</description>
+  </rule>
+
+  <rule key="Xaml.RedundantModifiersAttribute">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.RedundantModifiersAttribute]]></name>
+    <description>Xaml.RedundantModifiersAttribute</description>
+  </rule>
+
+  <rule key="Xaml.RedundantNameAttribute">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.RedundantNameAttribute]]></name>
+    <description>Xaml.RedundantNameAttribute</description>
+  </rule>
+
+  <rule key="Xaml.RedundantNamespaceAlias">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.RedundantNamespaceAlias]]></name>
+    <description>Xaml.RedundantNamespaceAlias</description>
+  </rule>
+
+  <rule key="Xaml.RedundantPropertyTypeQualifier">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.RedundantPropertyTypeQualifier]]></name>
+    <description>Xaml.RedundantPropertyTypeQualifier</description>
+  </rule>
+
+  <rule key="Xaml.RedundantResource">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.RedundantResource]]></name>
+    <description>Xaml.RedundantResource</description>
+  </rule>
+
+  <rule key="Xaml.RedundantStyledValue">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.RedundantStyledValue]]></name>
+    <description>Xaml.RedundantStyledValue</description>
+  </rule>
+
+  <rule key="Xaml.RoutedEventResolveError">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.RoutedEventResolveError]]></name>
+    <description>Xaml.RoutedEventResolveError</description>
+  </rule>
+
+  <rule key="Xaml.StaticResourceNotResolved">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.StaticResourceNotResolved]]></name>
+    <description>Xaml.StaticResourceNotResolved</description>
+  </rule>
+
+  <rule key="Xaml.StyleInvalidTargetType">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.StyleInvalidTargetType]]></name>
+    <description>Xaml.StyleInvalidTargetType</description>
+  </rule>
+
+  <rule key="Xaml.XamlRelativeSourceDefaultModeWarningHighlighting">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.XamlRelativeSourceDefaultModeWarningHighlighting]]></name>
+    <description>Xaml.XamlRelativeSourceDefaultModeWarningHighlighting</description>
+  </rule>
+
+  <rule key="Xaml.XKeyAttributeDisallowed">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Xaml.XKeyAttributeDisallowed]]></name>
+    <description>Xaml.XKeyAttributeDisallowed</description>
+  </rule>
+
+  <rule key="XmlDocCommentSyntaxProblem">
+    <priority>MAJOR</priority>
+    <name><![CDATA[XmlDocCommentSyntaxProblem]]></name>
+    <description>XmlDocCommentSyntaxProblem</description>
+  </rule>
+
+</rules>

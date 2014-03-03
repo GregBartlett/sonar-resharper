@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report ToolsVersion="8.1">
+  <Information>
+    <Solution>CSharpPlayground.sln</Solution>
+    <InspectionScope>
+      <Element>9B2650A2-C7C6-435F-80D6-D6C7B522FFF9</Element>
+    </InspectionScope>
+  </Information>
+  <IssueTypes>
+    <IssueType Id="RedundantUsingDirective" Category="Redundancies in Code" Description="Redundant using directive" Severity="WARNING" WikiUrl="http://confluence.jetbrains.net/display/ReSharper/Redundant+using+directive" />
+  </IssueTypes>
+  <Issues>
+    <Project Name="MyLibrary">
+      <Issue TypeId="RedundantUsingDirective" File="MyLibrary\Properties\AssemblyInfo.cs" Offset="26-64" Line="foo" Message="Using directive is not required by the code and can be safely removed" />
+    </Project>
+  </Issues>
+</Report>
