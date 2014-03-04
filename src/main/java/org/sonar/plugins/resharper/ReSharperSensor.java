@@ -92,20 +92,21 @@ public class ReSharperSensor implements Sensor {
       settings.getString(reSharperConf.inspectCodePropertyKey()), settings.getString(reSharperConf.projectNamePropertyKey()),
       settings.getString(reSharperConf.solutionFilePropertyKey()), rulesetFile, reportFile);
 
+    File solutionFile = new File(settings.getString(reSharperConf.solutionFilePropertyKey()));
     for (ReSharperIssue issue : parser.parse(reportFile)) {
       if (!hasFileAndLine(issue)) {
         logSkippedIssue(issue, "which has no associated file.");
         continue;
       }
 
-      File solutionFile = new File(settings.getString(reSharperConf.solutionFilePropertyKey()));
-      org.sonar.api.resources.File sonarFile = fileProvider.fromIOFile(solutionFile, issue.filePath());
+      File file = fileProvider.fileInSolution(solutionFile, issue.filePath());
+      org.sonar.api.resources.File sonarFile = fileProvider.fromIOFile(file);
       if (sonarFile == null) {
-        logSkippedIssueOutsideOfSonarQube(issue, new File("")/* FIXME */);
+        logSkippedIssueOutsideOfSonarQube(issue, file);
       } else if (reSharperConf.languageKey().equals(sonarFile.getLanguage().getKey())) {
         Issuable issuable = perspectives.as(Issuable.class, sonarFile);
         if (issuable == null) {
-          logSkippedIssueOutsideOfSonarQube(issue, new File("")/* FIXME */);
+          logSkippedIssueOutsideOfSonarQube(issue, file);
         } else {
           issuable.addIssue(
             issuable.newIssueBuilder()

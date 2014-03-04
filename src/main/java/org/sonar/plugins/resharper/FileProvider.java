@@ -34,9 +34,13 @@ public class FileProvider {
     this.context = context;
   }
 
-  public org.sonar.api.resources.File fromIOFile(File solutionFile, String filePath) {
+  public File fileInSolution(File solutionFile, String filePath) {
+    return new File(solutionFile.getParentFile(), filePath.replace('\\', '/'));
+  }
+
+  public org.sonar.api.resources.File fromIOFile(File file) {
     // Workaround SonarQube < 4.2, the context should not be required
-    return context.getResource(org.sonar.api.resources.File.fromIOFile(new File(solutionFile.getParentFile(), filePath.replace('\\', '/')), project));
+    return context.getResource(org.sonar.api.resources.File.fromIOFile(file, project));
   }
 
 }

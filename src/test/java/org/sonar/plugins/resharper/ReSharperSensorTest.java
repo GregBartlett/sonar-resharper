@@ -96,15 +96,25 @@ public class ReSharperSensorTest {
     when(settings.getString("solutionFilePropertyKey")).thenReturn("CSharpPlayground.sln");
     when(settings.getString("inspectCodePropertyKey")).thenReturn("inspectcode.exe");
 
+    File fileNotInSonarQube = mock(File.class);
+    File fooFileWithIssuable = mock(File.class);
+    File fooFileWithoutIssuable = mock(File.class);
+    File barFile = mock(File.class);
+
+    when(fileProvider.fileInSolution(Mockito.any(File.class), Mockito.eq("Class3.cs"))).thenReturn(fileNotInSonarQube);
+    when(fileProvider.fileInSolution(Mockito.any(File.class), Mockito.eq("Class4.cs"))).thenReturn(fooFileWithIssuable);
+    when(fileProvider.fileInSolution(Mockito.any(File.class), Mockito.eq("Class5.cs"))).thenReturn(fooFileWithIssuable);
+    when(fileProvider.fileInSolution(Mockito.any(File.class), Mockito.eq("Class6.cs"))).thenReturn(fooFileWithoutIssuable);
+    when(fileProvider.fileInSolution(Mockito.any(File.class), Mockito.eq("Class7.cs"))).thenReturn(barFile);
+
     org.sonar.api.resources.File fooSonarFileWithIssuable = mockSonarFile("foo");
     org.sonar.api.resources.File fooSonarFileWithoutIssuable = mockSonarFile("foo");
     org.sonar.api.resources.File barSonarFile = mockSonarFile("bar");
 
-    when(fileProvider.fromIOFile(Mockito.any(File.class), Mockito.eq("Class3.cs"))).thenReturn(null);
-    when(fileProvider.fromIOFile(Mockito.any(File.class), Mockito.eq("Class4.cs"))).thenReturn(fooSonarFileWithIssuable);
-    when(fileProvider.fromIOFile(Mockito.any(File.class), Mockito.eq("Class5.cs"))).thenReturn(fooSonarFileWithIssuable);
-    when(fileProvider.fromIOFile(Mockito.any(File.class), Mockito.eq("Class6.cs"))).thenReturn(fooSonarFileWithoutIssuable);
-    when(fileProvider.fromIOFile(Mockito.any(File.class), Mockito.eq("Class7.cs"))).thenReturn(barSonarFile);
+    when(fileProvider.fromIOFile(fileNotInSonarQube)).thenReturn(null);
+    when(fileProvider.fromIOFile(fooFileWithIssuable)).thenReturn(fooSonarFileWithIssuable);
+    when(fileProvider.fromIOFile(fooFileWithoutIssuable)).thenReturn(fooSonarFileWithoutIssuable);
+    when(fileProvider.fromIOFile(barFile)).thenReturn(barSonarFile);
 
     Issue issue1 = mock(Issue.class);
     IssueBuilder issueBuilder1 = mockIssueBuilder();
