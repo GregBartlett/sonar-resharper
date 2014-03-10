@@ -20,7 +20,9 @@
 package org.sonar.plugins.resharper;
 
 import com.google.common.collect.ImmutableList;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.mockito.Mockito;
 import org.sonar.api.batch.SensorContext;
 import org.sonar.api.component.ResourcePerspectives;
@@ -45,6 +47,9 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class ReSharperSensorTest {
+
+  @Rule
+  public ExpectedException thrown = ExpectedException.none();
 
   @Test
   public void shouldExecuteOnProject() {
@@ -81,6 +86,9 @@ public class ReSharperSensorTest {
     ReSharperSensor sensor = new ReSharperSensor(
       new ReSharperConfiguration("foo", "foo-resharper", "projectNamePropertyKey", "solutionFilePropertyKey", "inspectCodePropertyKey"),
       settings, profile, fileSystem, perspectives);
+    when(settings.hasKey("projectNamePropertyKey")).thenReturn(true);
+    when(settings.hasKey("solutionFilePropertyKey")).thenReturn(true);
+    when(settings.hasKey("inspectCodePropertyKey")).thenReturn(true);
 
     List<ActiveRule> activeRules = mockActiveRules("AccessToDisposedClosure", "AccessToForEachVariableInClosure");
     when(profile.getActiveRulesByRepository("foo-resharper")).thenReturn(activeRules);
@@ -156,6 +164,15 @@ public class ReSharperSensorTest {
 
     verify(issueBuilder2).line(5);
     verify(issueBuilder2).message("Third message");
+  }
+
+  @Test
+  public void check_properties() {
+    thrown.expectMessage("fooProjectNamePropertyKey");
+
+    ReSharperConfiguration reSharperConf = new ReSharperConfiguration("", "", "fooProjectNamePropertyKey", "", "");
+    new ReSharperSensor(reSharperConf, mock(Settings.class), mock(RulesProfile.class), mock(ModuleFileSystem.class), mock(ResourcePerspectives.class))
+      .analyse(mock(Project.class), mock(SensorContext.class));
   }
 
   private static org.sonar.api.resources.File mockSonarFile(String languageKey) {

@@ -19,6 +19,8 @@
  */
 package org.sonar.plugins.resharper;
 
+import org.sonar.api.config.Settings;
+
 public class ReSharperConfiguration {
 
   private final String languageKey;
@@ -53,6 +55,18 @@ public class ReSharperConfiguration {
 
   public String inspectCodePropertyKey() {
     return inspectCodePropertyKey;
+  }
+
+  public void checkProperties(Settings settings) {
+    checkProperty(settings, projectNamePropertyKey);
+    checkProperty(settings, solutionFilePropertyKey);
+    checkProperty(settings, inspectCodePropertyKey);
+  }
+
+  private static void checkProperty(Settings settings, String property) {
+    if (!settings.hasKey(property)) {
+      throw new IllegalStateException("The property \"" + property + "\" must be set.");
+    }
   }
 
 }
