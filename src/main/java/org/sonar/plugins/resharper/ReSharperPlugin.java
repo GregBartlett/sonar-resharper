@@ -33,6 +33,8 @@ public class ReSharperPlugin extends SonarPlugin {
   public List getExtensions() {
     ImmutableList.Builder builder = ImmutableList.builder();
 
+    builder.addAll(CSharpReSharperProvider.extensions());
+
     return builder.build();
   }
 }
