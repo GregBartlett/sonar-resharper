@@ -1,5 +1,5 @@
 /*
- * SonarQube ReSharper Library
+ * SonarQube ReSharper Plugin
  * Copyright (C) 2014 SonarSource
  * dev@sonar.codehaus.org
  *

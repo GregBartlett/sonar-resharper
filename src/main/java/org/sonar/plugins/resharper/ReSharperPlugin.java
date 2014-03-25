@@ -19,43 +19,20 @@
  */
 package org.sonar.plugins.resharper;
 
-import javax.annotation.Nullable;
+import com.google.common.collect.ImmutableList;
+import org.sonar.api.SonarPlugin;
 
-public class ReSharperIssue {
+import java.util.List;
 
-  private final int reportLine;
-  private final String ruleKey;
-  private final String filePath;
-  private final Integer line;
-  private final String message;
+public class ReSharperPlugin extends SonarPlugin {
 
-  public ReSharperIssue(int reportLine, String ruleKey, @Nullable String filePath, @Nullable Integer line, String message) {
-    this.reportLine = reportLine;
-    this.ruleKey = ruleKey;
-    this.filePath = filePath;
-    this.line = line;
-    this.message = message;
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public List getExtensions() {
+    ImmutableList.Builder builder = ImmutableList.builder();
+
+    return builder.build();
   }
-
-  public int reportLine() {
-    return reportLine;
-  }
-
-  public String ruleKey() {
-    return ruleKey;
-  }
-
-  public String filePath() {
-    return filePath;
-  }
-
-  @Nullable
-  public Integer line() {
-    return line;
-  }
-
-  public String message() {
-    return message;
-  }
-
 }
