@@ -83,7 +83,7 @@ public class ReSharperSensor implements Sensor {
 
   @VisibleForTesting
   void analyse(SensorContext context, FileProvider fileProvider, ReSharperDotSettingsWriter writer, ReSharperReportParser parser, ReSharperExecutor executor) {
-    reSharperConf.checkProperties(settings);
+    checkProperties(settings);
 
     File rulesetFile = new File(fileSystem.workingDir(), "resharper-sonarqube.DotSettings");
     writer.write(enabledRuleKeys(), rulesetFile);
@@ -91,10 +91,10 @@ public class ReSharperSensor implements Sensor {
     File reportFile = new File(fileSystem.workingDir(), "resharper-report.xml");
 
     executor.execute(
-      settings.getString(reSharperConf.inspectCodePropertyKey()), settings.getString(reSharperConf.projectNamePropertyKey()),
-      settings.getString(reSharperConf.solutionFilePropertyKey()), rulesetFile, reportFile);
+      settings.getString(ReSharperPlugin.INSPECTCODE_PATH_PROPERTY_KEY), settings.getString(ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY),
+      settings.getString(ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY), rulesetFile, reportFile);
 
-    File solutionFile = new File(settings.getString(reSharperConf.solutionFilePropertyKey()));
+    File solutionFile = new File(settings.getString(ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY));
     for (ReSharperIssue issue : parser.parse(reportFile)) {
       if (!hasFileAndLine(issue)) {
         logSkippedIssue(issue, "which has no associated file.");
@@ -141,4 +141,15 @@ public class ReSharperSensor implements Sensor {
     return builder.build();
   }
 
+  public void checkProperties(Settings settings) {
+    checkProperty(settings, ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY);
+    checkProperty(settings, ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY);
+    checkProperty(settings, ReSharperPlugin.INSPECTCODE_PATH_PROPERTY_KEY);
+  }
+
+  private static void checkProperty(Settings settings, String property) {
+    if (!settings.hasKey(property)) {
+      throw new IllegalStateException("The property \"" + property + "\" must be set.");
+    }
+  }
 }

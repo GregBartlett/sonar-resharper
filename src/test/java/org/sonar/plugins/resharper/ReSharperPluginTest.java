@@ -19,22 +19,23 @@
  */
 package org.sonar.plugins.resharper;
 
-public class ReSharperConfiguration {
+import org.junit.Test;
+import org.sonar.plugins.resharper.CSharpReSharperProvider.CSharpReSharperRuleRepository;
+import org.sonar.plugins.resharper.CSharpReSharperProvider.CSharpReSharperSensor;
+import org.sonar.plugins.resharper.VBNetReSharperProvider.VBNetReSharperRuleRepository;
+import org.sonar.plugins.resharper.VBNetReSharperProvider.VBNetReSharperSensor;
 
-  private final String languageKey;
-  private final String repositoryKey;
+import static org.fest.assertions.Assertions.assertThat;
 
-  public ReSharperConfiguration(String languageKey, String repositoryKey) {
-    this.languageKey = languageKey;
-    this.repositoryKey = repositoryKey;
-  }
+public class ReSharperPluginTest {
 
-  public String languageKey() {
-    return languageKey;
-  }
-
-  public String repositoryKey() {
-    return repositoryKey;
+  @Test
+  public void test() {
+    assertThat(new ReSharperPlugin().getExtensions()).containsOnly(
+      CSharpReSharperRuleRepository.class,
+      CSharpReSharperSensor.class,
+      VBNetReSharperRuleRepository.class,
+      VBNetReSharperSensor.class);
   }
 
 }

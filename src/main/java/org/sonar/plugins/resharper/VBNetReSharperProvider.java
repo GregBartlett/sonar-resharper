@@ -30,26 +30,12 @@ import java.util.List;
 
 public class VBNetReSharperProvider {
 
-  private static final String CATEGORY = "VB.NET";
-
-  private static final String RESHARPER_PROJECT_NAME_PROPERTY_KEY = "sonar.vbnet.resharper.project.name";
-  private static final String RESHARPER_SOLUTION_FILE_PROPERTY_KEY = "sonar.vbnet.resharper.solution.file";
-  private static final String RESHARPER_INSPECTCODE_PATH_PROPERTY_KEY = "sonar.vbnet.resharper.inspectcode.path";
-
-  private static final ReSharperConfiguration RESHARPER_CONF = new ReSharperConfiguration(
-    "vbnet",
-    "vbnet-resharper",
-    RESHARPER_PROJECT_NAME_PROPERTY_KEY,
-    RESHARPER_SOLUTION_FILE_PROPERTY_KEY,
-    RESHARPER_INSPECTCODE_PATH_PROPERTY_KEY);
+  private static final ReSharperConfiguration RESHARPER_CONF = new ReSharperConfiguration("vbnet", "vbnet-resharper");
 
   public static List extensions() {
     return ImmutableList.of(
       VBNetReSharperRuleRepository.class,
-      VBNetReSharperSensor.class,
-      ReSharperProperties.buildProjectName(RESHARPER_PROJECT_NAME_PROPERTY_KEY, CATEGORY),
-      ReSharperProperties.buildSolutionFile(RESHARPER_SOLUTION_FILE_PROPERTY_KEY, CATEGORY),
-      ReSharperProperties.buildInspectCode(RESHARPER_INSPECTCODE_PATH_PROPERTY_KEY, CATEGORY));
+      VBNetReSharperSensor.class);
   }
 
   public static class VBNetReSharperRuleRepository extends ReSharperRuleRepository {

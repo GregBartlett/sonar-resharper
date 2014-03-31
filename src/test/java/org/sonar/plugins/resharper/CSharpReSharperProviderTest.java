@@ -19,14 +19,9 @@
  */
 package org.sonar.plugins.resharper;
 
-import com.google.common.collect.ImmutableSet;
 import org.junit.Test;
-import org.sonar.api.config.PropertyDefinition;
 import org.sonar.plugins.resharper.CSharpReSharperProvider.CSharpReSharperRuleRepository;
 import org.sonar.plugins.resharper.CSharpReSharperProvider.CSharpReSharperSensor;
-
-import java.util.List;
-import java.util.Set;
 
 import static org.fest.assertions.Assertions.assertThat;
 
@@ -34,34 +29,10 @@ public class CSharpReSharperProviderTest {
 
   @Test
   public void test() {
-    assertThat(nonProperties(new CSharpReSharperProvider().extensions())).containsOnly(
+    assertThat(new CSharpReSharperProvider().extensions()).containsOnly(
       CSharpReSharperRuleRepository.class,
       CSharpReSharperSensor.class);
-    assertThat(propertyKeys(new CSharpReSharperProvider().extensions())).containsOnly(
-      "sonar.cs.resharper.project.name",
-      "sonar.cs.resharper.solution.file",
-      "sonar.cs.resharper.inspectcode.path");
-  }
-
-  private static Set<String> nonProperties(List extensions) {
-    ImmutableSet.Builder builder = ImmutableSet.builder();
-    for (Object extension : extensions) {
-      if (!(extension instanceof PropertyDefinition)) {
-        builder.add(extension);
-      }
-    }
-    return builder.build();
-  }
-
-  private static Set<String> propertyKeys(List extensions) {
-    ImmutableSet.Builder<String> builder = ImmutableSet.builder();
-    for (Object extension : extensions) {
-      if (extension instanceof PropertyDefinition) {
-        PropertyDefinition property = (PropertyDefinition) extension;
-        builder.add(property.key());
-      }
-    }
-    return builder.build();
+    ;
   }
 
 }

@@ -20,11 +20,34 @@
 package org.sonar.plugins.resharper;
 
 import com.google.common.collect.ImmutableList;
+import org.sonar.api.Properties;
+import org.sonar.api.Property;
 import org.sonar.api.SonarPlugin;
 
 import java.util.List;
 
+@Properties({
+  @Property(
+    key = ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY,
+    name = "Visual Studio project name",
+    description = "Example: MyLibrary",
+    module = true),
+  @Property(
+    key = ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY,
+    name = "Solution file",
+    description = "Example: C:/Projects/MyProject/MySolution.sln",
+    module = true),
+  @Property(
+    key = ReSharperPlugin.INSPECTCODE_PATH_PROPERTY_KEY,
+    name = "Path to inspectcode.exe",
+    description = "Example: C:/Program Files/jb-commandline-8.1.23.523/inspectcode.exe",
+    module = true)
+})
 public class ReSharperPlugin extends SonarPlugin {
+
+  public static final String PROJECT_NAME_PROPERTY_KEY = "sonar.resharper.project.name";
+  public static final String SOLUTION_FILE_PROPERTY_KEY = "sonar.resharper.solution.file";
+  public static final String INSPECTCODE_PATH_PROPERTY_KEY = "sonar.resharper.inspectcode.path";
 
   /**
    * {@inheritDoc}

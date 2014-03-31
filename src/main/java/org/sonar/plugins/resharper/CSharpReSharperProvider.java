@@ -30,26 +30,12 @@ import java.util.List;
 
 public class CSharpReSharperProvider {
 
-  private static final String CATEGORY = "C#";
-
-  private static final String RESHARPER_PROJECT_NAME_PROPERTY_KEY = "sonar.cs.resharper.project.name";
-  private static final String RESHARPER_SOLUTION_FILE_PROPERTY_KEY = "sonar.cs.resharper.solution.file";
-  private static final String RESHARPER_INSPECTCODE_PATH_PROPERTY_KEY = "sonar.cs.resharper.inspectcode.path";
-
-  private static final ReSharperConfiguration RESHARPER_CONF = new ReSharperConfiguration(
-    "cs",
-    "cs-resharper",
-    RESHARPER_PROJECT_NAME_PROPERTY_KEY,
-    RESHARPER_SOLUTION_FILE_PROPERTY_KEY,
-    RESHARPER_INSPECTCODE_PATH_PROPERTY_KEY);
+  private static final ReSharperConfiguration RESHARPER_CONF = new ReSharperConfiguration("cs", "cs-resharper");
 
   public static List extensions() {
     return ImmutableList.of(
       CSharpReSharperRuleRepository.class,
-      CSharpReSharperSensor.class,
-      ReSharperProperties.buildProjectName(RESHARPER_PROJECT_NAME_PROPERTY_KEY, CATEGORY),
-      ReSharperProperties.buildSolutionFile(RESHARPER_SOLUTION_FILE_PROPERTY_KEY, CATEGORY),
-      ReSharperProperties.buildInspectCode(RESHARPER_INSPECTCODE_PATH_PROPERTY_KEY, CATEGORY));
+      CSharpReSharperSensor.class);
   }
 
   public static class CSharpReSharperRuleRepository extends ReSharperRuleRepository {

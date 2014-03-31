@@ -31,7 +31,7 @@ public class ReSharperRuleRepositoryTest {
 
   @Test
   public void test() {
-    ReSharperRuleRepository repo = new ReSharperRuleRepository(new ReSharperConfiguration("cs", "cs-resharper", "", "", ""), new XMLRuleParser());
+    ReSharperRuleRepository repo = new ReSharperRuleRepository(new ReSharperConfiguration("cs", "cs-resharper"), new XMLRuleParser());
     assertThat(repo.getLanguage()).isEqualTo("cs");
     assertThat(repo.getKey()).isEqualTo("cs-resharper");
 

@@ -20,6 +20,7 @@
 package org.sonar.plugins.resharper;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Maps;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -40,6 +41,7 @@ import org.sonar.api.scan.filesystem.ModuleFileSystem;
 
 import java.io.File;
 import java.util.List;
+import java.util.Map;
 
 import static org.fest.assertions.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
@@ -61,7 +63,7 @@ public class ReSharperSensorTest {
     Project project = mock(Project.class);
 
     ReSharperSensor sensor = new ReSharperSensor(
-      new ReSharperConfiguration("", "foo-resharper", "", "", ""),
+      new ReSharperConfiguration("", "foo-resharper"),
       settings, profile, fileSystem, perspectives);
 
     when(fileSystem.files(Mockito.any(FileQuery.class))).thenReturn(ImmutableList.<File>of());
@@ -78,17 +80,14 @@ public class ReSharperSensorTest {
 
   @Test
   public void analyze() throws Exception {
-    Settings settings = mock(Settings.class);
+    Settings settings = mockSettings("MyLibrary", "CSharpPlayground.sln", "inspectcode.exe");
     RulesProfile profile = mock(RulesProfile.class);
     ModuleFileSystem fileSystem = mock(ModuleFileSystem.class);
     ResourcePerspectives perspectives = mock(ResourcePerspectives.class);
 
     ReSharperSensor sensor = new ReSharperSensor(
-      new ReSharperConfiguration("foo", "foo-resharper", "projectNamePropertyKey", "solutionFilePropertyKey", "inspectCodePropertyKey"),
+      new ReSharperConfiguration("foo", "foo-resharper"),
       settings, profile, fileSystem, perspectives);
-    when(settings.hasKey("projectNamePropertyKey")).thenReturn(true);
-    when(settings.hasKey("solutionFilePropertyKey")).thenReturn(true);
-    when(settings.hasKey("inspectCodePropertyKey")).thenReturn(true);
 
     List<ActiveRule> activeRules = mockActiveRules("AccessToDisposedClosure", "AccessToForEachVariableInClosure");
     when(profile.getActiveRulesByRepository("foo-resharper")).thenReturn(activeRules);
@@ -99,10 +98,6 @@ public class ReSharperSensorTest {
 
     File workingDir = new File("target/ReSharperSensorTest/working-dir");
     when(fileSystem.workingDir()).thenReturn(workingDir);
-
-    when(settings.getString("projectNamePropertyKey")).thenReturn("MyLibrary");
-    when(settings.getString("solutionFilePropertyKey")).thenReturn("CSharpPlayground.sln");
-    when(settings.getString("inspectCodePropertyKey")).thenReturn("inspectcode.exe");
 
     File fileNotInSonarQube = mock(File.class);
     File fooFileWithIssuable = mock(File.class);
@@ -167,12 +162,30 @@ public class ReSharperSensorTest {
   }
 
   @Test
-  public void check_properties() {
-    thrown.expectMessage("fooProjectNamePropertyKey");
+  public void check_project_name_property() {
+    thrown.expectMessage(ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY);
+    thrown.expect(IllegalStateException.class);
 
-    ReSharperConfiguration reSharperConf = new ReSharperConfiguration("", "", "fooProjectNamePropertyKey", "", "");
-    new ReSharperSensor(reSharperConf, mock(Settings.class), mock(RulesProfile.class), mock(ModuleFileSystem.class), mock(ResourcePerspectives.class))
-      .analyse(mock(Project.class), mock(SensorContext.class));
+    Settings settings = mockSettings(null, "dummy.sln", "dummy.exe");
+    mockReSharperSensor(settings).analyse(mock(Project.class), mock(SensorContext.class));
+  }
+
+  @Test
+  public void check_solution_file_property() {
+    thrown.expect(IllegalStateException.class);
+    thrown.expectMessage(ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY);
+
+    Settings settings = mockSettings("Dummy Project", null, "dummy.exe");
+    mockReSharperSensor(settings).analyse(mock(Project.class), mock(SensorContext.class));
+  }
+
+  @Test
+  public void check_inspectcode_path_property() {
+    thrown.expect(IllegalStateException.class);
+    thrown.expectMessage(ReSharperPlugin.INSPECTCODE_PATH_PROPERTY_KEY);
+
+    Settings settings = mockSettings("Dummy Project", "dummy.sln", null);
+    mockReSharperSensor(settings).analyse(mock(Project.class), mock(SensorContext.class));
   }
 
   private static org.sonar.api.resources.File mockSonarFile(String languageKey) {
@@ -201,4 +214,26 @@ public class ReSharperSensorTest {
     return builder.build();
   }
 
+  private static ReSharperSensor mockReSharperSensor(Settings settings) {
+    ReSharperConfiguration reSharperConf = new ReSharperConfiguration("", "");
+    return new ReSharperSensor(reSharperConf, settings, mock(RulesProfile.class), mock(ModuleFileSystem.class), mock(ResourcePerspectives.class));
+  }
+
+  private static Settings mockSettings(String projectName, String solutionFile, String inspectcodePath) {
+    Settings settings = new Settings();
+    Map<String, String> props = Maps.newHashMap();
+
+    if (projectName != null) {
+      props.put(ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY, projectName);
+    }
+    if (solutionFile != null) {
+      props.put(ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY, solutionFile);
+    }
+    if (inspectcodePath != null) {
+      props.put(ReSharperPlugin.INSPECTCODE_PATH_PROPERTY_KEY, inspectcodePath);
+    }
+
+    settings.addProperties(props);
+    return settings;
+  }
 }

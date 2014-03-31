@@ -19,81 +19,21 @@
  */
 package org.sonar.plugins.resharper;
 
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import org.sonar.api.config.Settings;
 
 import static org.fest.assertions.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class ReSharperConfigurationTest {
 
-  @Rule
-  public ExpectedException thrown = ExpectedException.none();
-
   @Test
   public void test() {
-    ReSharperConfiguration reSharperConf = new ReSharperConfiguration("cs", "cs-resharper", "fooProjectNamePropertyKey", "fooSolutionFilePropertyKey", "fooInspectCodePropertyKey");
+    ReSharperConfiguration reSharperConf = new ReSharperConfiguration("cs", "cs-resharper");
     assertThat(reSharperConf.languageKey()).isEqualTo("cs");
     assertThat(reSharperConf.repositoryKey()).isEqualTo("cs-resharper");
-    assertThat(reSharperConf.projectNamePropertyKey()).isEqualTo("fooProjectNamePropertyKey");
-    assertThat(reSharperConf.solutionFilePropertyKey()).isEqualTo("fooSolutionFilePropertyKey");
-    assertThat(reSharperConf.inspectCodePropertyKey()).isEqualTo("fooInspectCodePropertyKey");
 
-    reSharperConf = new ReSharperConfiguration("vbnet", "vbnet-resharper", "barProjectNamePropertyKey", "barSolutionFilePropertyKey", "barInspectCodePropertyKey");
+    reSharperConf = new ReSharperConfiguration("vbnet", "vbnet-resharper");
     assertThat(reSharperConf.languageKey()).isEqualTo("vbnet");
     assertThat(reSharperConf.repositoryKey()).isEqualTo("vbnet-resharper");
-    assertThat(reSharperConf.projectNamePropertyKey()).isEqualTo("barProjectNamePropertyKey");
-    assertThat(reSharperConf.solutionFilePropertyKey()).isEqualTo("barSolutionFilePropertyKey");
-    assertThat(reSharperConf.inspectCodePropertyKey()).isEqualTo("barInspectCodePropertyKey");
-  }
-
-  @Test
-  public void check_properties() {
-    Settings settings = mock(Settings.class);
-    when(settings.hasKey("fooProjectNamePropertyKey")).thenReturn(true);
-    when(settings.hasKey("fooSolutionFilePropertyKey")).thenReturn(true);
-    when(settings.hasKey("fooInspectCodePropertyKey")).thenReturn(true);
-
-    new ReSharperConfiguration("", "", "fooProjectNamePropertyKey", "fooSolutionFilePropertyKey", "fooInspectCodePropertyKey").checkProperties(settings);
-  }
-
-  @Test
-  public void check_properties_project_name_property() {
-    thrown.expect(IllegalStateException.class);
-    thrown.expectMessage("The property \"fooProjectNamePropertyKey\" must be set.");
-
-    Settings settings = mock(Settings.class);
-    when(settings.hasKey("fooProjectNamePropertyKey")).thenReturn(false);
-
-    new ReSharperConfiguration("", "", "fooProjectNamePropertyKey", "fooSolutionFilePropertyKey", "fooInspectCodePropertyKey").checkProperties(settings);
-  }
-
-  @Test
-  public void check_properties_solution_file_property() {
-    thrown.expect(IllegalStateException.class);
-    thrown.expectMessage("The property \"fooSolutionFilePropertyKey\" must be set.");
-
-    Settings settings = mock(Settings.class);
-    when(settings.hasKey("fooProjectNamePropertyKey")).thenReturn(true);
-    when(settings.hasKey("fooSolutionFilePropertyKey")).thenReturn(false);
-
-    new ReSharperConfiguration("", "", "fooProjectNamePropertyKey", "fooSolutionFilePropertyKey", "fooInspectCodePropertyKey").checkProperties(settings);
-  }
-
-  @Test
-  public void check_properties_inspectcode_property() {
-    thrown.expect(IllegalStateException.class);
-    thrown.expectMessage("The property \"fooInspectCodePropertyKey\" must be set.");
-
-    Settings settings = mock(Settings.class);
-    when(settings.hasKey("fooProjectNamePropertyKey")).thenReturn(true);
-    when(settings.hasKey("fooSolutionFilePropertyKey")).thenReturn(true);
-    when(settings.hasKey("fooInspectCodePropertyKey")).thenReturn(false);
-
-    new ReSharperConfiguration("", "", "fooProjectNamePropertyKey", "fooSolutionFilePropertyKey", "fooInspectCodePropertyKey").checkProperties(settings);
   }
 
 }
