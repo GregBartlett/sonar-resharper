@@ -34,6 +34,7 @@ public class ReSharperPlugin extends SonarPlugin {
     ImmutableList.Builder builder = ImmutableList.builder();
 
     builder.addAll(CSharpReSharperProvider.extensions());
+    builder.addAll(VBNetReSharperProvider.extensions());
 
     return builder.build();
   }
