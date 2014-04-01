@@ -20,6 +20,7 @@
 package org.sonar.plugins.resharper;
 
 import org.sonar.api.utils.command.Command;
+import org.sonar.api.utils.command.CommandException;
 import org.sonar.api.utils.command.CommandExecutor;
 
 import java.io.File;
@@ -30,15 +31,19 @@ public class ReSharperExecutor {
   private static final int INSPECTCODE_TIMEOUT_MINUTES = 120;
 
   public void execute(String executable, String project, String solutionFile, File rulesetFile, File reportFile) {
-    CommandExecutor.create().execute(
-      Command.create(executable)
-        .addArgument("/output=" + reportFile.getAbsolutePath())
-        .addArgument("/no-swea")
-        .addArgument("/project=" + project)
-        .addArgument("/profile=" + rulesetFile.getAbsolutePath())
-        .addArgument("/no-buildin-settings")
-        .addArgument(solutionFile),
-      TimeUnit.MINUTES.toMillis(INSPECTCODE_TIMEOUT_MINUTES));
+    Command cmd = Command.create(executable)
+      .addArgument("/output=" + reportFile.getAbsolutePath())
+      .addArgument("/no-swea")
+      .addArgument("/project=" + project)
+      .addArgument("/profile=" + rulesetFile.getAbsolutePath())
+      .addArgument("/no-buildin-settings")
+      .addArgument(solutionFile);
+
+    int exitCode = CommandExecutor.create().execute(cmd, TimeUnit.MINUTES.toMillis(INSPECTCODE_TIMEOUT_MINUTES));
+
+    if (exitCode != 0) {
+      throw new CommandException(cmd, "ReSharper execution failed with exit code: " + exitCode, null);
+    }
   }
 
 }
