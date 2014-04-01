@@ -22,6 +22,7 @@ package org.sonar.plugins.resharper;
 import com.google.common.collect.ImmutableList;
 import org.sonar.api.Properties;
 import org.sonar.api.Property;
+import org.sonar.api.PropertyType;
 import org.sonar.api.SonarPlugin;
 
 import java.util.List;
@@ -47,6 +48,7 @@ import java.util.List;
     name = "ReSharper execution timeout",
     description = "Time in minutes after which ReSharper's execution should be interrupted if not finished",
     defaultValue = "10",
+    type = PropertyType.INTEGER,
     module = true)
 })
 public class ReSharperPlugin extends SonarPlugin {
