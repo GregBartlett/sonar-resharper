@@ -41,6 +41,12 @@ import java.util.List;
     key = ReSharperPlugin.INSPECTCODE_PATH_PROPERTY_KEY,
     name = "Path to inspectcode.exe",
     description = "Example: C:/Program Files/jb-commandline-8.1.23.523/inspectcode.exe",
+    module = true),
+  @Property(
+    key = ReSharperPlugin.TIMEOUT_MINUTES_PROPERTY_KEY,
+    name = "ReSharper execution timeout",
+    description = "Time in minutes after which ReSharper's execution should be interrupted if not finished",
+    defaultValue = "10",
     module = true)
 })
 public class ReSharperPlugin extends SonarPlugin {
@@ -48,6 +54,7 @@ public class ReSharperPlugin extends SonarPlugin {
   public static final String PROJECT_NAME_PROPERTY_KEY = "sonar.resharper.project.name";
   public static final String SOLUTION_FILE_PROPERTY_KEY = "sonar.resharper.solution.file";
   public static final String INSPECTCODE_PATH_PROPERTY_KEY = "sonar.resharper.inspectcode.path";
+  public static final String TIMEOUT_MINUTES_PROPERTY_KEY = "sonar.resharper.timeoutMinutes";
 
   /**
    * {@inheritDoc}

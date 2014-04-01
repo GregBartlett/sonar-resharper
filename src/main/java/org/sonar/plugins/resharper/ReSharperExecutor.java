@@ -28,9 +28,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ReSharperExecutor {
 
-  private static final int INSPECTCODE_TIMEOUT_MINUTES = 120;
-
-  public void execute(String executable, String project, String solutionFile, File rulesetFile, File reportFile) {
+  public void execute(String executable, String project, String solutionFile, File rulesetFile, File reportFile, int timeout) {
     Command cmd = Command.create(executable)
       .addArgument("/output=" + reportFile.getAbsolutePath())
       .addArgument("/no-swea")
@@ -39,7 +37,7 @@ public class ReSharperExecutor {
       .addArgument("/no-buildin-settings")
       .addArgument(solutionFile);
 
-    int exitCode = CommandExecutor.create().execute(cmd, TimeUnit.MINUTES.toMillis(INSPECTCODE_TIMEOUT_MINUTES));
+    int exitCode = CommandExecutor.create().execute(cmd, TimeUnit.MINUTES.toMillis(timeout));
 
     if (exitCode != 0) {
       throw new CommandException(cmd, "ReSharper execution failed with exit code: " + exitCode, null);

@@ -149,7 +149,7 @@ public class ReSharperSensorTest {
     verify(writer).write(ImmutableList.of("AccessToDisposedClosure", "AccessToForEachVariableInClosure"), new File(workingDir, "resharper-sonarqube.DotSettings"));
     verify(executor).execute(
       "inspectcode.exe", "MyLibrary", "CSharpPlayground.sln",
-      new File(workingDir, "resharper-sonarqube.DotSettings"), new File(workingDir, "resharper-report.xml"));
+      new File(workingDir, "resharper-sonarqube.DotSettings"), new File(workingDir, "resharper-report.xml"), 10);
 
     verify(issuable).addIssue(issue1);
     verify(issuable).addIssue(issue2);
@@ -232,6 +232,8 @@ public class ReSharperSensorTest {
     if (inspectcodePath != null) {
       props.put(ReSharperPlugin.INSPECTCODE_PATH_PROPERTY_KEY, inspectcodePath);
     }
+
+    props.put(ReSharperPlugin.TIMEOUT_MINUTES_PROPERTY_KEY, "10");
 
     settings.addProperties(props);
     return settings;
