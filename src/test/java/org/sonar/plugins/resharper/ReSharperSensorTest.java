@@ -238,4 +238,5 @@ public class ReSharperSensorTest {
     settings.addProperties(props);
     return settings;
   }
+
 }
