@@ -29,7 +29,7 @@ import java.util.concurrent.TimeUnit;
 public class ReSharperExecutor {
 
   public void execute(String executable, String project, String solutionFile, File rulesetFile, File reportFile, int timeout) {
-    Command cmd = Command.create(executable)
+    Command cmd = Command.create(getExecutable(executable))
       .addArgument("/output=" + reportFile.getAbsolutePath())
       .addArgument("/no-swea")
       .addArgument("/project=" + project)
@@ -41,6 +41,19 @@ public class ReSharperExecutor {
 
     if (exitCode != 0) {
       throw new CommandException(cmd, "ReSharper execution failed with exit code: " + exitCode, null);
+    }
+  }
+
+  /**
+   * Handles deprecated property: "installDirectory", which gives the path to the directory only.
+   */
+  private static String getExecutable(String propertyValue) {
+    String execName = "inspectcode.exe";
+
+    if (!propertyValue.endsWith(execName)) {
+      return (new File(propertyValue, execName)).getAbsolutePath();
+    } else {
+      return propertyValue;
     }
   }
 

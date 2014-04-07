@@ -33,6 +33,7 @@ public class ReSharperPlugin extends SonarPlugin {
   public static final String SOLUTION_FILE_PROPERTY_KEY = "sonar.resharper.solution.file";
   public static final String INSPECTCODE_PATH_PROPERTY_KEY = "sonar.resharper.inspectcode.path";
   public static final String TIMEOUT_MINUTES_PROPERTY_KEY = "sonar.resharper.timeoutMinutes";
+  public static final String INSTALL_DIRECTORY_KEY = "sonar.resharper.installDirectory";
   public static final String PROPERTY_CATEGORY = "ReSharper";
 
   /**
@@ -72,6 +73,7 @@ public class ReSharperPlugin extends SonarPlugin {
         .defaultValue("C:/Program Files/jb-commandline-8.1.23.523/inspectcode.exe")
         .category(PROPERTY_CATEGORY)
         .onQualifiers(Qualifiers.PROJECT)
+        .deprecatedKey(INSTALL_DIRECTORY_KEY)
         .build(),
 
       PropertyDefinition.builder(TIMEOUT_MINUTES_PROPERTY_KEY)
@@ -81,6 +83,13 @@ public class ReSharperPlugin extends SonarPlugin {
         .category(PROPERTY_CATEGORY)
         .onQualifiers(Qualifiers.PROJECT)
         .type(PropertyType.INTEGER)
+        .build(),
+
+      PropertyDefinition.builder(INSTALL_DIRECTORY_KEY)
+        .name("ReSharper Command Line Tools install directory")
+        .description("Absolute path of the ReSharper Command Line Tools installation folder.")
+        .category(PROPERTY_CATEGORY)
+        .hidden()
         .build());
   }
 }
