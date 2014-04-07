@@ -20,43 +20,20 @@
 package org.sonar.plugins.resharper;
 
 import com.google.common.collect.ImmutableList;
-import org.sonar.api.Properties;
-import org.sonar.api.Property;
 import org.sonar.api.PropertyType;
 import org.sonar.api.SonarPlugin;
+import org.sonar.api.config.PropertyDefinition;
+import org.sonar.api.resources.Qualifiers;
 
 import java.util.List;
 
-@Properties({
-  @Property(
-    key = ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY,
-    name = "Visual Studio project name",
-    description = "Example: MyLibrary",
-    module = true),
-  @Property(
-    key = ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY,
-    name = "Solution file",
-    description = "Example: C:/Projects/MyProject/MySolution.sln",
-    module = true),
-  @Property(
-    key = ReSharperPlugin.INSPECTCODE_PATH_PROPERTY_KEY,
-    name = "Path to inspectcode.exe",
-    description = "Example: C:/Program Files/jb-commandline-8.1.23.523/inspectcode.exe",
-    module = true),
-  @Property(
-    key = ReSharperPlugin.TIMEOUT_MINUTES_PROPERTY_KEY,
-    name = "ReSharper execution timeout",
-    description = "Time in minutes after which ReSharper's execution should be interrupted if not finished",
-    defaultValue = "10",
-    type = PropertyType.INTEGER,
-    module = true)
-})
 public class ReSharperPlugin extends SonarPlugin {
 
   public static final String PROJECT_NAME_PROPERTY_KEY = "sonar.resharper.project.name";
   public static final String SOLUTION_FILE_PROPERTY_KEY = "sonar.resharper.solution.file";
   public static final String INSPECTCODE_PATH_PROPERTY_KEY = "sonar.resharper.inspectcode.path";
   public static final String TIMEOUT_MINUTES_PROPERTY_KEY = "sonar.resharper.timeoutMinutes";
+  public static final String PROPERTY_CATEGORY = "ReSharper";
 
   /**
    * {@inheritDoc}
@@ -68,6 +45,42 @@ public class ReSharperPlugin extends SonarPlugin {
     builder.addAll(CSharpReSharperProvider.extensions());
     builder.addAll(VBNetReSharperProvider.extensions());
 
+    builder.addAll(pluginProperties());
+
     return builder.build();
+  }
+
+  private static ImmutableList<PropertyDefinition> pluginProperties() {
+    return ImmutableList.of(
+      PropertyDefinition.builder(PROJECT_NAME_PROPERTY_KEY)
+        .name("Visual Studio project name")
+        .description("Example: MyLibrary")
+        .category(PROPERTY_CATEGORY)
+        .onlyOnQualifiers(Qualifiers.MODULE)
+        .build(),
+
+      PropertyDefinition.builder(SOLUTION_FILE_PROPERTY_KEY)
+        .name("Solution file")
+        .description("Example: C:/Projects/MyProject/MySolution.sln")
+        .category(PROPERTY_CATEGORY)
+        .onlyOnQualifiers(Qualifiers.MODULE)
+        .build(),
+
+      PropertyDefinition.builder(INSPECTCODE_PATH_PROPERTY_KEY)
+        .name("Path to inspectcode.exe")
+        .description("Example: C:/Program Files/jb-commandline-8.1.23.523/inspectcode.exe")
+        .defaultValue("C:/Program Files/jb-commandline-8.1.23.523/inspectcode.exe")
+        .category(PROPERTY_CATEGORY)
+        .onQualifiers(Qualifiers.PROJECT)
+        .build(),
+
+      PropertyDefinition.builder(TIMEOUT_MINUTES_PROPERTY_KEY)
+        .name("ReSharper execution timeout")
+        .description("Time in minutes after which ReSharper's execution should be interrupted if not finished")
+        .defaultValue("10")
+        .category(PROPERTY_CATEGORY)
+        .onQualifiers(Qualifiers.PROJECT)
+        .type(PropertyType.INTEGER)
+        .build());
   }
 }
