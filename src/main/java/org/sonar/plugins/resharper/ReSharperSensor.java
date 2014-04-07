@@ -109,6 +109,8 @@ public class ReSharperSensor implements Sensor {
         Issuable issuable = perspectives.as(Issuable.class, sonarFile);
         if (issuable == null) {
           logSkippedIssueOutsideOfSonarQube(issue, file);
+        }  else if (!enabledRuleKeys().contains(issue.ruleKey())) {
+          logSkippedIssue(issue, "because the rule \"" + issue.ruleKey() + "\" is either missing or inactive in the quality profile.");
         } else {
           issuable.addIssue(
             issuable.newIssueBuilder()
