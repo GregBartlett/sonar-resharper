@@ -70,7 +70,6 @@ public class ReSharperPlugin extends SonarPlugin {
       PropertyDefinition.builder(INSPECTCODE_PATH_PROPERTY_KEY)
         .name("Path to inspectcode.exe")
         .description("Example: C:/Program Files/jb-commandline-8.1.23.523/inspectcode.exe")
-        .defaultValue("C:/Program Files/jb-commandline-8.1.23.523/inspectcode.exe")
         .category(PROPERTY_CATEGORY)
         .onQualifiers(Qualifiers.PROJECT)
         .deprecatedKey(INSTALL_DIRECTORY_KEY)
