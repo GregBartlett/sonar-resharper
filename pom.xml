@@ -15,7 +15,7 @@
   <packaging>sonar-plugin</packaging>
 
   <name>SonarQube ReSharper Plugin</name>
-  <description>Plugin ReSharper.</description> <!-- FIXME -->
+  <description>Enables the use of ReSharper rules on C# and VB.NET code.</description>
   <url />
   <inceptionYear>2014</inceptionYear>
   <organization>
