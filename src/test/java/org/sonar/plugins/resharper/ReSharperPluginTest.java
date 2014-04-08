@@ -43,8 +43,8 @@ public class ReSharperPluginTest {
       VBNetReSharperSensor.class);
 
     assertThat(propertyKeys(new ReSharperPlugin().getExtensions())).containsOnly(
-      "sonar.resharper.project.name",
-      "sonar.resharper.solution.file",
+      "sonar.resharper.projectName",
+      "sonar.resharper.solutionFile",
       "sonar.resharper.inspectcode.path",
       "sonar.resharper.installDirectory",
       "sonar.resharper.timeoutMinutes");
