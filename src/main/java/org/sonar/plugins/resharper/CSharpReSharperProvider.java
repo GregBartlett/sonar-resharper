@@ -30,10 +30,10 @@ import java.util.List;
 
 public class CSharpReSharperProvider {
 
+  private static final ReSharperConfiguration RESHARPER_CONF = new ReSharperConfiguration("cs", "resharper-cs");
+
   public CSharpReSharperProvider() {
   }
-
-  private static final ReSharperConfiguration RESHARPER_CONF = new ReSharperConfiguration("cs", "resharper-cs");
 
   public static List extensions() {
     return ImmutableList.of(
