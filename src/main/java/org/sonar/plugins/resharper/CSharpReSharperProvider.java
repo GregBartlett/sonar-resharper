@@ -30,6 +30,9 @@ import java.util.List;
 
 public class CSharpReSharperProvider {
 
+  public CSharpReSharperProvider() {
+  }
+
   private static final ReSharperConfiguration RESHARPER_CONF = new ReSharperConfiguration("cs", "resharper-cs");
 
   public static List extensions() {

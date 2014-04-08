@@ -29,7 +29,7 @@ public class CSharpReSharperProviderTest {
 
   @Test
   public void test() {
-    assertThat(new CSharpReSharperProvider().extensions()).containsOnly(
+    assertThat(CSharpReSharperProvider.extensions()).containsOnly(
       CSharpReSharperRuleRepository.class,
       CSharpReSharperSensor.class);
     ;

@@ -29,7 +29,7 @@ public class VBNetReSharperProviderTest {
 
   @Test
   public void test() {
-    assertThat(new VBNetReSharperProvider().extensions()).containsOnly(
+    assertThat(VBNetReSharperProvider.extensions()).containsOnly(
       VBNetReSharperRuleRepository.class,
       VBNetReSharperSensor.class);
   }

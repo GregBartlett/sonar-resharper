@@ -30,6 +30,9 @@ import java.util.List;
 
 public class VBNetReSharperProvider {
 
+  private VBNetReSharperProvider () {
+  }
+
   private static final ReSharperConfiguration RESHARPER_CONF = new ReSharperConfiguration("vbnet", "resharper-vbnet");
 
   public static List extensions() {
