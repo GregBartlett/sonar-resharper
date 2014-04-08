@@ -3351,4 +3351,89 @@
     <name><![CDATA[Illegal syntax in XML code comment]]></name>
     <description><![CDATA[Illegal syntax in XML code comment]]></description>
   </rule>
+  <rule key="AsxxErrors">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Asxx Errors]]></name>
+    <description><![CDATA[Asxx Errors]]></description>
+  </rule>
+  <rule key="HtmlErrors">
+    <priority>MAJOR</priority>
+    <name><![CDATA[HTML Errors]]></name>
+    <description><![CDATA[HTML Errors]]></description>
+  </rule>
+  <rule key="CssErrors">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Css Errors]]></name>
+    <description><![CDATA[Css Errors]]></description>
+  </rule>
+  <rule key="StructuralSearch">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Structural Search Warnings]]></name>
+    <description><![CDATA[Structural Search Warnings]]></description>
+  </rule>
+  <rule key="WebConfigErrors">
+    <priority>MAJOR</priority>
+    <name><![CDATA[WebConfig Errors]]></name>
+    <description><![CDATA[WebConfig Errors]]></description>
+  </rule>
+  <rule key="XAMLErrors">
+    <priority>MAJOR</priority>
+    <name><![CDATA[XAML Errors]]></name>
+    <description><![CDATA[XAML Errors]]></description>
+  </rule>
+  <rule key="VBErrors">
+    <priority>MAJOR</priority>
+    <name><![CDATA[VB Compiler Errors]]></name>
+    <description><![CDATA[VB Compiler Errors]]></description>
+  </rule>
+  <rule key="XMLWarnings">
+    <priority>MAJOR</priority>
+    <name><![CDATA[XML Warnings]]></name>
+    <description><![CDATA[XML Warnings]]></description>
+  </rule>
+  <rule key="CodeSmell">
+    <priority>MAJOR</priority>
+    <name><![CDATA[CodeSmell]]></name>
+    <description><![CDATA[Potential Code Quality Issues]]></description>
+  </rule>
+  <rule key="BuildScriptErrors">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Build Scripts Errors]]></name>
+    <description><![CDATA[Build Scripts Errors]]></description>
+  </rule>
+  <rule key="AspErrors">
+    <priority>MAJOR</priority>
+    <name><![CDATA[ASP Errors]]></name>
+    <description><![CDATA[ASP Errors]]></description>
+  </rule>
+  <rule key="RazorErrors">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Razor Errors]]></name>
+    <description><![CDATA[Razor Errors]]></description>
+  </rule>
+  <rule key="TypeScriptErrors">
+    <priority>MAJOR</priority>
+    <name><![CDATA[TypeScript Compiler Errors]]></name>
+    <description><![CDATA[TypeScript Compiler Errors]]></description>
+  </rule>
+  <rule key="CSharpErrors">
+    <priority>MAJOR</priority>
+    <name><![CDATA[C# Compiler Errors]]></name>
+    <description><![CDATA[C# Compiler Errors]]></description>
+  </rule>
+  <rule key="JScriptErrors">
+    <priority>MAJOR</priority>
+    <name><![CDATA[JavaScript Errors]]></name>
+    <description><![CDATA[JavaScript Errors]]></description>
+  </rule>
+  <rule key="RazorWarnings">
+    <priority>MAJOR</priority>
+    <name><![CDATA[Razor Warnings]]></name>
+    <description><![CDATA[Razor Warnings]]></description>
+  </rule>
+  <rule key="XMLErrors">
+    <priority>MAJOR</priority>
+    <name><![CDATA[XML Errors]]></name>
+    <description><![CDATA[XML Errors]]></description>
+  </rule>
 </rules>

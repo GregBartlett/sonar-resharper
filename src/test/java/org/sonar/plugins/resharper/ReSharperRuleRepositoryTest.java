@@ -36,7 +36,7 @@ public class ReSharperRuleRepositoryTest {
     assertThat(repo.getKey()).isEqualTo("cs-resharper");
 
     List<Rule> rules = repo.createRules();
-    assertThat(rules.size()).isEqualTo(658);
+    assertThat(rules.size()).isEqualTo(675);
     for (Rule rule : rules) {
       assertThat(rule.getKey()).isNotNull();
       assertThat(rule.getName()).isNotNull();
