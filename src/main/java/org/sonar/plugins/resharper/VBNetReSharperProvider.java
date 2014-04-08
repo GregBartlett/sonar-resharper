@@ -30,7 +30,7 @@ import java.util.List;
 
 public class VBNetReSharperProvider {
 
-  private static final ReSharperConfiguration RESHARPER_CONF = new ReSharperConfiguration("vbnet", "vbnet-resharper");
+  private static final ReSharperConfiguration RESHARPER_CONF = new ReSharperConfiguration("vbnet", "resharper-vbnet");
 
   public static List extensions() {
     return ImmutableList.of(
