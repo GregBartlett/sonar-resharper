@@ -32,7 +32,7 @@ public class CSharpReSharperProvider {
 
   private static final ReSharperConfiguration RESHARPER_CONF = new ReSharperConfiguration("cs", "resharper-cs");
 
-  public CSharpReSharperProvider() {
+  private CSharpReSharperProvider() {
   }
 
   public static List extensions() {
