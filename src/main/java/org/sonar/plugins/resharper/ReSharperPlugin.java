@@ -78,7 +78,7 @@ public class ReSharperPlugin extends SonarPlugin {
       PropertyDefinition.builder(TIMEOUT_MINUTES_PROPERTY_KEY)
         .name("ReSharper execution timeout")
         .description("Time in minutes after which ReSharper's execution should be interrupted if not finished")
-        .defaultValue("10")
+        .defaultValue("60")
         .category(PROPERTY_CATEGORY)
         .onQualifiers(Qualifiers.PROJECT)
         .type(PropertyType.INTEGER)
