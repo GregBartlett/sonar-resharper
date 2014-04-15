@@ -46,8 +46,9 @@ public class ReSharperPluginTest {
       "sonar.resharper.projectName",
       "sonar.resharper.solutionFile",
       "sonar.resharper.inspectcode.path",
-      "sonar.resharper.installDirectory",
-      "sonar.resharper.timeoutMinutes");
+      "sonar.resharper.timeoutMinutes",
+
+      "sonar.resharper.installDirectory");
   }
 
   private static Set<String> nonProperties(List extensions) {

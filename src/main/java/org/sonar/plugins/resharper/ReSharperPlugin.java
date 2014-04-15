@@ -33,8 +33,10 @@ public class ReSharperPlugin extends SonarPlugin {
   public static final String SOLUTION_FILE_PROPERTY_KEY = "sonar.resharper.solutionFile";
   public static final String INSPECTCODE_PATH_PROPERTY_KEY = "sonar.resharper.inspectcode.path";
   public static final String TIMEOUT_MINUTES_PROPERTY_KEY = "sonar.resharper.timeoutMinutes";
-  public static final String INSTALL_DIRECTORY_KEY = "sonar.resharper.installDirectory";
-  public static final String PROPERTY_CATEGORY = "ReSharper";
+
+  public static final String OLD_INSTALL_DIRECTORY_KEY = "sonar.resharper.installDirectory";
+
+  private static final String CATEGORY = "ReSharper";
 
   /**
    * {@inheritDoc}
@@ -56,39 +58,48 @@ public class ReSharperPlugin extends SonarPlugin {
       PropertyDefinition.builder(PROJECT_NAME_PROPERTY_KEY)
         .name("Visual Studio project name")
         .description("Example: MyLibrary")
-        .category(PROPERTY_CATEGORY)
+        .category(CATEGORY)
         .onlyOnQualifiers(Qualifiers.MODULE)
         .build(),
 
       PropertyDefinition.builder(SOLUTION_FILE_PROPERTY_KEY)
         .name("Solution file")
         .description("Example: C:/Projects/MyProject/MySolution.sln")
-        .category(PROPERTY_CATEGORY)
+        .category(CATEGORY)
         .onlyOnQualifiers(Qualifiers.MODULE)
         .build(),
 
       PropertyDefinition.builder(INSPECTCODE_PATH_PROPERTY_KEY)
         .name("Path to inspectcode.exe")
         .description("Example: C:/Program Files/jb-commandline-8.1.23.523/inspectcode.exe")
-        .category(PROPERTY_CATEGORY)
+        .category(CATEGORY)
         .onQualifiers(Qualifiers.PROJECT)
-        .deprecatedKey(INSTALL_DIRECTORY_KEY)
+        .deprecatedKey(OLD_INSTALL_DIRECTORY_KEY)
         .build(),
 
       PropertyDefinition.builder(TIMEOUT_MINUTES_PROPERTY_KEY)
         .name("ReSharper execution timeout")
         .description("Time in minutes after which ReSharper's execution should be interrupted if not finished")
         .defaultValue("60")
-        .category(PROPERTY_CATEGORY)
+        .category(CATEGORY)
         .onQualifiers(Qualifiers.PROJECT)
         .type(PropertyType.INTEGER)
         .build(),
 
-      PropertyDefinition.builder(INSTALL_DIRECTORY_KEY)
-        .name("ReSharper Command Line Tools install directory")
-        .description("Absolute path of the ReSharper Command Line Tools installation folder.")
-        .category(PROPERTY_CATEGORY)
-        .hidden()
-        .build());
+      deprecatedPropertyDefinition(OLD_INSTALL_DIRECTORY_KEY));
   }
+
+  private static PropertyDefinition deprecatedPropertyDefinition(String oldKey) {
+    return PropertyDefinition
+      .builder(oldKey)
+      .name(oldKey)
+      .description("This property is deprecated and will be removed in a future version.<br />"
+        + "You should stop using it as soon as possible.<br />"
+        + "Consult the migration guide for guidance.")
+      .category(CATEGORY)
+      .subCategory("Deprecated")
+      .onQualifiers(Qualifiers.PROJECT, Qualifiers.MODULE)
+      .build();
+  }
+
 }
