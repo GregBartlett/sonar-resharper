@@ -31,7 +31,7 @@ public class ReSharperPlugin extends SonarPlugin {
 
   public static final String PROJECT_NAME_PROPERTY_KEY = "sonar.resharper.projectName";
   public static final String SOLUTION_FILE_PROPERTY_KEY = "sonar.resharper.solutionFile";
-  public static final String INSPECTCODE_PATH_PROPERTY_KEY = "sonar.resharper.inspectcode.path";
+  public static final String INSPECTCODE_PATH_PROPERTY_KEY = "sonar.resharper.inspectCodePath";
   public static final String TIMEOUT_MINUTES_PROPERTY_KEY = "sonar.resharper.timeoutMinutes";
 
   public static final String OLD_INSTALL_DIRECTORY_KEY = "sonar.resharper.installDirectory";

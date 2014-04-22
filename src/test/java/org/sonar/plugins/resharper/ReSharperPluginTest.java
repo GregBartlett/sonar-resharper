@@ -45,7 +45,7 @@ public class ReSharperPluginTest {
     assertThat(propertyKeys(new ReSharperPlugin().getExtensions())).containsOnly(
       "sonar.resharper.projectName",
       "sonar.resharper.solutionFile",
-      "sonar.resharper.inspectcode.path",
+      "sonar.resharper.inspectCodePath",
       "sonar.resharper.timeoutMinutes",
 
       "sonar.resharper.installDirectory");
