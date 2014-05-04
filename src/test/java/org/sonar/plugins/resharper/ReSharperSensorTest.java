@@ -39,6 +39,8 @@ import org.sonar.api.rules.ActiveRule;
 import org.sonar.api.scan.filesystem.FileQuery;
 import org.sonar.api.scan.filesystem.ModuleFileSystem;
 
+import javax.annotation.Nullable;
+
 import java.io.File;
 import java.util.List;
 import java.util.Map;
@@ -166,7 +168,7 @@ public class ReSharperSensorTest {
     thrown.expectMessage(ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY);
     thrown.expect(IllegalStateException.class);
 
-    Settings settings = mockSettings(null, "dummy.sln", "dummy.exe");
+    Settings settings = mockSettings(null, "dummy.sln", null);
     mockReSharperSensor(settings).analyse(mock(Project.class), mock(SensorContext.class));
   }
 
@@ -175,16 +177,7 @@ public class ReSharperSensorTest {
     thrown.expect(IllegalStateException.class);
     thrown.expectMessage(ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY);
 
-    Settings settings = mockSettings("Dummy Project", null, "dummy.exe");
-    mockReSharperSensor(settings).analyse(mock(Project.class), mock(SensorContext.class));
-  }
-
-  @Test
-  public void check_inspectcode_path_property() {
-    thrown.expect(IllegalStateException.class);
-    thrown.expectMessage(ReSharperPlugin.INSPECTCODE_PATH_PROPERTY_KEY);
-
-    Settings settings = mockSettings("Dummy Project", "dummy.sln", null);
+    Settings settings = mockSettings("Dummy Project", null, null);
     mockReSharperSensor(settings).analyse(mock(Project.class), mock(SensorContext.class));
   }
 
@@ -219,7 +212,7 @@ public class ReSharperSensorTest {
     return new ReSharperSensor(reSharperConf, settings, mock(RulesProfile.class), mock(ModuleFileSystem.class), mock(ResourcePerspectives.class));
   }
 
-  private static Settings mockSettings(String projectName, String solutionFile, String inspectcodePath) {
+  private static Settings mockSettings(@Nullable String projectName, @Nullable String solutionFile, @Nullable String inspectcodePath) {
     Settings settings = new Settings();
     Map<String, String> props = Maps.newHashMap();
 
