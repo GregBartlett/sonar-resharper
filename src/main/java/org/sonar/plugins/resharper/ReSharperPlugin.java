@@ -59,14 +59,14 @@ public class ReSharperPlugin extends SonarPlugin {
         .name("Visual Studio project name")
         .description("Example: MyLibrary")
         .category(CATEGORY)
-        .onlyOnQualifiers(Qualifiers.MODULE)
+        .onlyOnQualifiers(Qualifiers.PROJECT, Qualifiers.MODULE)
         .build(),
 
       PropertyDefinition.builder(SOLUTION_FILE_PROPERTY_KEY)
         .name("Solution file")
         .description("Example: C:/Projects/MyProject/MySolution.sln")
         .category(CATEGORY)
-        .onlyOnQualifiers(Qualifiers.MODULE)
+        .onlyOnQualifiers(Qualifiers.PROJECT, Qualifiers.MODULE)
         .build(),
 
       PropertyDefinition.builder(INSPECTCODE_PATH_PROPERTY_KEY)
