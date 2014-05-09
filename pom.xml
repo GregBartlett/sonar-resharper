@@ -10,7 +10,7 @@
 
   <groupId>org.codehaus.sonar-plugins.resharper</groupId>
   <artifactId>sonar-resharper-plugin</artifactId>
-  <version>1.0</version>
+  <version>1.1-SNAPSHOT</version>
   <packaging>sonar-plugin</packaging>
 
   <name>SonarQube ReSharper Plugin</name>
@@ -45,7 +45,7 @@
     <connection>scm:git:git@github.com:SonarCommunity/sonar-resharper.git</connection>
     <developerConnection>scm:git:git@github.com:SonarCommunity/sonar-resharper.git</developerConnection>
     <url>https://github.com/SonarCommunity/sonar-resharper</url>
-    <tag>1.0</tag>
+    <tag>HEAD</tag>
   </scm>
   <issueManagement>
     <system>JIRA</system>
