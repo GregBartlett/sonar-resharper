@@ -28,6 +28,8 @@ import java.util.concurrent.TimeUnit;
 
 public class ReSharperExecutor {
 
+  private static final String EXECUTABLE = "inspectcode.exe";
+
   public void execute(String executable, String project, String solutionFile, File rulesetFile, File reportFile, int timeout) {
     Command cmd = Command.create(getExecutable(executable))
       .addArgument("/output=" + reportFile.getAbsolutePath())
@@ -47,14 +49,8 @@ public class ReSharperExecutor {
   /**
    * Handles deprecated property: "installDirectory", which gives the path to the directory only.
    */
-  private static String getExecutable(String propertyValue) {
-    String execName = "inspectcode.exe";
-
-    if (!propertyValue.endsWith(execName)) {
-      return (new File(propertyValue, execName)).getAbsolutePath();
-    } else {
-      return propertyValue;
-    }
+  private static String getExecutable(String path) {
+    return path.endsWith(EXECUTABLE) ? path : new File(path, EXECUTABLE).getAbsolutePath();
   }
 
 }
