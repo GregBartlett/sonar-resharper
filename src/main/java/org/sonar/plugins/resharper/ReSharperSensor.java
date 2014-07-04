@@ -81,6 +81,15 @@ public class ReSharperSensor implements Sensor {
     analyse(context, new FileProvider(project, context), new ReSharperDotSettingsWriter(), new ReSharperReportParser(), new ReSharperExecutor());
   }
 
+  private String getProjectArgument() {
+    if(settings.getString(ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY) != null &&
+      !settings.getString(ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY).equals("")) {
+        return "/project=" + settings.getString(ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY);
+    } else {
+      return "";
+    }      
+  }
+  
   @VisibleForTesting
   void analyse(SensorContext context, FileProvider fileProvider, ReSharperDotSettingsWriter writer, ReSharperReportParser parser, ReSharperExecutor executor) {
     checkProperties(settings);
@@ -89,9 +98,9 @@ public class ReSharperSensor implements Sensor {
     writer.write(enabledRuleKeys(), rulesetFile);
 
     File reportFile = new File(fileSystem.workingDir(), "resharper-report.xml");
-
+    
     executor.execute(
-      settings.getString(ReSharperPlugin.INSPECTCODE_PATH_PROPERTY_KEY), settings.getString(ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY),
+      settings.getString(ReSharperPlugin.INSPECTCODE_PATH_PROPERTY_KEY), getProjectArgument(),
       settings.getString(ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY), rulesetFile, reportFile, settings.getInt(ReSharperPlugin.TIMEOUT_MINUTES_PROPERTY_KEY));
 
     File solutionFile = new File(settings.getString(ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY));
@@ -144,13 +153,15 @@ public class ReSharperSensor implements Sensor {
   }
 
   public void checkProperties(Settings settings) {
-    checkProperty(settings, ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY);
-    checkProperty(settings, ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY);
+    checkProperty(settings, ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY, false);
+    checkProperty(settings, ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY, true);
   }
 
-  private static void checkProperty(Settings settings, String property) {
-    if (!settings.hasKey(property)) {
+  private static void checkProperty(Settings settings, String property, boolean isMandatory) {
+    if (!settings.hasKey(property) && isMandatory) {
       throw new IllegalStateException("The property \"" + property + "\" must be set.");
+    } else {
+        LOG.info("The property \"" + property + "\" not set. Not using in analysis");
     }
   }
 }
