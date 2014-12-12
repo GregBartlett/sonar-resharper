@@ -15,7 +15,7 @@
 
   <name>SonarQube ReSharper Plugin</name>
   <description>Enables the use of ReSharper rules on C# and VB.NET code.</description>
-  <url>http://docs.codehaus.org/display/SONAR/ReSharper+Plugin</url>
+  <url>http://redirect.sonarsource.com/plugins/resharper.html</url>
   <inceptionYear>2014</inceptionYear>
   <organization>
     <name>SonarSource</name>
