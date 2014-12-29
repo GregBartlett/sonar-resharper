@@ -151,7 +151,7 @@ public class ReSharperSensor implements Sensor {
   }
 
   private static void logSkippedIssueOutsideOfSonarQube(ReSharperIssue issue, File file) {
-    logSkippedIssue(issue, "whose file \"" + file.getAbsolutePath() + "\" is not in SonarQube.");
+    LOG.debug("Skipping the ReSharper issue at line " + issue.reportLine() + " whose file \"" + file.getAbsolutePath() + "\" is not in SonarQube.");
   }
 
   private static void logSkippedIssue(ReSharperIssue issue, String reason) {
