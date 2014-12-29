@@ -33,6 +33,7 @@ public class ReSharperPlugin extends SonarPlugin {
   public static final String SOLUTION_FILE_PROPERTY_KEY = "sonar.resharper.solutionFile";
   public static final String INSPECTCODE_PATH_PROPERTY_KEY = "sonar.resharper.inspectCodePath";
   public static final String TIMEOUT_MINUTES_PROPERTY_KEY = "sonar.resharper.timeoutMinutes";
+  public static final String REPORT_FILE_PROPERTY_KEY = "sonar.resharper.reportFile";
 
   public static final String OLD_INSTALL_DIRECTORY_KEY = "sonar.resharper.installDirectory";
 
@@ -86,6 +87,13 @@ public class ReSharperPlugin extends SonarPlugin {
         .onQualifiers(Qualifiers.PROJECT)
         .type(PropertyType.INTEGER)
         .build(),
+
+      PropertyDefinition.builder(REPORT_FILE_PROPERTY_KEY)
+              .name("ReSharper report file")
+              .description("Example: resharper-report.xml")
+              .category(CATEGORY)
+              .onQualifiers(Qualifiers.PROJECT)
+              .build(),
 
       deprecatedPropertyDefinition(OLD_INSTALL_DIRECTORY_KEY));
   }
