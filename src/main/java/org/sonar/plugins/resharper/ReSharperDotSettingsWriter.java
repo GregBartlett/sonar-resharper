@@ -36,7 +36,11 @@ public class ReSharperDotSettingsWriter {
     sb.append("<wpf:ResourceDictionary xml:space=\"preserve\" xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\"");
     sb.append(" xmlns:s=\"clr-namespace:System;assembly=mscorlib\" xmlns:ss=\"urn:shemas-jetbrains-com:settings-storage-xaml\"");
     appendLine(sb, " xmlns:wpf=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\">");
-
+    // Exclude js, css and cshtml from analysis
+    appendLine(sb, "  <s:Boolean x:Key=\"/Default/CodeInspection/ExcludedFiles/FileMasksToSkip/=_002A_002Ejs/@EntryIndexedValue\">True</s:Boolean>");
+    appendLine(sb, "  <s:Boolean x:Key=\"/Default/CodeInspection/ExcludedFiles/FileMasksToSkip/=_002A_002Ecss/@EntryIndexedValue\">True</s:Boolean>");
+    appendLine(sb, "  <s:Boolean x:Key=\"/Default/CodeInspection/ExcludedFiles/FileMasksToSkip/=_002A_002Ecshtml/@EntryIndexedValue\">True</s:Boolean>");
+    
     for (String ruleKey : ruleKeys) {
       String escapedRuleKey = escapeRuleKey(ruleKey);
       appendLine(sb, "  <s:String x:Key=\"/Default/CodeInspection/Highlighting/InspectionSeverities/=" + escapedRuleKey + "/@EntryIndexedValue\">WARNING</s:String>");

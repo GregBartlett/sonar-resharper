@@ -44,6 +44,9 @@ public class ReSharperDotSettingsWriterTest {
     assertThat(contents1.replace("\r", "").replace("\n", ""))
       .isEqualTo(
         "<wpf:ResourceDictionary xml:space=\"preserve\" xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\" xmlns:s=\"clr-namespace:System;assembly=mscorlib\" xmlns:ss=\"urn:shemas-jetbrains-com:settings-storage-xaml\" xmlns:wpf=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\">"
+          + "  <s:Boolean x:Key=\"/Default/CodeInspection/ExcludedFiles/FileMasksToSkip/=_002A_002Ejs/@EntryIndexedValue\">True</s:Boolean>"
+          + "  <s:Boolean x:Key=\"/Default/CodeInspection/ExcludedFiles/FileMasksToSkip/=_002A_002Ecss/@EntryIndexedValue\">True</s:Boolean>"
+          + "  <s:Boolean x:Key=\"/Default/CodeInspection/ExcludedFiles/FileMasksToSkip/=_002A_002Ecshtml/@EntryIndexedValue\">True</s:Boolean>"
           + "  <s:String x:Key=\"/Default/CodeInspection/Highlighting/InspectionSeverities/=foo/@EntryIndexedValue\">WARNING</s:String>"
           + "  <s:String x:Key=\"/Default/CodeInspection/Highlighting/InspectionSeverities/=bar/@EntryIndexedValue\">WARNING</s:String>"
           + "</wpf:ResourceDictionary>");
