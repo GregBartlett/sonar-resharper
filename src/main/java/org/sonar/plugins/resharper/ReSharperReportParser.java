@@ -94,7 +94,22 @@ public class ReSharperReportParser {
       String filePath = getAttribute("File");
       Integer line = getIntAttribute("Line");
       String message = getRequiredAttribute("Message");
-      filesBuilder.add(new ReSharperIssue(stream.getLocation().getLineNumber(), typeId, filePath, line, message));
+      ReSharperIssue uniqueIssue = new ReSharperIssue(stream.getLocation().getLineNumber(), typeId, filePath, line, message);
+      for(ReSharperIssue issue : filesBuilder.build()) {
+        if (issue.ruleKey().equals(issue.ruleKey())
+                && issue.filePath().equals(uniqueIssue.filePath())
+                && issue.message().equals(uniqueIssue.message())) {          
+          if(issue.line() == null) {           
+            return;
+          } else {
+            if(issue.line().equals(uniqueIssue.line())) {
+              return;
+            }          
+          }          
+        }
+      }
+      
+      filesBuilder.add(uniqueIssue);
     }
 
     private String getRequiredAttribute(String name) {
