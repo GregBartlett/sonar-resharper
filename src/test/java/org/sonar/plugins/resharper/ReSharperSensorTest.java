@@ -150,7 +150,7 @@ public class ReSharperSensorTest {
 
     verify(writer).write(ImmutableList.of("AccessToDisposedClosure", "AccessToForEachVariableInClosure"), new File(workingDir, "resharper-sonarqube.DotSettings"));
     verify(executor).execute(
-      "inspectcode.exe", "MyLibrary", "CSharpPlayground.sln",
+      "inspectcode.exe", "/project=MyLibrary", "CSharpPlayground.sln",
       new File(workingDir, "resharper-sonarqube.DotSettings"), new File(workingDir, "resharper-report.xml"), 10);
 
     verify(issuable).addIssue(issue1);
@@ -161,15 +161,6 @@ public class ReSharperSensorTest {
 
     verify(issueBuilder2).line(5);
     verify(issueBuilder2).message("Third message");
-  }
-
-  @Test
-  public void check_project_name_property() {
-    thrown.expectMessage(ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY);
-    thrown.expect(IllegalStateException.class);
-
-    Settings settings = mockSettings(null, "dummy.sln", null);
-    mockReSharperSensor(settings).analyse(mock(Project.class), mock(SensorContext.class));
   }
 
   @Test

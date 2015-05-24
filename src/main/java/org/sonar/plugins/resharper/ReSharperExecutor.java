@@ -30,11 +30,11 @@ public class ReSharperExecutor {
 
   private static final String EXECUTABLE = "inspectcode.exe";
 
-  public void execute(String executable, String project, String solutionFile, File rulesetFile, File reportFile, int timeout) {
+  public void execute(String executable, String projectArg, String solutionFile, File rulesetFile, File reportFile, int timeout) {
     Command cmd = Command.create(getExecutable(executable))
       .addArgument("/output=" + reportFile.getAbsolutePath())
       .addArgument("/no-swea")
-      .addArgument("/project=" + project)
+      .addArgument(projectArg)
       .addArgument("/profile=" + rulesetFile.getAbsolutePath())
       .addArgument("/no-buildin-settings")
       .addArgument(solutionFile);
