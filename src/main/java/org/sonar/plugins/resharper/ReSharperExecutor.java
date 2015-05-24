@@ -30,13 +30,18 @@ public class ReSharperExecutor {
 
   private static final String EXECUTABLE = "inspectcode.exe";
 
-  public void execute(String executable, String project, String solutionFile, File rulesetFile, File reportFile, int timeout) {
+  public void execute(String executable, String project, String solutionFile, File rulesetFile, File reportFile, int timeout, Boolean useBuiltInSettings) {
     Command cmd = Command.create(getExecutable(executable))
-      .addArgument("/output=" + reportFile.getAbsolutePath())
-      .addArgument("/no-swea")
-      .addArgument("/project=" + project)
-      .addArgument("/profile=" + rulesetFile.getAbsolutePath())
-      .addArgument("/no-buildin-settings")
+            .addArgument("/output=" + reportFile.getAbsolutePath())
+            .addArgument("/no-swea")
+            .addArgument("/project=" + project)
+            .addArgument("/profile=" + rulesetFile.getAbsolutePath());
+
+    if (!useBuiltInSettings){
+      cmd = cmd.addArgument("/no-buildin-settings");
+    }
+
+    cmd = cmd
       .addArgument(solutionFile);
 
     int exitCode = CommandExecutor.create().execute(cmd, TimeUnit.MINUTES.toMillis(timeout));

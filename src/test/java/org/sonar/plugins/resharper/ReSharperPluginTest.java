@@ -47,7 +47,7 @@ public class ReSharperPluginTest {
       "sonar.resharper.solutionFile",
       "sonar.resharper.inspectCodePath",
       "sonar.resharper.timeoutMinutes",
-
+      "sonar.resharper.useBuiltInSettings",
       "sonar.resharper.installDirectory");
   }
 

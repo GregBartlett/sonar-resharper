@@ -33,6 +33,7 @@ public class ReSharperPlugin extends SonarPlugin {
   public static final String SOLUTION_FILE_PROPERTY_KEY = "sonar.resharper.solutionFile";
   public static final String INSPECTCODE_PATH_PROPERTY_KEY = "sonar.resharper.inspectCodePath";
   public static final String TIMEOUT_MINUTES_PROPERTY_KEY = "sonar.resharper.timeoutMinutes";
+  public static final String USE_BUILT_IN_SETTINGS_PROPERTY_KEY = "sonar.resharper.useBuiltInSettings";
 
   public static final String OLD_INSTALL_DIRECTORY_KEY = "sonar.resharper.installDirectory";
 
@@ -85,6 +86,15 @@ public class ReSharperPlugin extends SonarPlugin {
         .category(CATEGORY)
         .onQualifiers(Qualifiers.PROJECT)
         .type(PropertyType.INTEGER)
+        .build(),
+
+      PropertyDefinition.builder(USE_BUILT_IN_SETTINGS_PROPERTY_KEY)
+        .name("Use custom settings layers from solution")
+        .description("")
+        .defaultValue("false")
+        .category(CATEGORY)
+        .onQualifiers(Qualifiers.PROJECT)
+        .type(PropertyType.BOOLEAN)
         .build(),
 
       deprecatedPropertyDefinition(OLD_INSTALL_DIRECTORY_KEY));
