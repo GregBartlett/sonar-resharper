@@ -150,8 +150,13 @@ public class ReSharperSensorTest {
 
     verify(writer).write(ImmutableList.of("AccessToDisposedClosure", "AccessToForEachVariableInClosure"), new File(workingDir, "resharper-sonarqube.DotSettings"));
     verify(executor).execute(
-      "inspectcode.exe", "MyLibrary", "CSharpPlayground.sln",
-      new File(workingDir, "resharper-sonarqube.DotSettings"), new File(workingDir, "resharper-report.xml"), 10);
+            "inspectcode.exe",
+            "MyLibrary",
+            "CSharpPlayground.sln",
+            new File(workingDir, "resharper-sonarqube.DotSettings"),
+            new File(workingDir, "resharper-report.xml"),
+            10,
+            false);
 
     verify(issuable).addIssue(issue1);
     verify(issuable).addIssue(issue2);

@@ -91,8 +91,13 @@ public class ReSharperSensor implements Sensor {
     File reportFile = new File(fileSystem.workingDir(), "resharper-report.xml");
 
     executor.execute(
-      settings.getString(ReSharperPlugin.INSPECTCODE_PATH_PROPERTY_KEY), settings.getString(ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY),
-      settings.getString(ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY), rulesetFile, reportFile, settings.getInt(ReSharperPlugin.TIMEOUT_MINUTES_PROPERTY_KEY));
+            settings.getString(ReSharperPlugin.INSPECTCODE_PATH_PROPERTY_KEY),
+            settings.getString(ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY),
+            settings.getString(ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY),
+            rulesetFile,
+            reportFile,
+            settings.getInt(ReSharperPlugin.TIMEOUT_MINUTES_PROPERTY_KEY),
+            settings.getBoolean(ReSharperPlugin.USE_BUILT_IN_SETTINGS_PROPERTY_KEY));
 
     File solutionFile = new File(settings.getString(ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY));
     for (ReSharperIssue issue : parser.parse(reportFile)) {
