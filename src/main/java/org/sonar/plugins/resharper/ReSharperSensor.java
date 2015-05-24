@@ -85,14 +85,7 @@ public class ReSharperSensor implements Sensor {
   void analyse(SensorContext context, FileProvider fileProvider, ReSharperDotSettingsWriter writer, ReSharperReportParser parser, ReSharperExecutor executor) {
     checkProperties(settings);
 
-    File rulesetFile = new File(fileSystem.workingDir(), "resharper-sonarqube.DotSettings");
-    writer.write(enabledRuleKeys(), rulesetFile);
-
-    File reportFile = new File(fileSystem.workingDir(), "resharper-report.xml");
-
-    executor.execute(
-      settings.getString(ReSharperPlugin.INSPECTCODE_PATH_PROPERTY_KEY), settings.getString(ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY),
-      settings.getString(ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY), rulesetFile, reportFile, settings.getInt(ReSharperPlugin.TIMEOUT_MINUTES_PROPERTY_KEY));
+    File reportFile = getReportFile(executor, writer);
 
     File solutionFile = new File(settings.getString(ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY));
     for (ReSharperIssue issue : parser.parse(reportFile)) {
@@ -123,12 +116,42 @@ public class ReSharperSensor implements Sensor {
     }
   }
 
+    private File getReportFile(ReSharperExecutor executor, ReSharperDotSettingsWriter writer) {
+      if (shouldImportReport()) {
+        return new File(getReportFileSettingValue());
+      }
+
+      File rulesetFile = new File(fileSystem.workingDir(), "resharper-sonarqube.DotSettings");
+      writer.write(enabledRuleKeys(), rulesetFile);
+
+      File reportFile = new File(fileSystem.workingDir(), "resharper-report.xml");
+
+      executor.execute(
+        settings.getString(ReSharperPlugin.INSPECTCODE_PATH_PROPERTY_KEY),
+        settings.getString(ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY),
+        settings.getString(ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY),
+        rulesetFile,
+        reportFile,
+        settings.getInt(ReSharperPlugin.TIMEOUT_MINUTES_PROPERTY_KEY));
+
+      return reportFile;
+    }
+
+    private boolean shouldImportReport() {
+        String reportFileName = getReportFileSettingValue();
+        return reportFileName != null && !reportFileName.isEmpty();
+    }
+
+  private String getReportFileSettingValue() {
+    return settings.getString(ReSharperPlugin.REPORT_FILE_PROPERTY_KEY);
+  }
+
   private static boolean hasFileAndLine(ReSharperIssue issue) {
     return issue.filePath() != null && issue.line() != null;
   }
 
   private static void logSkippedIssueOutsideOfSonarQube(ReSharperIssue issue, File file) {
-    logSkippedIssue(issue, "whose file \"" + file.getAbsolutePath() + "\" is not in SonarQube.");
+    LOG.debug("Skipping the ReSharper issue at line " + issue.reportLine() + " whose file \"" + file.getAbsolutePath() + "\" is not in SonarQube.");
   }
 
   private static void logSkippedIssue(ReSharperIssue issue, String reason) {
