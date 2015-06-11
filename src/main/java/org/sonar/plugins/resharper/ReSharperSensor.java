@@ -96,7 +96,6 @@ public class ReSharperSensor implements Sensor {
 
     File solutionFile = new File(settings.getString(ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY));
     List<ReSharperIssue> parse = parser.parse(reportFile);
-    System.out.println(parse);
     for (ReSharperIssue issue : parse) {
       if (!hasFileAndLine(issue)) {
         logSkippedIssue(issue, "which has no associated file.");

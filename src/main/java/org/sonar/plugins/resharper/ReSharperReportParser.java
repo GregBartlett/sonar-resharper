@@ -67,9 +67,7 @@ public class ReSharperReportParser {
             }
           }
         }
-      } catch (IOException e) {
-        throw Throwables.propagate(e);
-      } catch (XMLStreamException e) {
+      } catch (IOException | XMLStreamException e) {
         throw Throwables.propagate(e);
       } finally {
         closeXmlStream();
@@ -84,7 +82,7 @@ public class ReSharperReportParser {
         try {
           stream.close();
         } catch (XMLStreamException e) {
-          throw Throwables.propagate(e);
+          throw new IllegalStateException(e);
         }
       }
     }

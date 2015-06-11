@@ -22,16 +22,25 @@ package org.sonar.plugins.resharper;
 import org.junit.Test;
 import org.sonar.plugins.resharper.CSharpReSharperProvider.CSharpReSharperSensor;
 
+import java.lang.reflect.Constructor;
+
 import static org.fest.assertions.Assertions.assertThat;
 
 public class CSharpReSharperProviderTest {
+
+  @Test
+  public void private_constructor() throws Exception {
+    Constructor constructor = CSharpReSharperProvider.class.getDeclaredConstructor();
+    assertThat(constructor.isAccessible()).isFalse();
+    constructor.setAccessible(true);
+    constructor.newInstance();
+  }
 
   @Test
   public void test() {
     assertThat(CSharpReSharperProvider.extensions()).containsOnly(
       CSharpReSharperProvider.CSharpReSharperRulesDefinition.class,
       CSharpReSharperSensor.class);
-    ;
   }
 
 }
