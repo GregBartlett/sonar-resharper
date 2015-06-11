@@ -26,7 +26,7 @@ import org.sonar.api.server.rule.RulesDefinitionXmlLoader;
 
 import java.nio.charset.StandardCharsets;
 
-public class ReSharperRulesDefinition implements RulesDefinition {
+public abstract class ReSharperRulesDefinition implements RulesDefinition {
 
   private static final Logger LOG = LoggerFactory.getLogger(ReSharperRulesDefinition.class);
   private static final String REPOSITORY_NAME = "ReSharper";

@@ -20,9 +20,11 @@
 package org.sonar.plugins.resharper;
 
 import org.junit.Test;
+import org.sonar.api.server.rule.RulesDefinition;
 import org.sonar.plugins.resharper.CSharpReSharperProvider.CSharpReSharperSensor;
 
 import java.lang.reflect.Constructor;
+import java.util.List;
 
 import static org.fest.assertions.Assertions.assertThat;
 
@@ -41,6 +43,27 @@ public class CSharpReSharperProviderTest {
     assertThat(CSharpReSharperProvider.extensions()).containsOnly(
       CSharpReSharperProvider.CSharpReSharperRulesDefinition.class,
       CSharpReSharperSensor.class);
+  }
+
+  @Test
+  public void testRulesDefinition() {
+    CSharpReSharperProvider.CSharpReSharperRulesDefinition rulesDefinition = new CSharpReSharperProvider.CSharpReSharperRulesDefinition();
+    RulesDefinition.Context context = new RulesDefinition.Context();
+    rulesDefinition.define(context);
+
+    assertThat(context.repositories()).hasSize(1);
+    RulesDefinition.Repository repo = context.repositories().get(0);
+
+    assertThat(repo.language()).isEqualTo("cs");
+    assertThat(repo.key()).isEqualTo("resharper-cs");
+
+    List<RulesDefinition.Rule> rules = repo.rules();
+    assertThat(rules.size()).isEqualTo(675);
+    for (RulesDefinition.Rule rule : rules) {
+      assertThat(rule.key()).isNotNull();
+      assertThat(rule.name()).isNotNull();
+      assertThat(rule.htmlDescription()).isNotNull();
+    }
   }
 
 }

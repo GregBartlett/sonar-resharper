@@ -80,7 +80,7 @@ public class ReSharperSensorTest {
 
   @Test
   public void analyze() throws Exception {
-    Settings settings = mockSettings("MyLibrary", "CSharpPlayground.sln", "inspectcode.exe");
+    Settings settings = createSettings("MyLibrary", "CSharpPlayground.sln", "inspectcode.exe");
     RulesProfile profile = mock(RulesProfile.class);
     DefaultFileSystem fileSystem = new DefaultFileSystem();
     ResourcePerspectives perspectives = mock(ResourcePerspectives.class);
@@ -169,7 +169,7 @@ public class ReSharperSensorTest {
     thrown.expectMessage(ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY);
     thrown.expect(IllegalStateException.class);
 
-    Settings settings = mockSettings(null, "dummy.sln", null);
+    Settings settings = createSettings(null, "dummy.sln", null);
     mockReSharperSensor(settings).analyse(mock(Project.class), mock(SensorContext.class));
   }
 
@@ -178,7 +178,7 @@ public class ReSharperSensorTest {
     thrown.expect(IllegalStateException.class);
     thrown.expectMessage(ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY);
 
-    Settings settings = mockSettings("Dummy Project", null, null);
+    Settings settings = createSettings("Dummy Project", null, null);
     mockReSharperSensor(settings).analyse(mock(Project.class), mock(SensorContext.class));
   }
 
@@ -205,7 +205,7 @@ public class ReSharperSensorTest {
     return new ReSharperSensor(reSharperConf, settings, mock(RulesProfile.class), mock(FileSystem.class), mock(ResourcePerspectives.class));
   }
 
-  private static Settings mockSettings(@Nullable String projectName, @Nullable String solutionFile, @Nullable String inspectcodePath) {
+  private static Settings createSettings(@Nullable String projectName, @Nullable String solutionFile, @Nullable String inspectcodePath) {
     Settings settings = new Settings();
     Map<String, String> props = Maps.newHashMap();
 
