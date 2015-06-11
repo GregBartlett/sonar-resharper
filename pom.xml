@@ -55,7 +55,7 @@
   <properties>
     <sonar.pluginName>ReSharper</sonar.pluginName>
     <sonar.pluginClass>org.sonar.plugins.resharper.ReSharperPlugin</sonar.pluginClass>
-    <sonarqube.version>3.7</sonarqube.version>
+    <sonarqube.version>4.5.2</sonarqube.version>
 
     <maven.test.redirectTestOutputToFile>true</maven.test.redirectTestOutputToFile>
   </properties>

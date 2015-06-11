@@ -22,9 +22,7 @@ package org.sonar.plugins.resharper;
 import com.google.common.collect.ImmutableSet;
 import org.junit.Test;
 import org.sonar.api.config.PropertyDefinition;
-import org.sonar.plugins.resharper.CSharpReSharperProvider.CSharpReSharperRuleRepository;
 import org.sonar.plugins.resharper.CSharpReSharperProvider.CSharpReSharperSensor;
-import org.sonar.plugins.resharper.VBNetReSharperProvider.VBNetReSharperRuleRepository;
 import org.sonar.plugins.resharper.VBNetReSharperProvider.VBNetReSharperSensor;
 
 import java.util.List;
@@ -37,9 +35,9 @@ public class ReSharperPluginTest {
   @Test
   public void test() {
     assertThat(nonProperties(new ReSharperPlugin().getExtensions())).containsOnly(
-      CSharpReSharperRuleRepository.class,
+      CSharpReSharperProvider.CSharpReSharperRulesDefinition.class,
       CSharpReSharperSensor.class,
-      VBNetReSharperRuleRepository.class,
+      VBNetReSharperProvider.VBNetReSharperRulesDefinition.class,
       VBNetReSharperSensor.class);
 
     assertThat(propertyKeys(new ReSharperPlugin().getExtensions())).containsOnly(

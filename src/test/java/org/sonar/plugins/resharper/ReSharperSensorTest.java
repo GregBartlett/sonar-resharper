@@ -26,6 +26,9 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.mockito.Mockito;
 import org.sonar.api.batch.SensorContext;
+import org.sonar.api.batch.fs.FileSystem;
+import org.sonar.api.batch.fs.internal.DefaultFileSystem;
+import org.sonar.api.batch.fs.internal.DefaultInputFile;
 import org.sonar.api.component.ResourcePerspectives;
 import org.sonar.api.config.Settings;
 import org.sonar.api.issue.Issuable;
@@ -36,11 +39,8 @@ import org.sonar.api.resources.Language;
 import org.sonar.api.resources.Project;
 import org.sonar.api.rule.RuleKey;
 import org.sonar.api.rules.ActiveRule;
-import org.sonar.api.scan.filesystem.FileQuery;
-import org.sonar.api.scan.filesystem.ModuleFileSystem;
 
 import javax.annotation.Nullable;
-
 import java.io.File;
 import java.util.List;
 import java.util.Map;
@@ -59,23 +59,22 @@ public class ReSharperSensorTest {
   public void shouldExecuteOnProject() {
     Settings settings = mock(Settings.class);
     RulesProfile profile = mock(RulesProfile.class);
-    ModuleFileSystem fileSystem = mock(ModuleFileSystem.class);
+    DefaultFileSystem fileSystem = new DefaultFileSystem();
     ResourcePerspectives perspectives = mock(ResourcePerspectives.class);
 
     Project project = mock(Project.class);
 
     ReSharperSensor sensor = new ReSharperSensor(
-      new ReSharperConfiguration("", "foo-resharper"),
+      new ReSharperConfiguration("lang", "foo-resharper"),
       settings, profile, fileSystem, perspectives);
 
-    when(fileSystem.files(Mockito.any(FileQuery.class))).thenReturn(ImmutableList.<File>of());
     assertThat(sensor.shouldExecuteOnProject(project)).isFalse();
 
-    when(fileSystem.files(Mockito.any(FileQuery.class))).thenReturn(ImmutableList.of(mock(File.class)));
+    fileSystem.add(new DefaultInputFile("").setAbsolutePath("").setLanguage("foo"));
     when(profile.getActiveRulesByRepository("foo-resharper")).thenReturn(ImmutableList.<ActiveRule>of());
     assertThat(sensor.shouldExecuteOnProject(project)).isFalse();
 
-    when(fileSystem.files(Mockito.any(FileQuery.class))).thenReturn(ImmutableList.of(mock(File.class)));
+    fileSystem.add(new DefaultInputFile("").setAbsolutePath("").setLanguage("lang"));
     when(profile.getActiveRulesByRepository("foo-resharper")).thenReturn(ImmutableList.of(mock(ActiveRule.class)));
     assertThat(sensor.shouldExecuteOnProject(project)).isTrue();
   }
@@ -84,7 +83,7 @@ public class ReSharperSensorTest {
   public void analyze() throws Exception {
     Settings settings = mockSettings("MyLibrary", "CSharpPlayground.sln", "inspectcode.exe");
     RulesProfile profile = mock(RulesProfile.class);
-    ModuleFileSystem fileSystem = mock(ModuleFileSystem.class);
+    FileSystem fileSystem = mock(FileSystem.class);
     ResourcePerspectives perspectives = mock(ResourcePerspectives.class);
 
     ReSharperSensor sensor = new ReSharperSensor(
@@ -99,7 +98,7 @@ public class ReSharperSensorTest {
     ReSharperExecutor executor = mock(ReSharperExecutor.class);
 
     File workingDir = new File("target/ReSharperSensorTest/working-dir");
-    when(fileSystem.workingDir()).thenReturn(workingDir);
+    when(fileSystem.workDir()).thenReturn(workingDir);
 
     File fileNotInSonarQube = mock(File.class);
     File fooFileWithIssuable = mock(File.class);
@@ -146,7 +145,7 @@ public class ReSharperSensorTest {
         new ReSharperIssue(700, "AccessToDisposedClosure", "Class6.cs", 6, "Fourth message"),
         new ReSharperIssue(800, "AccessToDisposedClosure", "Class7.cs", 7, "Fifth message")));
 
-    sensor.analyse(context, fileProvider, writer, parser, executor);
+    sensor.analyse(fileProvider, writer, parser, executor);
 
     verify(writer).write(ImmutableList.of("AccessToDisposedClosure", "AccessToForEachVariableInClosure"), new File(workingDir, "resharper-sonarqube.DotSettings"));
     verify(executor).execute(
@@ -209,7 +208,7 @@ public class ReSharperSensorTest {
 
   private static ReSharperSensor mockReSharperSensor(Settings settings) {
     ReSharperConfiguration reSharperConf = new ReSharperConfiguration("", "");
-    return new ReSharperSensor(reSharperConf, settings, mock(RulesProfile.class), mock(ModuleFileSystem.class), mock(ResourcePerspectives.class));
+    return new ReSharperSensor(reSharperConf, settings, mock(RulesProfile.class), mock(FileSystem.class), mock(ResourcePerspectives.class));
   }
 
   private static Settings mockSettings(@Nullable String projectName, @Nullable String solutionFile, @Nullable String inspectcodePath) {

@@ -20,7 +20,6 @@
 package org.sonar.plugins.resharper;
 
 import org.junit.Test;
-import org.sonar.plugins.resharper.VBNetReSharperProvider.VBNetReSharperRuleRepository;
 import org.sonar.plugins.resharper.VBNetReSharperProvider.VBNetReSharperSensor;
 
 import static org.fest.assertions.Assertions.assertThat;
@@ -30,7 +29,7 @@ public class VBNetReSharperProviderTest {
   @Test
   public void test() {
     assertThat(VBNetReSharperProvider.extensions()).containsOnly(
-      VBNetReSharperRuleRepository.class,
+      VBNetReSharperProvider.VBNetReSharperRulesDefinition.class,
       VBNetReSharperSensor.class);
   }
 

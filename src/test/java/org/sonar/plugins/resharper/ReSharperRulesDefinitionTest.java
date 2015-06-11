@@ -20,27 +20,32 @@
 package org.sonar.plugins.resharper;
 
 import org.junit.Test;
-import org.sonar.api.rules.Rule;
-import org.sonar.api.rules.XMLRuleParser;
+import org.sonar.api.server.rule.RulesDefinition;
 
 import java.util.List;
 
 import static org.fest.assertions.Assertions.assertThat;
 
-public class ReSharperRuleRepositoryTest {
+public class ReSharperRulesDefinitionTest {
 
   @Test
   public void test() {
-    ReSharperRuleRepository repo = new ReSharperRuleRepository(new ReSharperConfiguration("cs", "cs-resharper"), new XMLRuleParser());
-    assertThat(repo.getLanguage()).isEqualTo("cs");
-    assertThat(repo.getKey()).isEqualTo("cs-resharper");
+    ReSharperRulesDefinition rulesDefinition = new ReSharperRulesDefinition(new ReSharperConfiguration("cs", "cs-resharper"));
+    RulesDefinition.Context context = new RulesDefinition.Context();
+    rulesDefinition.define(context);
 
-    List<Rule> rules = repo.createRules();
+    assertThat(context.repositories()).hasSize(1);
+    RulesDefinition.Repository repo = context.repositories().get(0);
+
+    assertThat(repo.language()).isEqualTo("cs");
+    assertThat(repo.key()).isEqualTo("cs-resharper");
+
+    List<RulesDefinition.Rule> rules = repo.rules();
     assertThat(rules.size()).isEqualTo(675);
-    for (Rule rule : rules) {
-      assertThat(rule.getKey()).isNotNull();
-      assertThat(rule.getName()).isNotNull();
-      assertThat(rule.getDescription()).isNotNull();
+    for (RulesDefinition.Rule rule : rules) {
+      assertThat(rule.key()).isNotNull();
+      assertThat(rule.name()).isNotNull();
+      assertThat(rule.htmlDescription()).isNotNull();
     }
   }
 

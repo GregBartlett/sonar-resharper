@@ -20,11 +20,10 @@
 package org.sonar.plugins.resharper;
 
 import com.google.common.collect.ImmutableList;
+import org.sonar.api.batch.fs.FileSystem;
 import org.sonar.api.component.ResourcePerspectives;
 import org.sonar.api.config.Settings;
 import org.sonar.api.profiles.RulesProfile;
-import org.sonar.api.rules.XMLRuleParser;
-import org.sonar.api.scan.filesystem.ModuleFileSystem;
 
 import java.util.List;
 
@@ -37,21 +36,21 @@ public class CSharpReSharperProvider {
 
   public static List extensions() {
     return ImmutableList.of(
-      CSharpReSharperRuleRepository.class,
+      CSharpReSharperRulesDefinition.class,
       CSharpReSharperSensor.class);
   }
 
-  public static class CSharpReSharperRuleRepository extends ReSharperRuleRepository {
+  public static class CSharpReSharperRulesDefinition extends ReSharperRulesDefinition {
 
-    public CSharpReSharperRuleRepository(XMLRuleParser xmlRuleParser) {
-      super(RESHARPER_CONF, xmlRuleParser);
+    public CSharpReSharperRulesDefinition() {
+      super(RESHARPER_CONF);
     }
 
   }
 
   public static class CSharpReSharperSensor extends ReSharperSensor {
 
-    public CSharpReSharperSensor(Settings settings, RulesProfile profile, ModuleFileSystem fileSystem, ResourcePerspectives perspectives) {
+    public CSharpReSharperSensor(Settings settings, RulesProfile profile, FileSystem fileSystem, ResourcePerspectives perspectives) {
       super(RESHARPER_CONF, settings, profile, fileSystem, perspectives);
     }
 

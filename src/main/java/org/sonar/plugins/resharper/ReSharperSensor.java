@@ -25,6 +25,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.sonar.api.batch.Sensor;
 import org.sonar.api.batch.SensorContext;
+import org.sonar.api.batch.fs.FileSystem;
 import org.sonar.api.component.ResourcePerspectives;
 import org.sonar.api.config.Settings;
 import org.sonar.api.issue.Issuable;
@@ -32,8 +33,6 @@ import org.sonar.api.profiles.RulesProfile;
 import org.sonar.api.resources.Project;
 import org.sonar.api.rule.RuleKey;
 import org.sonar.api.rules.ActiveRule;
-import org.sonar.api.scan.filesystem.FileQuery;
-import org.sonar.api.scan.filesystem.ModuleFileSystem;
 
 import java.io.File;
 import java.util.List;
@@ -45,10 +44,10 @@ public class ReSharperSensor implements Sensor {
   private final ReSharperConfiguration reSharperConf;
   private final Settings settings;
   private final RulesProfile profile;
-  private final ModuleFileSystem fileSystem;
+  private final FileSystem fileSystem;
   private final ResourcePerspectives perspectives;
 
-  public ReSharperSensor(ReSharperConfiguration reSharperConf, Settings settings, RulesProfile profile, ModuleFileSystem fileSystem, ResourcePerspectives perspectives) {
+  public ReSharperSensor(ReSharperConfiguration reSharperConf, Settings settings, RulesProfile profile, FileSystem fileSystem, ResourcePerspectives perspectives) {
     this.reSharperConf = reSharperConf;
     this.settings = settings;
     this.profile = profile;
@@ -73,22 +72,22 @@ public class ReSharperSensor implements Sensor {
   }
 
   private boolean hasFilesToAnalyze() {
-    return !fileSystem.files(FileQuery.onSource().onLanguage(reSharperConf.languageKey())).isEmpty();
+    return fileSystem.files(fileSystem.predicates().hasLanguage(reSharperConf.languageKey())).iterator().hasNext();
   }
 
   @Override
   public void analyse(Project project, SensorContext context) {
-    analyse(context, new FileProvider(project, context), new ReSharperDotSettingsWriter(), new ReSharperReportParser(), new ReSharperExecutor());
+    analyse(new FileProvider(project, context), new ReSharperDotSettingsWriter(), new ReSharperReportParser(), new ReSharperExecutor());
   }
 
   @VisibleForTesting
-  void analyse(SensorContext context, FileProvider fileProvider, ReSharperDotSettingsWriter writer, ReSharperReportParser parser, ReSharperExecutor executor) {
+  void analyse(FileProvider fileProvider, ReSharperDotSettingsWriter writer, ReSharperReportParser parser, ReSharperExecutor executor) {
     checkProperties(settings);
 
-    File rulesetFile = new File(fileSystem.workingDir(), "resharper-sonarqube.DotSettings");
+    File rulesetFile = new File(fileSystem.workDir(), "resharper-sonarqube.DotSettings");
     writer.write(enabledRuleKeys(), rulesetFile);
 
-    File reportFile = new File(fileSystem.workingDir(), "resharper-report.xml");
+    File reportFile = new File(fileSystem.workDir(), "resharper-report.xml");
 
     executor.execute(
       settings.getString(ReSharperPlugin.INSPECTCODE_PATH_PROPERTY_KEY), settings.getString(ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY),
