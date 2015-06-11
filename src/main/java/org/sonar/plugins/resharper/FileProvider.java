@@ -19,28 +19,12 @@
  */
 package org.sonar.plugins.resharper;
 
-import org.sonar.api.batch.SensorContext;
-import org.sonar.api.resources.Project;
-
 import java.io.File;
 
 public class FileProvider {
 
-  private final Project project;
-  private final SensorContext context;
-
-  public FileProvider(Project project, SensorContext context) {
-    this.project = project;
-    this.context = context;
-  }
-
   public File fileInSolution(File solutionFile, String filePath) {
     return new File(solutionFile.getParentFile(), filePath.replace('\\', '/'));
-  }
-
-  public org.sonar.api.resources.File fromIOFile(File file) {
-    // Workaround SonarQube < 4.2, the context should not be required
-    return context.getResource(org.sonar.api.resources.File.fromIOFile(new File(file.getAbsolutePath()), project));
   }
 
 }

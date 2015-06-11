@@ -26,6 +26,7 @@ import org.slf4j.LoggerFactory;
 import org.sonar.api.batch.Sensor;
 import org.sonar.api.batch.SensorContext;
 import org.sonar.api.batch.fs.FileSystem;
+import org.sonar.api.batch.fs.InputFile;
 import org.sonar.api.component.ResourcePerspectives;
 import org.sonar.api.config.Settings;
 import org.sonar.api.issue.Issuable;
@@ -77,7 +78,7 @@ public class ReSharperSensor implements Sensor {
 
   @Override
   public void analyse(Project project, SensorContext context) {
-    analyse(new FileProvider(project, context), new ReSharperDotSettingsWriter(), new ReSharperReportParser(), new ReSharperExecutor());
+    analyse(new FileProvider(), new ReSharperDotSettingsWriter(), new ReSharperReportParser(), new ReSharperExecutor());
   }
 
   @VisibleForTesting
@@ -94,18 +95,23 @@ public class ReSharperSensor implements Sensor {
       settings.getString(ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY), rulesetFile, reportFile, settings.getInt(ReSharperPlugin.TIMEOUT_MINUTES_PROPERTY_KEY));
 
     File solutionFile = new File(settings.getString(ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY));
-    for (ReSharperIssue issue : parser.parse(reportFile)) {
+    List<ReSharperIssue> parse = parser.parse(reportFile);
+    System.out.println(parse);
+    for (ReSharperIssue issue : parse) {
       if (!hasFileAndLine(issue)) {
         logSkippedIssue(issue, "which has no associated file.");
         continue;
       }
 
       File file = fileProvider.fileInSolution(solutionFile, issue.filePath());
-      org.sonar.api.resources.File sonarFile = fileProvider.fromIOFile(file);
-      if (sonarFile == null) {
+      InputFile inputFile = fileSystem.inputFile(
+        fileSystem.predicates().and(
+          fileSystem.predicates().hasAbsolutePath(file.getAbsolutePath()),
+          fileSystem.predicates().hasType(InputFile.Type.MAIN)));
+      if (inputFile == null) {
         logSkippedIssueOutsideOfSonarQube(issue, file);
-      } else if (reSharperConf.languageKey().equals(sonarFile.getLanguage().getKey())) {
-        Issuable issuable = perspectives.as(Issuable.class, sonarFile);
+      } else if (reSharperConf.languageKey().equals(inputFile.language())) {
+        Issuable issuable = perspectives.as(Issuable.class, inputFile);
         if (issuable == null) {
           logSkippedIssueOutsideOfSonarQube(issue, file);
         } else if (!enabledRuleKeys().contains(issue.ruleKey())) {

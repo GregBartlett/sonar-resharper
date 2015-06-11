@@ -35,7 +35,6 @@ import org.sonar.api.issue.Issuable;
 import org.sonar.api.issue.Issuable.IssueBuilder;
 import org.sonar.api.issue.Issue;
 import org.sonar.api.profiles.RulesProfile;
-import org.sonar.api.resources.Language;
 import org.sonar.api.resources.Project;
 import org.sonar.api.rule.RuleKey;
 import org.sonar.api.rules.ActiveRule;
@@ -83,42 +82,45 @@ public class ReSharperSensorTest {
   public void analyze() throws Exception {
     Settings settings = mockSettings("MyLibrary", "CSharpPlayground.sln", "inspectcode.exe");
     RulesProfile profile = mock(RulesProfile.class);
-    FileSystem fileSystem = mock(FileSystem.class);
+    DefaultFileSystem fileSystem = new DefaultFileSystem();
     ResourcePerspectives perspectives = mock(ResourcePerspectives.class);
 
+    String languageKey = "foo";
     ReSharperSensor sensor = new ReSharperSensor(
-      new ReSharperConfiguration("foo", "foo-resharper"),
+      new ReSharperConfiguration(languageKey, "foo-resharper"),
       settings, profile, fileSystem, perspectives);
 
     List<ActiveRule> activeRules = mockActiveRules("AccessToDisposedClosure", "AccessToForEachVariableInClosure");
     when(profile.getActiveRulesByRepository("foo-resharper")).thenReturn(activeRules);
 
-    SensorContext context = mock(SensorContext.class);
     FileProvider fileProvider = mock(FileProvider.class);
     ReSharperExecutor executor = mock(ReSharperExecutor.class);
 
     File workingDir = new File("target/ReSharperSensorTest/working-dir");
-    when(fileSystem.workDir()).thenReturn(workingDir);
+    fileSystem.setWorkDir(workingDir);
 
     File fileNotInSonarQube = mock(File.class);
+    when(fileNotInSonarQube.getAbsolutePath()).thenReturn("fileNotInSonarQube");
+    fileSystem.add(new DefaultInputFile("fileNotInSonarQube").setAbsolutePath("fileNotInSonarQube").setLanguage(languageKey));
+
     File fooFileWithIssuable = mock(File.class);
+    when(fooFileWithIssuable.getAbsolutePath()).thenReturn("fooFileWithIssuable");
+    DefaultInputFile inputFileWithIssues = new DefaultInputFile("fooFileWithIssuable").setAbsolutePath("fooFileWithIssuable").setLanguage(languageKey);
+    fileSystem.add(inputFileWithIssues);
+
     File fooFileWithoutIssuable = mock(File.class);
+    when(fooFileWithoutIssuable.getAbsolutePath()).thenReturn("fooFileWithoutIssuable");
+    fileSystem.add(new DefaultInputFile("fooFileWithoutIssuable").setAbsolutePath("fooFileWithoutIssuable").setLanguage(languageKey));
+
     File barFile = mock(File.class);
+    when(barFile.getAbsolutePath()).thenReturn("barFile");
+    fileSystem.add(new DefaultInputFile("barFile").setAbsolutePath("barFile"));
 
     when(fileProvider.fileInSolution(Mockito.any(File.class), Mockito.eq("Class3.cs"))).thenReturn(fileNotInSonarQube);
     when(fileProvider.fileInSolution(Mockito.any(File.class), Mockito.eq("Class4.cs"))).thenReturn(fooFileWithIssuable);
     when(fileProvider.fileInSolution(Mockito.any(File.class), Mockito.eq("Class5.cs"))).thenReturn(fooFileWithIssuable);
     when(fileProvider.fileInSolution(Mockito.any(File.class), Mockito.eq("Class6.cs"))).thenReturn(fooFileWithoutIssuable);
     when(fileProvider.fileInSolution(Mockito.any(File.class), Mockito.eq("Class7.cs"))).thenReturn(barFile);
-
-    org.sonar.api.resources.File fooSonarFileWithIssuable = mockSonarFile("foo");
-    org.sonar.api.resources.File fooSonarFileWithoutIssuable = mockSonarFile("foo");
-    org.sonar.api.resources.File barSonarFile = mockSonarFile("bar");
-
-    when(fileProvider.fromIOFile(fileNotInSonarQube)).thenReturn(null);
-    when(fileProvider.fromIOFile(fooFileWithIssuable)).thenReturn(fooSonarFileWithIssuable);
-    when(fileProvider.fromIOFile(fooFileWithoutIssuable)).thenReturn(fooSonarFileWithoutIssuable);
-    when(fileProvider.fromIOFile(barFile)).thenReturn(barSonarFile);
 
     Issue issue1 = mock(Issue.class);
     IssueBuilder issueBuilder1 = mockIssueBuilder();
@@ -129,13 +131,13 @@ public class ReSharperSensorTest {
     when(issueBuilder2.build()).thenReturn(issue2);
 
     Issuable issuable = mock(Issuable.class);
-    when(perspectives.as(Issuable.class, fooSonarFileWithIssuable)).thenReturn(issuable);
+    when(perspectives.as(Issuable.class, inputFileWithIssues)).thenReturn(issuable);
     when(issuable.newIssueBuilder()).thenReturn(issueBuilder1, issueBuilder2);
 
     ReSharperDotSettingsWriter writer = mock(ReSharperDotSettingsWriter.class);
 
     ReSharperReportParser parser = mock(ReSharperReportParser.class);
-    when(parser.parse(new File(workingDir, "resharper-report.xml"))).thenReturn(
+    when(parser.parse(new File(workingDir, "resharper-report.xml").getAbsoluteFile())).thenReturn(
       ImmutableList.of(
         new ReSharperIssue(100, "AccessToDisposedClosure", null, 1, "Dummy message"),
         new ReSharperIssue(200, "AccessToDisposedClosure", "Class2.cs", null, "Dummy message"),
@@ -147,10 +149,10 @@ public class ReSharperSensorTest {
 
     sensor.analyse(fileProvider, writer, parser, executor);
 
-    verify(writer).write(ImmutableList.of("AccessToDisposedClosure", "AccessToForEachVariableInClosure"), new File(workingDir, "resharper-sonarqube.DotSettings"));
+    verify(writer).write(ImmutableList.of("AccessToDisposedClosure", "AccessToForEachVariableInClosure"), new File(workingDir, "resharper-sonarqube.DotSettings").getAbsoluteFile());
     verify(executor).execute(
       "inspectcode.exe", "MyLibrary", "CSharpPlayground.sln",
-      new File(workingDir, "resharper-sonarqube.DotSettings"), new File(workingDir, "resharper-report.xml"), 10);
+      new File(workingDir, "resharper-sonarqube.DotSettings").getAbsoluteFile(), new File(workingDir, "resharper-report.xml").getAbsoluteFile(), 10);
 
     verify(issuable).addIssue(issue1);
     verify(issuable).addIssue(issue2);
@@ -178,14 +180,6 @@ public class ReSharperSensorTest {
 
     Settings settings = mockSettings("Dummy Project", null, null);
     mockReSharperSensor(settings).analyse(mock(Project.class), mock(SensorContext.class));
-  }
-
-  private static org.sonar.api.resources.File mockSonarFile(String languageKey) {
-    Language language = mock(Language.class);
-    when(language.getKey()).thenReturn(languageKey);
-    org.sonar.api.resources.File sonarFile = mock(org.sonar.api.resources.File.class);
-    when(sonarFile.getLanguage()).thenReturn(language);
-    return sonarFile;
   }
 
   private static IssueBuilder mockIssueBuilder() {
