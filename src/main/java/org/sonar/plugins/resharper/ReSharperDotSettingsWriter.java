@@ -20,7 +20,6 @@
 package org.sonar.plugins.resharper;
 
 import com.google.common.base.Charsets;
-import com.google.common.base.Throwables;
 import com.google.common.io.Files;
 import org.apache.commons.io.IOUtils;
 
@@ -47,7 +46,7 @@ public class ReSharperDotSettingsWriter {
     try {
       Files.write(sb.toString().getBytes(Charsets.UTF_8), file);
     } catch (IOException e) {
-      throw Throwables.propagate(e);
+      throw new IllegalStateException(e);
     }
   }
 

@@ -24,6 +24,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.io.Files;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.rules.TemporaryFolder;
 
 import java.io.File;
@@ -34,6 +35,9 @@ public class ReSharperDotSettingsWriterTest {
 
   @Rule
   public TemporaryFolder tmp = new TemporaryFolder();
+
+  @Rule
+  public ExpectedException thrown = ExpectedException.none();
 
   @Test
   public void test() throws Exception {
@@ -56,5 +60,18 @@ public class ReSharperDotSettingsWriterTest {
       .contains("foo_003Abar")
       .contains("baz");
   }
+
+  @Test
+  public void testWriteException() throws Exception {
+    File file = tmp.newFile();
+    file.setReadOnly();
+
+    thrown.expect(IllegalStateException.class);
+    thrown.expectMessage("java.io.FileNotFoundException: ");
+
+    new ReSharperDotSettingsWriter().write(ImmutableList.of("foo", "bar"), file);
+  }
+
+
 
 }

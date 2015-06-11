@@ -19,6 +19,7 @@
  */
 package org.sonar.plugins.resharper;
 
+import com.google.common.annotations.VisibleForTesting;
 import org.sonar.api.utils.command.Command;
 import org.sonar.api.utils.command.CommandException;
 import org.sonar.api.utils.command.CommandExecutor;
@@ -28,7 +29,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ReSharperExecutor {
 
-  private static final String EXECUTABLE = "inspectcode.exe";
+  protected static final String EXECUTABLE = "inspectcode.exe";
 
   public void execute(String executable, String project, String solutionFile, File rulesetFile, File reportFile, int timeout) {
     Command cmd = Command.create(getExecutable(executable))
@@ -49,7 +50,8 @@ public class ReSharperExecutor {
   /**
    * Handles deprecated property: "installDirectory", which gives the path to the directory only.
    */
-  private static String getExecutable(String path) {
+  @VisibleForTesting
+  protected static String getExecutable(String path) {
     return path.endsWith(EXECUTABLE) ? path : new File(path, EXECUTABLE).getAbsolutePath();
   }
 

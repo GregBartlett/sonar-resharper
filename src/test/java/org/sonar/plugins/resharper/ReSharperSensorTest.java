@@ -76,6 +76,9 @@ public class ReSharperSensorTest {
     fileSystem.add(new DefaultInputFile("").setAbsolutePath("").setLanguage("lang"));
     when(profile.getActiveRulesByRepository("foo-resharper")).thenReturn(ImmutableList.of(mock(ActiveRule.class)));
     assertThat(sensor.shouldExecuteOnProject(project)).isTrue();
+
+    when(profile.getActiveRulesByRepository("foo-resharper")).thenReturn(ImmutableList.<ActiveRule>of());
+    assertThat(sensor.shouldExecuteOnProject(project)).isFalse();
   }
 
   @Test
@@ -170,7 +173,7 @@ public class ReSharperSensorTest {
     thrown.expect(IllegalStateException.class);
 
     Settings settings = createSettings(null, "dummy.sln", null);
-    mockReSharperSensor(settings).analyse(mock(Project.class), mock(SensorContext.class));
+    createReSharperSensor(settings).analyse(mock(Project.class), mock(SensorContext.class));
   }
 
   @Test
@@ -179,7 +182,7 @@ public class ReSharperSensorTest {
     thrown.expectMessage(ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY);
 
     Settings settings = createSettings("Dummy Project", null, null);
-    mockReSharperSensor(settings).analyse(mock(Project.class), mock(SensorContext.class));
+    createReSharperSensor(settings).analyse(mock(Project.class), mock(SensorContext.class));
   }
 
   private static IssueBuilder mockIssueBuilder() {
@@ -200,7 +203,7 @@ public class ReSharperSensorTest {
     return builder.build();
   }
 
-  private static ReSharperSensor mockReSharperSensor(Settings settings) {
+  private static ReSharperSensor createReSharperSensor(Settings settings) {
     ReSharperConfiguration reSharperConf = new ReSharperConfiguration("", "");
     return new ReSharperSensor(reSharperConf, settings, mock(RulesProfile.class), mock(FileSystem.class), mock(ResourcePerspectives.class));
   }
