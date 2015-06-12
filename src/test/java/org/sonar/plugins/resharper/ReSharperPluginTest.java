@@ -41,6 +41,9 @@ public class ReSharperPluginTest {
       VBNetReSharperSensor.class);
 
     assertThat(propertyKeys(new ReSharperPlugin().getExtensions())).containsOnly(
+      "sonar.resharper.cs.reportPath",
+      "sonar.resharper.vbnet.reportPath",
+
       "sonar.resharper.projectName",
       "sonar.resharper.solutionFile",
       "sonar.resharper.inspectCodePath",

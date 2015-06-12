@@ -34,9 +34,16 @@ public class ReSharperPlugin extends SonarPlugin {
   public static final String INSPECTCODE_PATH_PROPERTY_KEY = "sonar.resharper.inspectCodePath";
   public static final String TIMEOUT_MINUTES_PROPERTY_KEY = "sonar.resharper.timeoutMinutes";
 
+  public static final String CS_REPORT_PATH_KEY = "sonar.resharper.cs.reportPath";
+  public static final String VBNET_REPORT_PATH_KEY = "sonar.resharper.vbnet.reportPath";
+
   public static final String OLD_INSTALL_DIRECTORY_KEY = "sonar.resharper.installDirectory";
 
   private static final String CATEGORY = "ReSharper";
+  private static final String DEPRECATED_SUBCATEGORY = "Deprecated";
+  private static final String DEPRECATED_DESCRIPTION = "This property is deprecated and will be removed in a future version.<br />"
+    + "You should stop using it as soon as possible.<br />"
+    + "Consult the migration guide for guidance.";
 
   /**
    * {@inheritDoc}
@@ -55,34 +62,51 @@ public class ReSharperPlugin extends SonarPlugin {
 
   private static ImmutableList<PropertyDefinition> pluginProperties() {
     return ImmutableList.of(
-      PropertyDefinition.builder(PROJECT_NAME_PROPERTY_KEY)
-        .name("Visual Studio project name")
-        .description("Example: MyLibrary")
+      PropertyDefinition.builder(CS_REPORT_PATH_KEY)
+        .name("ReSharper report path for C#")
+        .description("Path to the ReSharper report for C#, i.e. reports/cs-report.xml")
+        .category(CATEGORY)
+        .onlyOnQualifiers(Qualifiers.PROJECT, Qualifiers.MODULE)
+        .build(),
+
+      PropertyDefinition.builder(VBNET_REPORT_PATH_KEY)
+        .name("ReSharper report path for VB.NET")
+        .description("Path to the ReSharper report for VB.NET, i.e. reports/vbnet-report.xml")
         .category(CATEGORY)
         .onlyOnQualifiers(Qualifiers.PROJECT, Qualifiers.MODULE)
         .build(),
 
       PropertyDefinition.builder(SOLUTION_FILE_PROPERTY_KEY)
         .name("Solution file")
-        .description("Example: C:/Projects/MyProject/MySolution.sln")
+        .description("Example: C:/Projects/MyProject/MySolution.sln.<br />" + DEPRECATED_DESCRIPTION)
         .category(CATEGORY)
+        .onlyOnQualifiers(Qualifiers.PROJECT, Qualifiers.MODULE)
+        .build(),
+
+      PropertyDefinition.builder(PROJECT_NAME_PROPERTY_KEY)
+        .name("Visual Studio project name")
+        .description("Example: MyLibrary.<br />" + DEPRECATED_DESCRIPTION)
+        .category(CATEGORY)
+        .subCategory(DEPRECATED_SUBCATEGORY)
         .onlyOnQualifiers(Qualifiers.PROJECT, Qualifiers.MODULE)
         .build(),
 
       PropertyDefinition.builder(INSPECTCODE_PATH_PROPERTY_KEY)
         .name("Path to inspectcode.exe")
-        .description("Example: C:/jetbrains-commandline-tools/inspectcode.exe")
+        .description("Example: C:/jetbrains-commandline-tools/inspectcode.exe.<br />" + DEPRECATED_DESCRIPTION)
         .defaultValue("C:/jetbrains-commandline-tools/inspectcode.exe")
         .category(CATEGORY)
+        .subCategory(DEPRECATED_SUBCATEGORY)
         .onQualifiers(Qualifiers.PROJECT)
         .deprecatedKey(OLD_INSTALL_DIRECTORY_KEY)
         .build(),
 
       PropertyDefinition.builder(TIMEOUT_MINUTES_PROPERTY_KEY)
         .name("ReSharper execution timeout")
-        .description("Time in minutes after which ReSharper's execution should be interrupted if not finished")
+        .description("Time in minutes after which ReSharper's execution should be interrupted if not finished.<br />" + DEPRECATED_DESCRIPTION)
         .defaultValue("60")
         .category(CATEGORY)
+        .subCategory(DEPRECATED_SUBCATEGORY)
         .onQualifiers(Qualifiers.PROJECT)
         .type(PropertyType.INTEGER)
         .build(),
@@ -94,11 +118,9 @@ public class ReSharperPlugin extends SonarPlugin {
     return PropertyDefinition
       .builder(oldKey)
       .name(oldKey)
-      .description("This property is deprecated and will be removed in a future version.<br />"
-        + "You should stop using it as soon as possible.<br />"
-        + "Consult the migration guide for guidance.")
+      .description(DEPRECATED_DESCRIPTION)
       .category(CATEGORY)
-      .subCategory("Deprecated")
+      .subCategory(DEPRECATED_SUBCATEGORY)
       .onQualifiers(Qualifiers.PROJECT, Qualifiers.MODULE)
       .build();
   }

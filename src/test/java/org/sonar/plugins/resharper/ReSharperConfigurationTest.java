@@ -27,13 +27,15 @@ public class ReSharperConfigurationTest {
 
   @Test
   public void test() {
-    ReSharperConfiguration reSharperConf = new ReSharperConfiguration("cs", "cs-resharper");
+    ReSharperConfiguration reSharperConf = new ReSharperConfiguration("cs", "cs-resharper", "cs.reportPath");
     assertThat(reSharperConf.languageKey()).isEqualTo("cs");
     assertThat(reSharperConf.repositoryKey()).isEqualTo("cs-resharper");
+    assertThat(reSharperConf.reportPathKey()).isEqualTo("cs.reportPath");
 
-    reSharperConf = new ReSharperConfiguration("vbnet", "vbnet-resharper");
+    reSharperConf = new ReSharperConfiguration("vbnet", "vbnet-resharper", "vbnet.reportPath");
     assertThat(reSharperConf.languageKey()).isEqualTo("vbnet");
     assertThat(reSharperConf.repositoryKey()).isEqualTo("vbnet-resharper");
+    assertThat(reSharperConf.reportPathKey()).isEqualTo("vbnet.reportPath");
   }
 
 }

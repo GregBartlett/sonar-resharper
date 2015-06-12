@@ -29,7 +29,7 @@ import java.util.List;
 
 public class VBNetReSharperProvider {
 
-  private static final ReSharperConfiguration RESHARPER_CONF = new ReSharperConfiguration("vbnet", "resharper-vbnet");
+  private static final ReSharperConfiguration RESHARPER_CONF = new ReSharperConfiguration("vbnet", "resharper-vbnet", ReSharperPlugin.VBNET_REPORT_PATH_KEY);
 
   private VBNetReSharperProvider () {
   }

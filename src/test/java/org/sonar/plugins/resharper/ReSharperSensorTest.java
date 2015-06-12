@@ -64,7 +64,7 @@ public class ReSharperSensorTest {
     Project project = mock(Project.class);
 
     ReSharperSensor sensor = new ReSharperSensor(
-      new ReSharperConfiguration("lang", "foo-resharper"),
+      new ReSharperConfiguration("lang", "foo-resharper", "fooReportkey"),
       settings, profile, fileSystem, perspectives);
 
     assertThat(sensor.shouldExecuteOnProject(project)).isFalse();
@@ -82,7 +82,62 @@ public class ReSharperSensorTest {
   }
 
   @Test
-  public void analyze() throws Exception {
+  public void analyze_report_path() throws Exception {
+    String languageKey = "foo";
+    String reportPathKey = "fooReport";
+    Settings settings = new Settings();
+    settings.setProperty(ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY, "CSharpPlayground.sln");
+    settings.setProperty(reportPathKey, "src/test/resources/SensorTest/report.xml");
+
+    RulesProfile profile = mock(RulesProfile.class);
+    DefaultFileSystem fileSystem = new DefaultFileSystem();
+    ResourcePerspectives perspectives = mock(ResourcePerspectives.class);
+
+    ReSharperSensor sensor = new ReSharperSensor(
+      new ReSharperConfiguration(languageKey, "foo-resharper", "fooReport"),
+      settings, profile, fileSystem, perspectives);
+
+    List<ActiveRule> activeRules = mockActiveRules("RedundantUsingDirective");
+    when(profile.getActiveRulesByRepository("foo-resharper")).thenReturn(activeRules);
+
+    File workingDir = new File("src/test/resources/SensorTest");
+    fileSystem.setWorkDir(workingDir);
+
+    DefaultInputFile class1Cs = new DefaultInputFile("MyLibrary/Class1.cs").setAbsolutePath("MyLibrary/Class1.cs").setLanguage(languageKey);
+    fileSystem.add(class1Cs);
+    DefaultInputFile assemblyInfoCs = new DefaultInputFile("MyLibrary/Properties/AssemblyInfo.cs").setAbsolutePath("MyLibrary/Properties/AssemblyInfo.cs").setLanguage(languageKey);
+    fileSystem.add(assemblyInfoCs);
+
+    Issue issue1 = mock(Issue.class);
+    IssueBuilder issueBuilder1 = mockIssueBuilder();
+    when(issueBuilder1.build()).thenReturn(issue1);
+
+    Issuable issuable1 = mock(Issuable.class);
+    when(perspectives.as(Issuable.class, class1Cs)).thenReturn(issuable1);
+    when(issuable1.newIssueBuilder()).thenReturn(issueBuilder1);
+
+    Issue issue2 = mock(Issue.class);
+    IssueBuilder issueBuilder2 = mockIssueBuilder();
+    when(issueBuilder2.build()).thenReturn(issue2);
+
+    Issuable issuable2 = mock(Issuable.class);
+    when(perspectives.as(Issuable.class, assemblyInfoCs)).thenReturn(issuable2);
+    when(issuable2.newIssueBuilder()).thenReturn(issueBuilder2);
+
+    sensor.analyse(mock(Project.class), mock(SensorContext.class));
+
+    verify(issuable1).addIssue(issue1);
+    verify(issuable2).addIssue(issue2);
+
+    verify(issueBuilder1).line(1);
+    verify(issueBuilder1).message("Using directive is not required by the code and can be safely removed");
+
+    verify(issueBuilder2).line(2);
+    verify(issueBuilder2).message("Using directive is not required by the code and can be safely removed");
+  }
+
+  @Test
+  public void analyze_run_inspect_code() throws Exception {
     Settings settings = createSettings("MyLibrary", "CSharpPlayground.sln", "inspectcode.exe");
     RulesProfile profile = mock(RulesProfile.class);
     DefaultFileSystem fileSystem = new DefaultFileSystem();
@@ -90,7 +145,7 @@ public class ReSharperSensorTest {
 
     String languageKey = "foo";
     ReSharperSensor sensor = new ReSharperSensor(
-      new ReSharperConfiguration(languageKey, "foo-resharper"),
+      new ReSharperConfiguration(languageKey, "foo-resharper", "fooReportkey"),
       settings, profile, fileSystem, perspectives);
 
     List<ActiveRule> activeRules = mockActiveRules("AccessToDisposedClosure", "AccessToForEachVariableInClosure");
@@ -103,20 +158,20 @@ public class ReSharperSensorTest {
     fileSystem.setWorkDir(workingDir);
 
     File fileNotInSonarQube = mock(File.class);
-    when(fileNotInSonarQube.getAbsolutePath()).thenReturn("fileNotInSonarQube");
+    when(fileNotInSonarQube.getPath()).thenReturn("fileNotInSonarQube");
     fileSystem.add(new DefaultInputFile("fileNotInSonarQube").setAbsolutePath("fileNotInSonarQube").setLanguage(languageKey));
 
     File fooFileWithIssuable = mock(File.class);
-    when(fooFileWithIssuable.getAbsolutePath()).thenReturn("fooFileWithIssuable");
+    when(fooFileWithIssuable.getPath()).thenReturn("fooFileWithIssuable");
     DefaultInputFile inputFileWithIssues = new DefaultInputFile("fooFileWithIssuable").setAbsolutePath("fooFileWithIssuable").setLanguage(languageKey);
     fileSystem.add(inputFileWithIssues);
 
     File fooFileWithoutIssuable = mock(File.class);
-    when(fooFileWithoutIssuable.getAbsolutePath()).thenReturn("fooFileWithoutIssuable");
+    when(fooFileWithoutIssuable.getPath()).thenReturn("fooFileWithoutIssuable");
     fileSystem.add(new DefaultInputFile("fooFileWithoutIssuable").setAbsolutePath("fooFileWithoutIssuable").setLanguage(languageKey));
 
     File barFile = mock(File.class);
-    when(barFile.getAbsolutePath()).thenReturn("barFile");
+    when(barFile.getPath()).thenReturn("barFile");
     fileSystem.add(new DefaultInputFile("barFile").setAbsolutePath("barFile"));
 
     when(fileProvider.fileInSolution(Mockito.any(File.class), Mockito.eq("Class3.cs"))).thenReturn(fileNotInSonarQube);
@@ -150,7 +205,7 @@ public class ReSharperSensorTest {
         new ReSharperIssue(700, "AccessToDisposedClosure", "Class6.cs", 6, "Fourth message"),
         new ReSharperIssue(800, "AccessToDisposedClosure", "Class7.cs", 7, "Fifth message")));
 
-    sensor.analyse(fileProvider, writer, parser, executor);
+    sensor.analyseRunInspectCode(fileProvider, writer, parser, executor);
 
     verify(writer).write(ImmutableList.of("AccessToDisposedClosure", "AccessToForEachVariableInClosure"), new File(workingDir, "resharper-sonarqube.DotSettings").getAbsoluteFile());
     verify(executor).execute(
@@ -204,7 +259,7 @@ public class ReSharperSensorTest {
   }
 
   private static ReSharperSensor createReSharperSensor(Settings settings) {
-    ReSharperConfiguration reSharperConf = new ReSharperConfiguration("", "");
+    ReSharperConfiguration reSharperConf = new ReSharperConfiguration("", "", "");
     return new ReSharperSensor(reSharperConf, settings, mock(RulesProfile.class), mock(FileSystem.class), mock(ResourcePerspectives.class));
   }
 

@@ -20,6 +20,7 @@
 package org.sonar.plugins.resharper;
 
 import com.google.common.annotations.VisibleForTesting;
+import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -78,12 +79,41 @@ public class ReSharperSensor implements Sensor {
 
   @Override
   public void analyse(Project project, SensorContext context) {
-    analyse(new FileProvider(), new ReSharperDotSettingsWriter(), new ReSharperReportParser(), new ReSharperExecutor());
+    FileProvider fileProvider = new FileProvider();
+    ReSharperReportParser parser = new ReSharperReportParser();
+    if (hasReportPath()) {
+      logMessageIfLegacySettingsDefined();
+      analyseReportPath(fileProvider, parser);
+    } else {
+      analyseRunInspectCode(fileProvider, new ReSharperDotSettingsWriter(), parser, new ReSharperExecutor());
+    }
+  }
+
+  private void logMessageIfLegacySettingsDefined() {
+    if (settings.hasKey(ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY) ||
+      settings.hasKey(ReSharperPlugin.INSPECTCODE_PATH_PROPERTY_KEY) ||
+      settings.hasKey(ReSharperPlugin.TIMEOUT_MINUTES_PROPERTY_KEY)) {
+      LOG.warn("ReSharper plugin is running in reportPath mode, other properties other than reportPath and solutionFile can be undefined");
+    }
+  }
+
+  private boolean hasReportPath() {
+    String reportPath = settings.getString(reSharperConf.reportPathKey());
+    return !Strings.isNullOrEmpty(reportPath);
+  }
+
+  private void analyseReportPath(FileProvider fileProvider, ReSharperReportParser parser) {
+    checkProperty(settings, ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY);
+    File reportFile = new File(settings.getString(reSharperConf.reportPathKey()));
+    parseReport(fileProvider, parser, reportFile);
   }
 
   @VisibleForTesting
-  void analyse(FileProvider fileProvider, ReSharperDotSettingsWriter writer, ReSharperReportParser parser, ReSharperExecutor executor) {
-    checkProperties(settings);
+  void analyseRunInspectCode(FileProvider fileProvider, ReSharperDotSettingsWriter writer, ReSharperReportParser parser, ReSharperExecutor executor) {
+    LOG.warn("ReSharper plugin is running in deprecated mode. inspectcode.exe should be ran outside the" +
+      "plugin and the report imported through " + reSharperConf.reportPathKey() + " property.");
+    checkProperty(settings, ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY);
+    checkProperty(settings, ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY);
 
     File rulesetFile = new File(fileSystem.workDir(), "resharper-sonarqube.DotSettings");
     writer.write(enabledRuleKeys(), rulesetFile);
@@ -94,6 +124,10 @@ public class ReSharperSensor implements Sensor {
       settings.getString(ReSharperPlugin.INSPECTCODE_PATH_PROPERTY_KEY), settings.getString(ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY),
       settings.getString(ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY), rulesetFile, reportFile, settings.getInt(ReSharperPlugin.TIMEOUT_MINUTES_PROPERTY_KEY));
 
+    parseReport(fileProvider, parser, reportFile);
+  }
+
+  private void parseReport(FileProvider fileProvider, ReSharperReportParser parser, File reportFile) {
     File solutionFile = new File(settings.getString(ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY));
     List<ReSharperIssue> parse = parser.parse(reportFile);
     for (ReSharperIssue issue : parse) {
@@ -105,7 +139,7 @@ public class ReSharperSensor implements Sensor {
       File file = fileProvider.fileInSolution(solutionFile, issue.filePath());
       InputFile inputFile = fileSystem.inputFile(
         fileSystem.predicates().and(
-          fileSystem.predicates().hasAbsolutePath(file.getAbsolutePath()),
+          fileSystem.predicates().hasPath(file.getPath()),
           fileSystem.predicates().hasType(InputFile.Type.MAIN)));
       if (inputFile == null) {
         logSkippedIssueOutsideOfSonarQube(issue, file);
@@ -145,11 +179,6 @@ public class ReSharperSensor implements Sensor {
       builder.add(activeRule.getRuleKey());
     }
     return builder.build();
-  }
-
-  public void checkProperties(Settings settings) {
-    checkProperty(settings, ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY);
-    checkProperty(settings, ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY);
   }
 
   private static void checkProperty(Settings settings, String property) {
