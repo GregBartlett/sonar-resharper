@@ -103,9 +103,9 @@ public class ReSharperSensorTest {
     File workingDir = new File("src/test/resources/SensorTest");
     fileSystem.setWorkDir(workingDir);
 
-    DefaultInputFile class1Cs = new DefaultInputFile("MyLibrary/Class1.cs").setAbsolutePath("MyLibrary/Class1.cs").setLanguage(languageKey);
+    DefaultInputFile class1Cs = new DefaultInputFile("MyLibrary/Class1.cs").setAbsolutePath(new File("MyLibrary/Class1.cs").getAbsolutePath()).setLanguage(languageKey);
     fileSystem.add(class1Cs);
-    DefaultInputFile assemblyInfoCs = new DefaultInputFile("MyLibrary/Properties/AssemblyInfo.cs").setAbsolutePath("MyLibrary/Properties/AssemblyInfo.cs").setLanguage(languageKey);
+    DefaultInputFile assemblyInfoCs = new DefaultInputFile("MyLibrary/Properties/AssemblyInfo.cs").setAbsolutePath(new File("MyLibrary/Properties/AssemblyInfo.cs").getAbsolutePath()).setLanguage(languageKey);
     fileSystem.add(assemblyInfoCs);
 
     Issue issue1 = mock(Issue.class);
@@ -158,20 +158,20 @@ public class ReSharperSensorTest {
     fileSystem.setWorkDir(workingDir);
 
     File fileNotInSonarQube = mock(File.class);
-    when(fileNotInSonarQube.getPath()).thenReturn("fileNotInSonarQube");
+    when(fileNotInSonarQube.getAbsolutePath()).thenReturn("fileNotInSonarQube");
     fileSystem.add(new DefaultInputFile("fileNotInSonarQube").setAbsolutePath("fileNotInSonarQube").setLanguage(languageKey));
 
     File fooFileWithIssuable = mock(File.class);
-    when(fooFileWithIssuable.getPath()).thenReturn("fooFileWithIssuable");
+    when(fooFileWithIssuable.getAbsolutePath()).thenReturn("fooFileWithIssuable");
     DefaultInputFile inputFileWithIssues = new DefaultInputFile("fooFileWithIssuable").setAbsolutePath("fooFileWithIssuable").setLanguage(languageKey);
     fileSystem.add(inputFileWithIssues);
 
     File fooFileWithoutIssuable = mock(File.class);
-    when(fooFileWithoutIssuable.getPath()).thenReturn("fooFileWithoutIssuable");
+    when(fooFileWithoutIssuable.getAbsolutePath()).thenReturn("fooFileWithoutIssuable");
     fileSystem.add(new DefaultInputFile("fooFileWithoutIssuable").setAbsolutePath("fooFileWithoutIssuable").setLanguage(languageKey));
 
     File barFile = mock(File.class);
-    when(barFile.getPath()).thenReturn("barFile");
+    when(barFile.getAbsolutePath()).thenReturn("barFile");
     fileSystem.add(new DefaultInputFile("barFile").setAbsolutePath("barFile"));
 
     when(fileProvider.fileInSolution(Mockito.any(File.class), Mockito.eq("Class3.cs"))).thenReturn(fileNotInSonarQube);

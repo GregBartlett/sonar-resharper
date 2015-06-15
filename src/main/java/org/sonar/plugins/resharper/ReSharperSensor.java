@@ -139,7 +139,7 @@ public class ReSharperSensor implements Sensor {
       File file = fileProvider.fileInSolution(solutionFile, issue.filePath());
       InputFile inputFile = fileSystem.inputFile(
         fileSystem.predicates().and(
-          fileSystem.predicates().hasPath(file.getPath()),
+          fileSystem.predicates().hasAbsolutePath(file.getAbsolutePath()),
           fileSystem.predicates().hasType(InputFile.Type.MAIN)));
       if (inputFile == null) {
         logSkippedIssueOutsideOfSonarQube(issue, file);
