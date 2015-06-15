@@ -110,7 +110,7 @@ public class ReSharperSensor implements Sensor {
 
   @VisibleForTesting
   void analyseRunInspectCode(FileProvider fileProvider, ReSharperDotSettingsWriter writer, ReSharperReportParser parser, ReSharperExecutor executor) {
-    LOG.warn("ReSharper plugin is running in deprecated mode. inspectcode.exe should be ran outside the" +
+    LOG.warn("ReSharper plugin is running in deprecated mode. inspectcode.exe should be ran outside the " +
       "plugin and the report imported through " + reSharperConf.reportPathKey() + " property.");
     checkProperty(settings, ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY);
     checkProperty(settings, ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY);
@@ -128,6 +128,7 @@ public class ReSharperSensor implements Sensor {
   }
 
   private void parseReport(FileProvider fileProvider, ReSharperReportParser parser, File reportFile) {
+    LOG.info("Parsing ReSharper report: " + reportFile);
     File solutionFile = new File(settings.getString(ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY));
     List<ReSharperIssue> parse = parser.parse(reportFile);
     for (ReSharperIssue issue : parse) {
