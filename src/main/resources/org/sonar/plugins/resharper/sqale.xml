@@ -388,7 +388,7 @@
     <chc>
       <key>UNDERSTANDABILITY</key>
       <name>Understandability</name>
-      
+
   <chc>
     <rule-repo>resharper-cs</rule-repo>
     <rule-key>UnassignedField.Local</rule-key>
@@ -648,7 +648,7 @@
       <val>30</val>
       <txt>min</txt>
     </prop>
-  </chc>      
+  </chc>
       <chc>
         <rule-repo>resharper-cs</rule-repo>
         <rule-key>ConstantNullCoalescingCondition</rule-key>

@@ -23,6 +23,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.sonar.api.server.rule.RulesDefinition;
 import org.sonar.api.server.rule.RulesDefinitionXmlLoader;
+import org.sonar.squidbridge.rules.SqaleXmlLoader;
 
 import java.nio.charset.StandardCharsets;
 
@@ -45,6 +46,7 @@ public abstract class ReSharperRulesDefinition implements RulesDefinition {
       .createRepository(configuration.repositoryKey(), languageKey)
       .setName(REPOSITORY_NAME);
     rulesDefinitionXmlLoader.load(repository, getClass().getResourceAsStream("/org/sonar/plugins/resharper/rules.xml"), StandardCharsets.UTF_8.name());
+    SqaleXmlLoader.load(repository, "/org/sonar/plugins/resharper/sqale.xml");
     repository.done();
     LOG.info("ReSharper rules for " + languageKey + " imported.");
   }

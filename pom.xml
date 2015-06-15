@@ -56,6 +56,7 @@
     <sonar.pluginName>ReSharper</sonar.pluginName>
     <sonar.pluginClass>org.sonar.plugins.resharper.ReSharperPlugin</sonar.pluginClass>
     <sonarqube.version>4.5.2</sonarqube.version>
+    <sslrSquidVersion>2.6</sslrSquidVersion>
 
     <maven.test.redirectTestOutputToFile>true</maven.test.redirectTestOutputToFile>
   </properties>
@@ -66,6 +67,25 @@
       <artifactId>sonar-plugin-api</artifactId>
       <scope>provided</scope>
       <version>${sonarqube.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.sonar.sslr-squid-bridge</groupId>
+      <artifactId>sslr-squid-bridge</artifactId>
+      <version>${sslrSquidVersion}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.codehaus.sonar.sslr</groupId>
+          <artifactId>sslr-xpath</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.codehaus.sonar.sslr</groupId>
+          <artifactId>sslr-core</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>jaxen</groupId>
+          <artifactId>jaxen</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <dependency>
@@ -109,8 +129,8 @@
             <configuration>
               <rules>
                 <requireFilesSize>
-                  <maxsize>50000</maxsize>
-                  <minsize>32000</minsize>
+                  <maxsize>210000</maxsize>
+                  <minsize>160000</minsize>
                   <files>
                     <file>${project.build.directory}/${project.build.finalName}.jar</file>
                   </files>

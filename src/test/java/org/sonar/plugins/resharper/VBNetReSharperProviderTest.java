@@ -19,6 +19,7 @@
  */
 package org.sonar.plugins.resharper;
 
+import com.google.common.base.Strings;
 import org.junit.Test;
 import org.sonar.api.server.rule.RulesDefinition;
 import org.sonar.plugins.resharper.VBNetReSharperProvider.VBNetReSharperSensor;
@@ -27,6 +28,7 @@ import java.lang.reflect.Constructor;
 import java.util.List;
 
 import static org.fest.assertions.Assertions.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class VBNetReSharperProviderTest {
 
@@ -59,11 +61,16 @@ public class VBNetReSharperProviderTest {
 
     List<RulesDefinition.Rule> rules = repo.rules();
     assertThat(rules.size()).isEqualTo(675);
+    boolean atLeastOneSqale = false;
     for (RulesDefinition.Rule rule : rules) {
       assertThat(rule.key()).isNotNull();
       assertThat(rule.name()).isNotNull();
       assertThat(rule.htmlDescription()).isNotNull();
+      if (!Strings.isNullOrEmpty(rule.debtSubCharacteristic())) {
+        atLeastOneSqale = true;
+      }
     }
+    assertTrue(atLeastOneSqale);
   }
 
 }
