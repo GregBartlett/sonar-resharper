@@ -21,6 +21,10 @@ package org.sonar.plugins.resharper;
 
 import com.google.common.base.Strings;
 import org.junit.Test;
+import org.sonar.api.batch.fs.internal.DefaultFileSystem;
+import org.sonar.api.component.ResourcePerspectives;
+import org.sonar.api.config.Settings;
+import org.sonar.api.profiles.RulesProfile;
 import org.sonar.api.server.rule.RulesDefinition;
 import org.sonar.plugins.resharper.CSharpReSharperProvider.CSharpReSharperSensor;
 
@@ -29,6 +33,7 @@ import java.util.List;
 
 import static org.fest.assertions.Assertions.assertThat;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
 
 public class CSharpReSharperProviderTest {
 
@@ -73,4 +78,12 @@ public class CSharpReSharperProviderTest {
     assertTrue(atLeastOneSqale);
   }
 
+  @Test
+  public void testSensorInstantiation() throws Exception {
+    CSharpReSharperSensor sensor = new CSharpReSharperSensor(new Settings(), mock(RulesProfile.class), new DefaultFileSystem(), mock(ResourcePerspectives.class));
+    ReSharperConfiguration configuration = sensor.getConfiguration();
+    assertThat(configuration.languageKey()).isEqualTo("cs");
+    assertThat(configuration.repositoryKey()).isEqualTo("resharper-cs");
+    assertThat(configuration.reportPathKey()).isEqualTo("sonar.resharper.cs.reportPath");
+  }
 }

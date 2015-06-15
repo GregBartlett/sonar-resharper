@@ -57,6 +57,11 @@ public class ReSharperSensor implements Sensor {
     this.perspectives = perspectives;
   }
 
+  @VisibleForTesting
+  protected ReSharperConfiguration getConfiguration() {
+    return reSharperConf;
+  }
+
   @Override
   public boolean shouldExecuteOnProject(Project project) {
     boolean shouldExecute;

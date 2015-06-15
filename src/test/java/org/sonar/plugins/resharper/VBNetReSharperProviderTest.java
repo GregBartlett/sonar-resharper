@@ -21,6 +21,10 @@ package org.sonar.plugins.resharper;
 
 import com.google.common.base.Strings;
 import org.junit.Test;
+import org.sonar.api.batch.fs.internal.DefaultFileSystem;
+import org.sonar.api.component.ResourcePerspectives;
+import org.sonar.api.config.Settings;
+import org.sonar.api.profiles.RulesProfile;
 import org.sonar.api.server.rule.RulesDefinition;
 import org.sonar.plugins.resharper.VBNetReSharperProvider.VBNetReSharperSensor;
 
@@ -29,6 +33,7 @@ import java.util.List;
 
 import static org.fest.assertions.Assertions.assertThat;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
 
 public class VBNetReSharperProviderTest {
 
@@ -71,6 +76,15 @@ public class VBNetReSharperProviderTest {
       }
     }
     assertTrue(atLeastOneSqale);
+  }
+
+  @Test
+  public void testSensorInstantiation() throws Exception {
+    VBNetReSharperSensor sensor = new VBNetReSharperSensor(new Settings(), mock(RulesProfile.class), new DefaultFileSystem(), mock(ResourcePerspectives.class));
+    ReSharperConfiguration configuration = sensor.getConfiguration();
+    assertThat(configuration.languageKey()).isEqualTo("vbnet");
+    assertThat(configuration.repositoryKey()).isEqualTo("resharper-vbnet");
+    assertThat(configuration.reportPathKey()).isEqualTo("sonar.resharper.vbnet.reportPath");
   }
 
 }
