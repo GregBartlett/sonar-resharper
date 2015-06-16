@@ -42,7 +42,9 @@ public class ReSharperProfileImporterTest {
     RulesProfile profile = importer.importProfile(new StringReader(content), messages);
     List<ActiveRule> rules = profile.getActiveRules();
     assertThat(rules).isEmpty();
-    assertThat(messages.getErrors()).containsExactly("Error parsing content: com.ctc.wstx.exc.WstxEOFException: Unexpected EOF in attribute value\n at [row,col {unknown-source}]: [2,24]");
+    List<String> errors = messages.getErrors();
+    assertThat(errors).hasSize(1);
+    assertThat(errors.get(0)).startsWith("Error parsing content: com.ctc.wstx.exc.WstxEOFException: Unexpected EOF ");
   }
 
   @Test
