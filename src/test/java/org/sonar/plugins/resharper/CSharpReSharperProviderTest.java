@@ -25,10 +25,13 @@ import org.sonar.api.batch.fs.internal.DefaultFileSystem;
 import org.sonar.api.component.ResourcePerspectives;
 import org.sonar.api.config.Settings;
 import org.sonar.api.profiles.RulesProfile;
+import org.sonar.api.rules.ActiveRule;
 import org.sonar.api.rules.Rule;
 import org.sonar.api.server.rule.RulesDefinition;
+import org.sonar.api.utils.ValidationMessages;
 import org.sonar.plugins.resharper.CSharpReSharperProvider.CSharpReSharperSensor;
 
+import java.io.StringReader;
 import java.io.StringWriter;
 import java.lang.reflect.Constructor;
 import java.util.List;
@@ -52,7 +55,8 @@ public class CSharpReSharperProviderTest {
     assertThat(CSharpReSharperProvider.extensions()).containsOnly(
       CSharpReSharperProvider.CSharpReSharperRulesDefinition.class,
       CSharpReSharperSensor.class,
-      CSharpReSharperProvider.CSharpReSharperProfileExporter.class);
+      CSharpReSharperProvider.CSharpReSharperProfileExporter.class,
+      CSharpReSharperProvider.CSharpReSharperProfileImporter.class);
   }
 
   @Test
@@ -106,5 +110,18 @@ public class CSharpReSharperProviderTest {
       "  <s:String x:Key=\"/Default/CodeInspection/Highlighting/InspectionSeverities/=key2/@EntryIndexedValue\">WARNING</s:String>" +
       "  <s:String x:Key=\"/Default/CodeInspection/Highlighting/InspectionSeverities/=key3/@EntryIndexedValue\">WARNING</s:String>" +
       "</wpf:ResourceDictionary>");
+  }
+
+  @Test
+  public void test_profile_importer() throws Exception {
+    String content = "<wpf:ResourceDictionary xml:space=\"preserve\" xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\" xmlns:s=\"clr-namespace:System;assembly=mscorlib\" xmlns:ss=\"urn:shemas-jetbrains-com:settings-storage-xaml\" xmlns:wpf=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\">" +
+      "<s:String x:Key=\"/Default/CodeInspection/Highlighting/InspectionSeverities/=key1/@EntryIndexedValue\">WARNING</s:String>" +
+      "</wpf:ResourceDictionary>";
+    CSharpReSharperProvider.CSharpReSharperProfileImporter importer = new CSharpReSharperProvider.CSharpReSharperProfileImporter();
+    ValidationMessages messages = ValidationMessages.create();
+    RulesProfile profile = importer.importProfile(new StringReader(content), messages);
+    List<ActiveRule> rules = profile.getActiveRules();
+    assertThat(rules).hasSize(1);
+    assertThat(messages.getErrors()).isEmpty();
   }
 }

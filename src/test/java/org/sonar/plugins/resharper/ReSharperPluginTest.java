@@ -38,9 +38,11 @@ public class ReSharperPluginTest {
       CSharpReSharperProvider.CSharpReSharperRulesDefinition.class,
       CSharpReSharperSensor.class,
       CSharpReSharperProvider.CSharpReSharperProfileExporter.class,
+      CSharpReSharperProvider.CSharpReSharperProfileImporter.class,
       VBNetReSharperProvider.VBNetReSharperRulesDefinition.class,
       VBNetReSharperSensor.class,
-      VBNetReSharperProvider.VBNetReSharperProfileExporter.class);
+      VBNetReSharperProvider.VBNetReSharperProfileExporter.class,
+      VBNetReSharperProvider.VBNetReSharperProfileImporter.class);
 
     assertThat(propertyKeys(new ReSharperPlugin().getExtensions())).containsOnly(
       "sonar.resharper.cs.reportPath",

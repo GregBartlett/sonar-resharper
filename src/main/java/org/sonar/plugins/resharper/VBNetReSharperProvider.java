@@ -38,7 +38,8 @@ public class VBNetReSharperProvider {
     return ImmutableList.of(
       VBNetReSharperRulesDefinition.class,
       VBNetReSharperSensor.class,
-      VBNetReSharperProfileExporter.class);
+      VBNetReSharperProfileExporter.class,
+      VBNetReSharperProfileImporter.class);
   }
 
   public static class VBNetReSharperRulesDefinition extends ReSharperRulesDefinition {
@@ -60,6 +61,13 @@ public class VBNetReSharperProvider {
   public static class VBNetReSharperProfileExporter extends  ReSharperProfileExporter {
 
     public VBNetReSharperProfileExporter() {
+      super(RESHARPER_CONF);
+    }
+  }
+
+  public static class VBNetReSharperProfileImporter extends  ReSharperProfileImporter {
+
+    public VBNetReSharperProfileImporter() {
       super(RESHARPER_CONF);
     }
   }

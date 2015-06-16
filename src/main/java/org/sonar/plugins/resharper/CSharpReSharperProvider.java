@@ -38,7 +38,8 @@ public class CSharpReSharperProvider {
     return ImmutableList.of(
       CSharpReSharperRulesDefinition.class,
       CSharpReSharperSensor.class,
-      CSharpReSharperProfileExporter.class);
+      CSharpReSharperProfileExporter.class,
+      CSharpReSharperProfileImporter.class);
   }
 
   public static class CSharpReSharperRulesDefinition extends ReSharperRulesDefinition {
@@ -60,6 +61,13 @@ public class CSharpReSharperProvider {
   public static class CSharpReSharperProfileExporter extends ReSharperProfileExporter {
 
     public CSharpReSharperProfileExporter() {
+      super(RESHARPER_CONF);
+    }
+  }
+
+  public static class CSharpReSharperProfileImporter extends ReSharperProfileImporter {
+
+    public CSharpReSharperProfileImporter() {
       super(RESHARPER_CONF);
     }
   }
