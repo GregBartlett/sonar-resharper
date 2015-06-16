@@ -68,7 +68,7 @@ public class ReSharperSensor implements Sensor {
 
     if (!hasFilesToAnalyze()) {
       shouldExecute = false;
-    } else if (profile.getActiveRulesByRepository(reSharperConf.repositoryKey()).isEmpty()) {
+    } else if (profile.getActiveRulesByRepository(getConfiguration().repositoryKey()).isEmpty()) {
       LOG.info("All ReSharper rules are disabled, skipping its execution.");
       shouldExecute = false;
     } else {

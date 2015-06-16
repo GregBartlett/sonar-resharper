@@ -28,6 +28,7 @@ import org.junit.rules.ExpectedException;
 import org.junit.rules.TemporaryFolder;
 
 import java.io.File;
+import java.io.StringWriter;
 
 import static org.fest.assertions.Assertions.assertThat;
 
@@ -40,7 +41,7 @@ public class ReSharperDotSettingsWriterTest {
   public ExpectedException thrown = ExpectedException.none();
 
   @Test
-  public void test() throws Exception {
+  public void test_file_write() throws Exception {
     File file1 = tmp.newFile();
     new ReSharperDotSettingsWriter().write(ImmutableList.of("foo", "bar"), file1);
     String contents1 = Files.toString(file1, Charsets.UTF_8);
@@ -51,10 +52,24 @@ public class ReSharperDotSettingsWriterTest {
           + "  <s:String x:Key=\"/Default/CodeInspection/Highlighting/InspectionSeverities/=foo/@EntryIndexedValue\">WARNING</s:String>"
           + "  <s:String x:Key=\"/Default/CodeInspection/Highlighting/InspectionSeverities/=bar/@EntryIndexedValue\">WARNING</s:String>"
           + "</wpf:ResourceDictionary>");
+  }
 
-    File file2 = tmp.newFile();
-    new ReSharperDotSettingsWriter().write(ImmutableList.of("foo.bar", "foo:bar", "baz"), file2);
-    String contents2 = Files.toString(file2, Charsets.UTF_8);
+  @Test
+  public void test_writer() throws Exception {
+    StringWriter writer = new StringWriter();
+    new ReSharperDotSettingsWriter().write(ImmutableList.of("foo", "bar"), writer);
+    String contents1 = writer.toString();
+
+    assertThat(contents1.replace("\r", "").replace("\n", ""))
+      .isEqualTo(
+        "<wpf:ResourceDictionary xml:space=\"preserve\" xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\" xmlns:s=\"clr-namespace:System;assembly=mscorlib\" xmlns:ss=\"urn:shemas-jetbrains-com:settings-storage-xaml\" xmlns:wpf=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\">"
+          + "  <s:String x:Key=\"/Default/CodeInspection/Highlighting/InspectionSeverities/=foo/@EntryIndexedValue\">WARNING</s:String>"
+          + "  <s:String x:Key=\"/Default/CodeInspection/Highlighting/InspectionSeverities/=bar/@EntryIndexedValue\">WARNING</s:String>"
+          + "</wpf:ResourceDictionary>");
+
+    writer = new StringWriter();
+    new ReSharperDotSettingsWriter().write(ImmutableList.of("foo.bar", "foo:bar", "baz"), writer);
+    String contents2 = writer.toString();
     assertThat(contents2)
       .contains("foo_002Ebar")
       .contains("foo_003Abar")
@@ -62,7 +77,7 @@ public class ReSharperDotSettingsWriterTest {
   }
 
   @Test
-  public void testWriteException() throws Exception {
+  public void test_write_exception() throws Exception {
     File file = tmp.newFile();
     file.setReadOnly();
 
