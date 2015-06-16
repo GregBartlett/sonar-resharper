@@ -29,7 +29,7 @@ import java.util.List;
 
 public class CSharpReSharperProvider {
 
-  private static final ReSharperConfiguration RESHARPER_CONF = new ReSharperConfiguration("cs", "resharper-cs", ReSharperPlugin.CS_REPORT_PATH_KEY);
+  public static final ReSharperConfiguration RESHARPER_CONF = new ReSharperConfiguration("cs", "resharper-cs", ReSharperPlugin.CS_REPORT_PATH_KEY);
 
   private CSharpReSharperProvider() {
   }
@@ -37,7 +37,8 @@ public class CSharpReSharperProvider {
   public static List extensions() {
     return ImmutableList.of(
       CSharpReSharperRulesDefinition.class,
-      CSharpReSharperSensor.class);
+      CSharpReSharperSensor.class,
+      CSharpReSharperProfileExporter.class);
   }
 
   public static class CSharpReSharperRulesDefinition extends ReSharperRulesDefinition {
@@ -54,6 +55,13 @@ public class CSharpReSharperProvider {
       super(RESHARPER_CONF, settings, profile, fileSystem, perspectives);
     }
 
+  }
+
+  public static class CSharpReSharperProfileExporter extends ReSharperProfileExporter {
+
+    public CSharpReSharperProfileExporter() {
+      super(RESHARPER_CONF);
+    }
   }
 
 }

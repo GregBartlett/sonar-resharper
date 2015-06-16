@@ -29,7 +29,7 @@ import java.util.List;
 
 public class VBNetReSharperProvider {
 
-  private static final ReSharperConfiguration RESHARPER_CONF = new ReSharperConfiguration("vbnet", "resharper-vbnet", ReSharperPlugin.VBNET_REPORT_PATH_KEY);
+  public static final ReSharperConfiguration RESHARPER_CONF = new ReSharperConfiguration("vbnet", "resharper-vbnet", ReSharperPlugin.VBNET_REPORT_PATH_KEY);
 
   private VBNetReSharperProvider () {
   }
@@ -37,7 +37,8 @@ public class VBNetReSharperProvider {
   public static List extensions() {
     return ImmutableList.of(
       VBNetReSharperRulesDefinition.class,
-      VBNetReSharperSensor.class);
+      VBNetReSharperSensor.class,
+      VBNetReSharperProfileExporter.class);
   }
 
   public static class VBNetReSharperRulesDefinition extends ReSharperRulesDefinition {
@@ -54,6 +55,13 @@ public class VBNetReSharperProvider {
       super(RESHARPER_CONF, settings, profile, fileSystem, perspectives);
     }
 
+  }
+
+  public static class VBNetReSharperProfileExporter extends  ReSharperProfileExporter {
+
+    public VBNetReSharperProfileExporter() {
+      super(RESHARPER_CONF);
+    }
   }
 
 }

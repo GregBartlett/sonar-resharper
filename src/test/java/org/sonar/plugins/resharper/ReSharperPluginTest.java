@@ -37,8 +37,10 @@ public class ReSharperPluginTest {
     assertThat(nonProperties(new ReSharperPlugin().getExtensions())).containsOnly(
       CSharpReSharperProvider.CSharpReSharperRulesDefinition.class,
       CSharpReSharperSensor.class,
+      CSharpReSharperProvider.CSharpReSharperProfileExporter.class,
       VBNetReSharperProvider.VBNetReSharperRulesDefinition.class,
-      VBNetReSharperSensor.class);
+      VBNetReSharperSensor.class,
+      VBNetReSharperProvider.VBNetReSharperProfileExporter.class);
 
     assertThat(propertyKeys(new ReSharperPlugin().getExtensions())).containsOnly(
       "sonar.resharper.cs.reportPath",

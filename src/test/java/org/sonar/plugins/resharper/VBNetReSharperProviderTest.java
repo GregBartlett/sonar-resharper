@@ -25,9 +25,11 @@ import org.sonar.api.batch.fs.internal.DefaultFileSystem;
 import org.sonar.api.component.ResourcePerspectives;
 import org.sonar.api.config.Settings;
 import org.sonar.api.profiles.RulesProfile;
+import org.sonar.api.rules.Rule;
 import org.sonar.api.server.rule.RulesDefinition;
 import org.sonar.plugins.resharper.VBNetReSharperProvider.VBNetReSharperSensor;
 
+import java.io.StringWriter;
 import java.lang.reflect.Constructor;
 import java.util.List;
 
@@ -49,7 +51,8 @@ public class VBNetReSharperProviderTest {
   public void test() {
     assertThat(VBNetReSharperProvider.extensions()).containsOnly(
       VBNetReSharperProvider.VBNetReSharperRulesDefinition.class,
-      VBNetReSharperSensor.class);
+      VBNetReSharperSensor.class,
+      VBNetReSharperProvider.VBNetReSharperProfileExporter.class);
   }
 
   @Test
@@ -87,4 +90,19 @@ public class VBNetReSharperProviderTest {
     assertThat(configuration.reportPathKey()).isEqualTo("sonar.resharper.vbnet.reportPath");
   }
 
+  @Test
+  public void testProfileExporter() throws Exception {
+    RulesProfile profile = RulesProfile.create();
+    profile.activateRule(Rule.create(VBNetReSharperProvider.RESHARPER_CONF.repositoryKey(), "key1", "key1 name"), null);
+    profile.activateRule(Rule.create(VBNetReSharperProvider.RESHARPER_CONF.repositoryKey(), "key2", "key2 name"), null);
+    profile.activateRule(Rule.create(CSharpReSharperProvider.RESHARPER_CONF.repositoryKey(), "key3", "key3 name"), null);
+
+    VBNetReSharperProvider.VBNetReSharperProfileExporter profileExporter = new VBNetReSharperProvider.VBNetReSharperProfileExporter();
+    StringWriter writer = new StringWriter();
+    profileExporter.exportProfile(profile, writer);
+    assertThat(writer.toString().replace("\r", "").replace("\n", "")).isEqualTo("<wpf:ResourceDictionary xml:space=\"preserve\" xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\" xmlns:s=\"clr-namespace:System;assembly=mscorlib\" xmlns:ss=\"urn:shemas-jetbrains-com:settings-storage-xaml\" xmlns:wpf=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\">" +
+      "  <s:String x:Key=\"/Default/CodeInspection/Highlighting/InspectionSeverities/=key1/@EntryIndexedValue\">WARNING</s:String>" +
+      "  <s:String x:Key=\"/Default/CodeInspection/Highlighting/InspectionSeverities/=key2/@EntryIndexedValue\">WARNING</s:String>" +
+      "</wpf:ResourceDictionary>");
+  }
 }
