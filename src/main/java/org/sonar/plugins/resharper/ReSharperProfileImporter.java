@@ -54,7 +54,7 @@ public class ReSharperProfileImporter extends ProfileImporter {
   private ValidationMessages messages;
 
   public ReSharperProfileImporter(ReSharperConfiguration configuration) {
-    super(configuration.repositoryKey(), "ReSharper DotSetting");
+    super(configuration.repositoryKey(), "ReSharper DotSettings");
     setSupportedLanguages(configuration.languageKey());
     this.configuration = configuration;
   }

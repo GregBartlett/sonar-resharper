@@ -32,7 +32,7 @@ public class ReSharperProfileExporter extends ProfileExporter {
   private final ReSharperConfiguration configuration;
 
   public ReSharperProfileExporter(ReSharperConfiguration configuration) {
-    super(configuration.repositoryKey(), "ReSharper DotSetting");
+    super(configuration.repositoryKey(), "ReSharper DotSettings");
     this.configuration = configuration;
     setSupportedLanguages(configuration.languageKey());
   }
