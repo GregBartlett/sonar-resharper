@@ -20,7 +20,6 @@
 package org.sonar.plugins.resharper;
 
 import com.google.common.annotations.VisibleForTesting;
-import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -86,7 +85,7 @@ public class ReSharperSensor implements Sensor {
   public void analyse(Project project, SensorContext context) {
     FileProvider fileProvider = new FileProvider();
     ReSharperReportParser parser = new ReSharperReportParser();
-    if (hasReportPath()) {
+    if (!settings.hasKey(ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY)) {
       logMessageIfLegacySettingsDefined();
       analyseReportPath(fileProvider, parser);
     } else {
@@ -101,12 +100,8 @@ public class ReSharperSensor implements Sensor {
     }
   }
 
-  private boolean hasReportPath() {
-    String reportPath = settings.getString(reSharperConf.reportPathKey());
-    return !Strings.isNullOrEmpty(reportPath);
-  }
-
   private void analyseReportPath(FileProvider fileProvider, ReSharperReportParser parser) {
+    checkProperty(settings, reSharperConf.reportPathKey());
     checkProperty(settings, ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY);
     File reportFile = new File(settings.getString(reSharperConf.reportPathKey()));
     parseReport(fileProvider, parser, reportFile);
@@ -187,7 +182,7 @@ public class ReSharperSensor implements Sensor {
   }
 
   private static void checkProperty(Settings settings, String property) {
-    if (!settings.hasKey(property)) {
+    if (!settings.hasKey(property) || settings.getString(property).isEmpty()) {
       throw new IllegalStateException("The property \"" + property + "\" must be set.");
     }
   }

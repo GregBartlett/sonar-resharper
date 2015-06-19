@@ -125,7 +125,7 @@ public class ReSharperPlugin extends SonarPlugin {
   private static PropertyDefinition deprecatedPropertyDefinition(String oldKey) {
     return PropertyDefinition
       .builder(oldKey)
-      .name(oldKey)
+      .name(deprecatedName(oldKey))
       .description(DEPRECATED_DESCRIPTION)
       .category(CATEGORY)
       .subCategory(DEPRECATED_SUBCATEGORY)

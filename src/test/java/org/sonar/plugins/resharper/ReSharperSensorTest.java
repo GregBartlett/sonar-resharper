@@ -224,7 +224,7 @@ public class ReSharperSensorTest {
 
   @Test
   public void check_project_name_property() {
-    thrown.expectMessage(ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY);
+    thrown.expectMessage(ReSharperPlugin.CS_REPORT_PATH_KEY);
     thrown.expect(IllegalStateException.class);
 
     Settings settings = createSettings(null, "dummy.sln", null);
@@ -259,7 +259,7 @@ public class ReSharperSensorTest {
   }
 
   private static ReSharperSensor createReSharperSensor(Settings settings) {
-    ReSharperConfiguration reSharperConf = new ReSharperConfiguration("", "", "");
+    ReSharperConfiguration reSharperConf = new ReSharperConfiguration("", "", ReSharperPlugin.CS_REPORT_PATH_KEY);
     return new ReSharperSensor(reSharperConf, settings, mock(RulesProfile.class), mock(FileSystem.class), mock(ResourcePerspectives.class));
   }
 
