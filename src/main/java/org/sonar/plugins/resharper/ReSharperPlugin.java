@@ -78,22 +78,22 @@ public class ReSharperPlugin extends SonarPlugin {
 
       PropertyDefinition.builder(SOLUTION_FILE_PROPERTY_KEY)
         .name("Solution file")
-        .description("Example: C:/Projects/MyProject/MySolution.sln.<br />" + DEPRECATED_DESCRIPTION)
+        .description("The absolute path to the solution or project file given as input to inspectcode.exe. Example: C:/Projects/MyProject/MySolution.sln.")
         .category(CATEGORY)
         .onlyOnQualifiers(Qualifiers.PROJECT, Qualifiers.MODULE)
         .build(),
 
       PropertyDefinition.builder(PROJECT_NAME_PROPERTY_KEY)
-        .name("Visual Studio project name")
-        .description("Example: MyLibrary.<br />" + DEPRECATED_DESCRIPTION)
+        .name(deprecatedName("Visual Studio project name"))
+        .description(deprecatedDescription("Example: MyLibrary."))
         .category(CATEGORY)
         .subCategory(DEPRECATED_SUBCATEGORY)
         .onlyOnQualifiers(Qualifiers.PROJECT, Qualifiers.MODULE)
         .build(),
 
       PropertyDefinition.builder(INSPECTCODE_PATH_PROPERTY_KEY)
-        .name("Path to inspectcode.exe")
-        .description("Example: C:/jetbrains-commandline-tools/inspectcode.exe.<br />" + DEPRECATED_DESCRIPTION)
+        .name(deprecatedName("Path to inspectcode.exe"))
+        .description(deprecatedDescription("Example: C:/jetbrains-commandline-tools/inspectcode.exe."))
         .defaultValue("C:/jetbrains-commandline-tools/inspectcode.exe")
         .category(CATEGORY)
         .subCategory(DEPRECATED_SUBCATEGORY)
@@ -102,8 +102,8 @@ public class ReSharperPlugin extends SonarPlugin {
         .build(),
 
       PropertyDefinition.builder(TIMEOUT_MINUTES_PROPERTY_KEY)
-        .name("ReSharper execution timeout")
-        .description("Time in minutes after which ReSharper's execution should be interrupted if not finished.<br />" + DEPRECATED_DESCRIPTION)
+        .name(deprecatedName("ReSharper execution timeout"))
+        .description(deprecatedDescription("Time in minutes after which ReSharper's execution should be interrupted if not finished."))
         .defaultValue("60")
         .category(CATEGORY)
         .subCategory(DEPRECATED_SUBCATEGORY)
@@ -112,6 +112,14 @@ public class ReSharperPlugin extends SonarPlugin {
         .build(),
 
       deprecatedPropertyDefinition(OLD_INSTALL_DIRECTORY_KEY));
+  }
+
+  private static String deprecatedDescription(String description) {
+    return description + "<br /><br />" + DEPRECATED_DESCRIPTION;
+  }
+
+  private static String deprecatedName(String name) {
+    return "Deprecated - " + name;
   }
 
   private static PropertyDefinition deprecatedPropertyDefinition(String oldKey) {

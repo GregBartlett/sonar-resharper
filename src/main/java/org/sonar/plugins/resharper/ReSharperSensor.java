@@ -96,8 +96,7 @@ public class ReSharperSensor implements Sensor {
 
   private void logMessageIfLegacySettingsDefined() {
     if (settings.hasKey(ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY) ||
-      settings.hasKey(ReSharperPlugin.INSPECTCODE_PATH_PROPERTY_KEY) ||
-      settings.hasKey(ReSharperPlugin.TIMEOUT_MINUTES_PROPERTY_KEY)) {
+      settings.hasKey(ReSharperPlugin.INSPECTCODE_PATH_PROPERTY_KEY)) {
       LOG.warn("ReSharper plugin is running in reportPath mode, other properties other than reportPath and solutionFile can be undefined");
     }
   }
