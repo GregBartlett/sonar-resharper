@@ -102,7 +102,11 @@ public class ReSharperProfileImporter extends ProfileImporter {
       String keyValue = cursor.getAttrValue("x:Key");
       if (keyValue != null && keyValue.startsWith(DOTSETTINGS_RULE_PREFIX)) {
         String key = keyValue.substring(DOTSETTINGS_RULE_PREFIX.length());
-        key = unescapeRuleKey(key.substring(0, key.indexOf('/')));
+        int endIndex = key.indexOf('/');
+        if (endIndex <= 0) {
+          return;
+        }
+        key = unescapeRuleKey(key.substring(0, endIndex));
         String severity = cursor.getElemStringValue();
         if (PRIORITY.containsKey(severity)) {
           profile.activateRule(Rule.create(configuration.repositoryKey(), key), PRIORITY.get(severity));

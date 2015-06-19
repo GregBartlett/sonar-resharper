@@ -67,6 +67,7 @@ public class ReSharperProfileImporterTest {
       "<s:String x:Key=\"/Default/CodeInspection/Highlighting/InspectionSeverities/=key2/@EntryIndexedValue\">ERROR</s:String>" +
       "<s:String x:Key=\"/Default/CodeInspection/Highlighting/InspectionSeverities/=UnusedVariable_002ECompiler/@EntryIndexedValue\">HINT</s:String>" +
       "<s:String x:Key=\"/Default/CodeInspection/Highlighting/InspectionSeverities/=key2/@EntryIndexedValue\">DO_NOT_SHOW</s:String>" +
+      "<s:String x:Key=\"/Default/CodeInspection/Highlighting/InspectionSeverities/=key2\">DO_NOT_SHOW</s:String>" +
       "<s:String x:Key=\"/Default/CodeInspection/Highlighting/InspectionSeverities/=key2/@EntryIndexedValue\">INVALID_SEVERITY</s:String>" +
       "<s:String x:Key=\"/other/entry\">value</s:String>" +
       "<s:String>value</s:String>" +
