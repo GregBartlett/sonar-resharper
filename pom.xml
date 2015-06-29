@@ -22,10 +22,6 @@
     <url>http://www.sonarsource.com</url>
   </organization>
 
-  <properties>
-  	<bintray.package>sonar-resharper</bintray.package>
-  </properties>
-
   <licenses>
     <license>
       <name>GNU LGPL 3</name>
@@ -62,6 +58,7 @@
     <sonar.pluginClass>org.sonar.plugins.resharper.ReSharperPlugin</sonar.pluginClass>
     <sonarqube.version>4.5.2</sonarqube.version>
     <sslrSquidVersion>2.6</sslrSquidVersion>
+	<bintray.package>sonar-resharper</bintray.package>
 
     <maven.test.redirectTestOutputToFile>true</maven.test.redirectTestOutputToFile>
   </properties>
