@@ -1,0 +1,11 @@
+<profile>
+    <name>vbnet-it-profile</name>
+    <language>vbnet</language>
+    <rules>
+        <rule>
+            <repositoryKey>resharper-vbnet</repositoryKey>
+            <key>UnusedVariable</key>
+            <priority>MAJOR</priority>
+        </rule>
+    </rules>
+</profile>

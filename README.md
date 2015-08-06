@@ -1,6 +1,6 @@
-Sonar ReSharper Plugin
-======================
+SonarQube ReSharper Plugin
+==========================
 
-[![Build Status](https://api.travis-ci.org/SonarCommunity/sonar-resharper.svg)](https://travis-ci.org/SonarCommunity/sonar-resharper)
+[![Build status](https://ci.appveyor.com/api/projects/status/ddgsh9ulybd1c2km/branch/master?svg=true)](https://ci.appveyor.com/project/dbolkensteyn/sonar-resharper/branch/master)
 
 Documentation available at [this page](http://redirect.sonarsource.com/plugins/resharper.html).

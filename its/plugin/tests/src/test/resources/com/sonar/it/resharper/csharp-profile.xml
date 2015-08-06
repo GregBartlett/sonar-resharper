@@ -1,0 +1,11 @@
+<profile>
+    <name>csharp-it-profile</name>
+    <language>cs</language>
+    <rules>
+        <rule>
+            <repositoryKey>resharper-cs</repositoryKey>
+            <key>UnusedVariable.Compiler</key>
+            <priority>MAJOR</priority>
+        </rule>
+    </rules>
+</profile>

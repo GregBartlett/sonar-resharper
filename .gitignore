@@ -2,6 +2,9 @@
 # Maven
 target/
 
+# sonar-runner
+.sonar/
+
 # IntelliJ IDEA
 *.iws
 *.iml
