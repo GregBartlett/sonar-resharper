@@ -45,10 +45,9 @@ public class Tests {
 
   static {
     OrchestratorBuilder orchestratorBuilder = Orchestrator.builderEnv()
-      .addPlugin(PLUGIN_KEY)
-      .setMainPluginKey(PLUGIN_KEY)
-      .addPlugin("csharp")
+      .addPlugin(FileLocation.of("../../../target/sonar-resharper-plugin.jar"))
       .addPlugin(MavenLocation.of("org.sonarsource.its.resharper", "fake-vbnet-plugin", "1.0-SNAPSHOT"))
+      .addPlugin("csharp")
       .restoreProfileAtStartup(FileLocation.ofClasspath(CSHARP_PROFILE))
       .restoreProfileAtStartup(FileLocation.ofClasspath(VBNET_PROFILE));
     ORCHESTRATOR = orchestratorBuilder.build();
