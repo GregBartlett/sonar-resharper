@@ -13,7 +13,7 @@ environment:
   matrix:
   - RUN_ITS: false
   - RUN_ITS: true
-    SQ_VERSION: LTS_OR_OLDEST_COMPATIBLE
+    SQ_VERSION: LTS
   - RUN_ITS: true
     SQ_VERSION: LATEST_RELEASE
   - RUN_ITS: true
