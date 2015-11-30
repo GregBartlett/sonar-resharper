@@ -43,9 +43,9 @@
     </developer>
   </developers>
   <scm>
-    <connection>scm:git:git@github.com:SonarCommunity/sonar-resharper.git</connection>
-    <developerConnection>scm:git:git@github.com:SonarCommunity/sonar-resharper.git</developerConnection>
-    <url>https://github.com/SonarCommunity/sonar-resharper</url>
+    <connection>scm:git:git@github.com:SonarSource/sonar-resharper.git</connection>
+    <developerConnection>scm:git:git@github.com:SonarSource/sonar-resharper.git</developerConnection>
+    <url>https://github.com/SonarSource/sonar-resharper</url>
     <tag>HEAD</tag>
   </scm>
   <issueManagement>
