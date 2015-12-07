@@ -129,7 +129,7 @@ public class ReSharperSensor implements Sensor {
   private void parseReport(FileProvider fileProvider, ReSharperReportParser parser, File reportFile) {
     LOG.info("Parsing ReSharper report: " + reportFile);
     File solutionFile = new File(settings.getString(ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY));
-    List<ReSharperIssue> parse = parser.parse(reportFile);
+    List<ReSharperIssue> parse = parser.parse(reportFile, settings.getString(ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY));
     for (ReSharperIssue issue : parse) {
       if (!hasFileAndLine(issue)) {
         logSkippedIssue(issue, "which has no associated file.");
@@ -170,7 +170,7 @@ public class ReSharperSensor implements Sensor {
   }
 
   private static void logSkippedIssue(ReSharperIssue issue, String reason) {
-    LOG.info("Skipping the ReSharper issue at line " + issue.reportLine() + " " + reason);
+    LOG.debug("Skipping the ReSharper issue at line " + issue.reportLine() + " " + reason);
   }
 
   private List<String> enabledRuleKeys() {

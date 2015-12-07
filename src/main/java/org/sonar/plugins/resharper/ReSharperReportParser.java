@@ -30,6 +30,9 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -38,18 +41,19 @@ import java.util.List;
 
 public class ReSharperReportParser {
 
-  public List<ReSharperIssue> parse(File file) {
-    return new Parser().parse(file);
+  public List<ReSharperIssue> parse(File file, String projectName) {
+    return new Parser().parse(file, projectName);
   }
 
   private static class Parser {
-
     private File file;
+    private String projectName;
     private XMLStreamReader stream;
     private final ImmutableList.Builder<ReSharperIssue> filesBuilder = ImmutableList.builder();
 
-    public List<ReSharperIssue> parse(File file) {
+    public List<ReSharperIssue> parse(File file, String projectName) {
       this.file = file;
+      this.projectName = projectName;
 
       InputStreamReader reader = null;
       XMLInputFactory xmlFactory = XMLInputFactory.newInstance();
@@ -62,8 +66,11 @@ public class ReSharperReportParser {
           if (stream.next() == XMLStreamConstants.START_ELEMENT) {
             String tagName = stream.getLocalName();
 
-            if ("Issue".equals(tagName)) {
-              handleIssueTag();
+            if ("Project".equals(tagName)) {
+              if(handleProjectTag()) {
+                // break after project tag has been handled.
+                break;
+              };              
             }
           }
         }
@@ -85,6 +92,35 @@ public class ReSharperReportParser {
           throw new IllegalStateException(e);
         }
       }
+    }
+    
+    private boolean handleProjectTag() throws XMLStreamException {
+      boolean handled = false;
+      
+      String projectName = getAttribute("Name");
+      if(this.projectName.equals(projectName)) {
+        handled = true;
+        while(stream.hasNext()) {
+          int nextTag = stream.next();
+          if(nextTag == XMLStreamConstants.START_ELEMENT) {
+            String tagName = stream.getLocalName();
+
+            if ("Issue".equals(tagName)) {
+              handleIssueTag();
+            }
+          }
+          else {
+            if(nextTag == XMLStreamConstants.END_ELEMENT) {
+              String tagName = stream.getLocalName();
+              
+              if("Project".equals(tagName)) {
+                return handled;
+              }                  
+            }
+          }
+        }
+      }
+      return handled;
     }
 
     private void handleIssueTag() throws XMLStreamException {
@@ -131,7 +167,8 @@ public class ReSharperReportParser {
     }
 
     private ParseErrorException parseError(String message) {
-      return new ParseErrorException(message + " in " + file.getAbsolutePath() + " at line " + stream.getLocation().getLineNumber());
+      return new ParseErrorException(
+          message + " in " + file.getAbsolutePath() + " at line " + stream.getLocation().getLineNumber());
     }
 
   }
