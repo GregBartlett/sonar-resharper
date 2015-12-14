@@ -270,6 +270,7 @@ public class ReSharperSensorTest {
 
     if (projectName != null) {
       props.put(ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY, projectName);
+      props.put(ReSharperPlugin.PROJECT_NAME_SONAR_PROPERTY_KEY, projectName);
     }
     if (solutionFile != null) {
       props.put(ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY, solutionFile);
