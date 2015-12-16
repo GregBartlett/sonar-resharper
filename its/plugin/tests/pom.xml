@@ -20,9 +20,9 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>com.sonarsource.orchestrator</groupId>
+      <groupId>org.sonarsource.orchestrator</groupId>
       <artifactId>sonar-orchestrator</artifactId>
-      <version>3.3</version>
+      <version>3.8</version>
       <scope>test</scope>
     </dependency>
     <dependency>

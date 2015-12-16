@@ -24,7 +24,7 @@
 
   <modules>
     <module>fake-vbnet-plugin</module>
-	<module>tests</module>
+    <module>tests</module>
   </modules>
 
 </project>
