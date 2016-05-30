@@ -43,14 +43,14 @@
     </developer>
   </developers>
   <scm>
-    <connection>scm:git:git@github.com:SonarSource/sonar-resharper.git</connection>
-    <developerConnection>scm:git:git@github.com:SonarSource/sonar-resharper.git</developerConnection>
-    <url>https://github.com/SonarSource/sonar-resharper</url>
+    <connection>scm:git:git@github.com:SonarQubeCommunity/sonar-resharper.git</connection>
+    <developerConnection>scm:git:git@github.com:SonarQubeCommunity/sonar-resharper.git</developerConnection>
+    <url>https://github.com/SonarQubeCommunity/sonar-resharper</url>
     <tag>HEAD</tag>
   </scm>
   <issueManagement>
-    <system>JIRA</system>
-    <url>http://jira.sonarsource.com/browse/SONARRSHPR</url>
+    <system>GitHub Issues</system>
+    <url>https://github.com/SonarQubeCommunity/sonar-resharper/issues</url>
   </issueManagement>
 
   <properties>
