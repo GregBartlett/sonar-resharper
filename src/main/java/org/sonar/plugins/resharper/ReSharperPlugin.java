@@ -29,6 +29,7 @@ import java.util.List;
 
 public class ReSharperPlugin extends SonarPlugin {
 
+  public static final String PROJECT_NAME_SONAR_PROPERTY_KEY = "sonar.projectName";
   public static final String PROJECT_NAME_PROPERTY_KEY = "sonar.resharper.projectName";
   public static final String SOLUTION_FILE_PROPERTY_KEY = "sonar.resharper.solutionFile";
   public static final String INSPECTCODE_PATH_PROPERTY_KEY = "sonar.resharper.inspectCodePath";

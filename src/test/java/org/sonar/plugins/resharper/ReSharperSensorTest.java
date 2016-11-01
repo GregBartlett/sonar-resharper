@@ -87,6 +87,7 @@ public class ReSharperSensorTest {
     String reportPathKey = "fooReport";
     Settings settings = new Settings();
     settings.setProperty(ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY, "CSharpPlayground.sln");
+    settings.setProperty(ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY, "MyLibrary");
     settings.setProperty(reportPathKey, "src/test/resources/SensorTest/report.xml");
 
     RulesProfile profile = mock(RulesProfile.class);
@@ -195,7 +196,7 @@ public class ReSharperSensorTest {
     ReSharperDotSettingsWriter writer = mock(ReSharperDotSettingsWriter.class);
 
     ReSharperReportParser parser = mock(ReSharperReportParser.class);
-    when(parser.parse(new File(workingDir, "resharper-report.xml").getAbsoluteFile())).thenReturn(
+    when(parser.parse(new File(workingDir, "resharper-report.xml").getAbsoluteFile(), "MyLibrary")).thenReturn(
       ImmutableList.of(
         new ReSharperIssue(100, "AccessToDisposedClosure", null, 1, "Dummy message"),
         new ReSharperIssue(200, "AccessToDisposedClosure", "Class2.cs", null, "Dummy message"),
@@ -269,6 +270,7 @@ public class ReSharperSensorTest {
 
     if (projectName != null) {
       props.put(ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY, projectName);
+      props.put(ReSharperPlugin.PROJECT_NAME_SONAR_PROPERTY_KEY, projectName);
     }
     if (solutionFile != null) {
       props.put(ReSharperPlugin.SOLUTION_FILE_PROPERTY_KEY, solutionFile);

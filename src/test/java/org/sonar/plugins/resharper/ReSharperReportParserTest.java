@@ -35,7 +35,7 @@ public class ReSharperReportParserTest {
 
   @Test
   public void valid() {
-    List<ReSharperIssue> issues = new ReSharperReportParser().parse(new File("src/test/resources/ReSharperReportParserTest/valid.xml"));
+    List<ReSharperIssue> issues = new ReSharperReportParser().parse(new File("src/test/resources/ReSharperReportParserTest/valid.xml"), "MyLibrary");
 
     assertThat(issues).hasSize(3);
 
@@ -66,7 +66,7 @@ public class ReSharperReportParserTest {
     thrown.expectMessage("Expected an integer instead of \"foo\" for the attribute \"Line\"");
     thrown.expectMessage("invalid_line.xml at line 14");
 
-    new ReSharperReportParser().parse(new File("src/test/resources/ReSharperReportParserTest/invalid_line.xml"));
+    new ReSharperReportParser().parse(new File("src/test/resources/ReSharperReportParserTest/invalid_line.xml"), "MyLibrary");
   }
 
   @Test
@@ -74,7 +74,7 @@ public class ReSharperReportParserTest {
     thrown.expectMessage("Missing attribute \"TypeId\" in element <Issue>");
     thrown.expectMessage("missing_typeid.xml at line 14");
 
-    new ReSharperReportParser().parse(new File("src/test/resources/ReSharperReportParserTest/missing_typeid.xml"));
+    new ReSharperReportParser().parse(new File("src/test/resources/ReSharperReportParserTest/missing_typeid.xml"), "MyLibrary");
   }
 
   @Test
@@ -82,7 +82,56 @@ public class ReSharperReportParserTest {
     thrown.expectMessage("java.io.FileNotFoundException");
     thrown.expectMessage("non_existing.xml");
 
-    new ReSharperReportParser().parse(new File("src/test/resources/ReSharperReportParserTest/non_existing.xml"));
+    new ReSharperReportParser().parse(new File("src/test/resources/ReSharperReportParserTest/non_existing.xml"), "MyLibrary");
   }
+  
+  @Test
+  public void valid_multiple_projects() {
+    
+    // MyLibrary.Common
+    List<ReSharperIssue> issues = new ReSharperReportParser().parse(new File("src/test/resources/ReSharperReportParserTest/report-multiple-projects.xml"), "MyLibrary");
 
+    assertThat(issues).hasSize(2);
+
+    ReSharperIssue issue = issues.get(0);
+    assertThat(issue.reportLine()).isEqualTo(22);
+    assertThat(issue.ruleKey()).isEqualTo("RedundantUsingDirective");
+    assertThat(issue.filePath()).isEqualTo("MyLibrary\\Class1.cs");
+    assertThat(issue.line()).isNull();
+    assertThat(issue.message()).isEqualTo("Using directive is not required by the code and can be safely removed");
+
+    issue = issues.get(1);
+    assertThat(issue.reportLine()).isEqualTo(23);
+    assertThat(issue.ruleKey()).isEqualTo("JoinDeclarationAndInitializer");
+    assertThat(issue.filePath()).isEqualTo("MyLibrary\\Class1.cs");
+    assertThat(issue.line()).isEqualTo(9);
+    assertThat(issue.message()).isEqualTo("Join declaration and assignment");
+    
+    // MyLibrary.Common
+    
+    issues = new ReSharperReportParser().parse(new File("src/test/resources/ReSharperReportParserTest/report-multiple-projects.xml"), "MyLibrary.Common");
+
+    assertThat(issues).hasSize(3);
+
+    issue = issues.get(0);
+    assertThat(issue.reportLine()).isEqualTo(17);
+    assertThat(issue.ruleKey()).isEqualTo("RedundantUsingDirective");
+    assertThat(issue.filePath()).isEqualTo("MyLibrary.Common\\Class1.cs");
+    assertThat(issue.line()).isNull();
+    assertThat(issue.message()).isEqualTo("Using directive is not required by the code and can be safely removed");
+
+    issue = issues.get(1);
+    assertThat(issue.reportLine()).isEqualTo(18);
+    assertThat(issue.ruleKey()).isEqualTo("JoinDeclarationAndInitializer");
+    assertThat(issue.filePath()).isEqualTo("MyLibrary.Common\\Class1.cs");
+    assertThat(issue.line()).isEqualTo(9);
+    assertThat(issue.message()).isEqualTo("Join declaration and assignment");
+
+    issue = issues.get(2);
+    assertThat(issue.reportLine()).isEqualTo(19);
+    assertThat(issue.ruleKey()).isEqualTo("RedundantUsingDirective");
+    assertThat(issue.filePath()).isEqualTo("MyLibrary.Common\\Properties\\AssemblyInfo.cs");
+    assertThat(issue.line()).isEqualTo(2);
+    assertThat(issue.message()).isEqualTo("Using directive is not required by the code and can be safely removed");
+  }
 }
