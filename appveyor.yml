@@ -14,7 +14,7 @@ environment:
     SQ_VERSION: LATEST_RELEASE
 
 artifacts:
- - path: C:\projects\sonar-resharper\target\sonar-resharper-plugin.jar
+ - path: target\sonar-resharper-plugin.jar
    name: sonar-resharper-plugin-2.{build}-SNAPSHOT.JAR
    type: file
 
