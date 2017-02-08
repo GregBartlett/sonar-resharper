@@ -10,13 +10,10 @@ environment:
   matrix:
   - RUN_ITS: true
     SQ_VERSION: LTS
+    SQ_POSTFIX: LTS
   - RUN_ITS: true
     SQ_VERSION: LATEST_RELEASE
-
-artifacts:
- - path: target\sonar-resharper-plugin.jar
-   name: sonar-resharper-plugin-2.{build}-SNAPSHOT.JAR
-   type: file
+    SQ_POSTFIX: SNAPSHOT
 
 matrix:
   fast_finish: true
