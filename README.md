@@ -1,7 +1,7 @@
 SonarQube ReSharper Plugin
 ==========================
 
-[![Build status](https://ci.appveyor.com/api/projects/status/ddgsh9ulybd1c2km/branch/master?svg=true)](https://ci.appveyor.com/project/SonarSource/sonar-resharper/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/dgy2w9k9j5vy9yyw/branch/master?svg=true)](https://ci.appveyor.com/project/SonarSource/sonar-resharper/branch/master)
 
 ## Description
 This plugin enables the analysis of C# and VB.NET source files contained in .NET projects with [JetBrains ReSharper Command Line Tools](http://www.jetbrains.com/resharper/features/command-line.html)
