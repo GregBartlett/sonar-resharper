@@ -1,4 +1,4 @@
-version: 1.0.{build}
+version: 2.{build}
 
 cache:
   - C:\Users\appveyor\.m2 -> **\pom.xml
@@ -9,7 +9,10 @@ install:
 environment:
   matrix:
   - RUN_ITS: true
+    SQ_VERSION: LTS
+  - RUN_ITS: true
     SQ_VERSION: LATEST_RELEASE
+
 
 matrix:
   fast_finish: true
