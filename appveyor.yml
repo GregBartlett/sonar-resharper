@@ -12,8 +12,6 @@ environment:
     SQ_VERSION: LTS
   - RUN_ITS: true
     SQ_VERSION: LATEST_RELEASE
-  - RUN_ITS: true
-    SQ_VERSION: DEV
 
 matrix:
   fast_finish: true
