@@ -37,8 +37,6 @@ public class ReSharperPlugin extends SonarPlugin {
   public static final String CS_REPORT_PATH_KEY = "sonar.resharper.cs.reportPath";
   public static final String VBNET_REPORT_PATH_KEY = "sonar.resharper.vbnet.reportPath";
 
-  public static final String OLD_INSTALL_DIRECTORY_KEY = "sonar.resharper.installDirectory";
-
   private static final String CATEGORY = "ReSharper";
   private static final String DEPRECATED_SUBCATEGORY = "Deprecated";
   private static final String DEPRECATED_DESCRIPTION = "This property is deprecated and will be removed in a future version.<br />"
@@ -98,7 +96,6 @@ public class ReSharperPlugin extends SonarPlugin {
         .category(CATEGORY)
         .subCategory(DEPRECATED_SUBCATEGORY)
         .onQualifiers(Qualifiers.PROJECT)
-        .deprecatedKey(OLD_INSTALL_DIRECTORY_KEY)
         .build(),
 
       PropertyDefinition.builder(TIMEOUT_MINUTES_PROPERTY_KEY)
@@ -109,9 +106,7 @@ public class ReSharperPlugin extends SonarPlugin {
         .subCategory(DEPRECATED_SUBCATEGORY)
         .onQualifiers(Qualifiers.PROJECT)
         .type(PropertyType.INTEGER)
-        .build(),
-
-      deprecatedPropertyDefinition(OLD_INSTALL_DIRECTORY_KEY));
+        .build());
   }
 
   private static String deprecatedDescription(String description) {
