@@ -139,10 +139,17 @@ public class ReSharperSensor implements Sensor {
       }
 
       File file = fileProvider.fileInSolution(solutionFile, issue.filePath());
-      InputFile inputFile = fileSystem.inputFile(
-        fileSystem.predicates().and(
-          fileSystem.predicates().hasAbsolutePath(file.getAbsolutePath()),
-          fileSystem.predicates().hasType(InputFile.Type.MAIN)));
+      InputFile inputFile;
+      try {
+        inputFile = fileSystem.inputFile(
+                fileSystem.predicates().and(
+                        fileSystem.predicates().hasAbsolutePath(file.getAbsolutePath()),
+                        fileSystem.predicates().hasType(InputFile.Type.MAIN))
+        );
+      }catch (Exception ex){
+        logSkippedIssue(issue, "Failed to get input file: \"" + ex.getMessage() +"\"");
+        continue;
+      }
       if (inputFile == null) {
         logSkippedIssueOutsideOfSonarQube(issue, file);
       } else if (reSharperConf.languageKey().equals(inputFile.language())) {
