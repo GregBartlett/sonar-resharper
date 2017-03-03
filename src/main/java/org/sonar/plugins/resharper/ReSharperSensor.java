@@ -139,6 +139,19 @@ public class ReSharperSensor implements Sensor {
       }
 
       File file = fileProvider.fileInSolution(solutionFile, issue.filePath());
+
+      //The below code is implemented to try to resolve an issue where something is passing a wonky file path i.e.
+      // "D:\\vssrc\\GregsProject\\\"D:\\vssrc\\GregsProject\\Common Libraries\\Common Libraries\\Class1.cs\"";
+      //The below condition will attempt to detect this type of string and rip out only the full path to the file
+      if(file.getAbsolutePath().contains("\\\"") && file.getAbsolutePath().endsWith("\"")){
+        String badFilePath = file.getAbsolutePath();
+        int position = badFilePath.indexOf("\\\"");
+        String newPath = file.getAbsolutePath().substring(position + 2,file.getAbsolutePath().length()-1);
+
+        //change the file variable to the new filePath.
+        file = new File(newPath);
+      }
+
       InputFile inputFile;
       try {
         inputFile = fileSystem.inputFile(
