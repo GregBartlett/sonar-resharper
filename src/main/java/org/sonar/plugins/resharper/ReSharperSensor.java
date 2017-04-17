@@ -85,7 +85,7 @@ public class ReSharperSensor implements Sensor {
   public void analyse(Project project, SensorContext context) {
     FileProvider fileProvider = new FileProvider();
     ReSharperReportParser parser = new ReSharperReportParser();
-    if (!settings.hasKey(ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY)) {
+    if (!settings.hasKey(ReSharperPlugin.PROJECT_NAME_PROPERTY_KEY) || settings.hasKey(ReSharperPlugin.CS_REPORT_PATH_KEY)) {
       logMessageIfLegacySettingsDefined();
       analyseReportPath(fileProvider, parser);
     } else {
